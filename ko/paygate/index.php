@@ -1,7 +1,7 @@
 <?
 
 include_once('ci_connect.php');
-
+include_once('smsSender.php');
 
 
 // 결제 시 필수 입력 요소
@@ -493,10 +493,12 @@ $goodoption1 = $result['id'];
 	var payment_virtual = function(){
 		console.log('가상계좌');
 
+		// 현재 가상 계좌가 아닌 회사 계좌로 입금하게 되어있음
+
 		var acc_no = '1005-402-091311';//$('input[name="bankaccount"]').val();
 		$('#payment_result_form > input[name="acc_no"]').val(acc_no);
 
-		var bank_code = 20;//$('[id="option_bankcode"]').val();
+		var bank_code = 20;//$('[id="option_bankcode"]').val(); 
 		$('#payment_result_form > input[name="bank_code"]').val(bank_code);
 
 		var bank_name = '우리은행';
@@ -601,7 +603,24 @@ $goodoption1 = $result['id'];
 	<?
 	// 가상계좌인 경우
 	if (7 == strtolower($paymethod)){
-	 
+
+
+	 	// SMS 보내기
+		$amount = $price;
+		$bankName = "우리은행";
+		$accNo = "1005-402-091311";
+		$to = $receipttotel;
+		$message = 
+'[CASEBUY]
+무통장 입금 안내
+'.$bankName.' 조영운(YU LAB)
+'.$accNo.'
+'.number_format($amount).'원';
+
+		sendSms($to,$message)
+
+
+
 	?>
 		// payment_virtual();
 		setTimeout("payment_virtual()",500);

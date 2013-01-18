@@ -67,8 +67,29 @@ class Order extends Action {
         $result = '{"success":false}';
         if ($this->orders_model->updateDelivery($data)){
             $result = '{"success":true}';
+        	
+        	$this->sendDeliveryNoticeSms($data['id'], $data['invoice_no']);
+
         } 
         echo $result;
+    }
+
+    private function sendDeliveryNoticeSms($orders_id=null,$invoice_no, $delivery_agent_id){
+    	if (!$orders_id){
+    		return false;
+    	}
+
+
+    	$this->load->helper('sms');
+
+		$agency_name = '우체국';
+		$order = $this->db->get_where('order_customer_info',array('orders_id'=>$orders_id))->row();
+		$to = $order?$order->mobile:'';
+		$msg = 
+		"[CASEBUY] 주문하신 상품이 발송 되었습니다. ".$agency_name." ".$invoice_no;
+		sendSms($to,$msg);
+
+
     }
     
     /*
@@ -80,7 +101,10 @@ class Order extends Action {
 		$result['success'] = true;
 		
 		$this->db->select('id');
-		$trash = $this->db->get_where('orders',array('order_state'=>'B4PAYMENT'))->result();//,'date_order < '=>"DATE_SUB(NOW(), INTERVAL 1 DAY)"
+		$this->db->where("order_state in ('B4PAYMENT','CANCEL_DONE')");
+		$trash = $this->db
+					  ->get_where('orders',array('date_order < '=>"DATE_SUB(NOW(), INTERVAL 1 DAY)"))
+					  ->result();//,'date_order < '=>"DATE_SUB(NOW(), INTERVAL 1 DAY)"
 		
 
 		if($trash){
