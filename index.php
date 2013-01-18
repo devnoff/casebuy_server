@@ -1,0 +1,7 @@
+<?
+
+header ('location:ko');
+
+
+
+?>

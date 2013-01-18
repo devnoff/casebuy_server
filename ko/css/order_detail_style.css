@@ -1,0 +1,548 @@
+* {
+	padding: 0;
+	margin: 0;
+    outline: none;
+}
+
+img {
+	border: 0;
+}
+
+body {
+	background: #fff;
+	font-family: "Helvetica Neue", "Arial";
+	width: 100%;
+	height: 100%;
+	-webkit-text-size-adjust: none;
+	color: #000;
+}
+
+body.confirm, body.shipping {
+	font-family: "HelveticaNeue-CondensedBold";
+}
+
+a { text-decoration: none; }
+
+div {
+	overflow: hidden;
+}
+
+h1 {
+	clear: both;
+	width: 100%;
+	height: 44px;
+	text-align: center;
+	background: #6ac9ff;
+	position: fixed;
+	top: 0;
+}
+
+h1 span {
+	display: inline-block;
+	font-size: 19px;
+	color: #fff;
+	font-weight: bold;
+}
+
+h2 {
+	clear: both;
+	color: #6ac9ff;
+	margin: 5px 0 0 10px;
+	font-size: 15px;
+}
+
+h2 span {
+	float: left;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+h2 span.number {
+	float: right;
+	color: #939393;
+	padding: 3px 10px 0 0;
+	font-size: 12px;
+}
+
+h2 a {
+	float: right;
+	background: #e5e5e5;
+	text-align: center;
+	font-size: 14px;
+	margin: 3px 10px 0 0;
+	padding: 6px 9px 5px 8px;
+	color: #939393;
+}
+
+body.shipping h2 {
+	font-family: "HelveticaNeue-CondensedBold";
+	text-transform: uppercase;
+}
+
+div.inputWrapper {
+	width: 100%;
+	clear: both;
+	overflow: hidden;
+	margin-bottom: 5px;
+}
+
+
+div.inputContainer {
+	margin: 0 10px 5px 10px;
+	border: 1px solid #e5e5e5;
+	border-bottom: 0;
+}
+
+div.input {
+	display: block;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+
+div.input span {
+	float: left;
+	margin: 11px 10px 0 10px;
+	width: 13%;
+	font-size: 15px;
+	letter-spacing: -1px;
+	color: #939393;
+}
+
+div.input input {
+	width: 79%;
+	display: inline-block;
+	padding: 11px 0 10px 2px;
+	border: 0;
+	font-size: 15px;
+	-webkit-appearance: none;
+}
+
+body.shipping div.input span {
+	width: 25%;
+	letter-spacing: 0;
+	text-transform: uppercase;
+}
+
+body.shipping div.input input {
+	width: 64%;
+	font-family: "HelveticaNeue-CondensedBold";
+}
+
+body.shipping div.input input.country {
+	color: gray;
+}
+
+div.total {
+	background: #efefef;
+}
+
+div.total span {
+	width: 26%;
+}
+
+div.total input {
+	width: 50%;
+	font-weight: bold;
+	background: transparent;
+}
+
+div.input textarea {
+	width: 78%;
+	display: inline-block;
+	padding: 12px 2px 10px 0;
+	border: 0;
+	font-size: 15px;
+	display: block;
+	line-height: 1em;
+}
+
+
+div.input input.zipcode {
+	background: red;
+	padding: 6px 0 4px 0;
+	margin: 6px 0;
+	background: #e5e5e5;
+	color: #939393;
+	letter-spacing: -1px;
+	font-weight: bold;
+}
+
+div.input div.policy {
+	height: 150px;
+	overflow-y: scroll;
+	display: block;
+	padding: 0 10px;
+	font-size: 12px;
+	letter-spacing: -1px;
+	background: #efefef;
+	color: #666;
+}
+
+div.input div.policy p {
+	margin-bottom: 3px;
+	line-height: 1.5em;
+	font-size: 11px;
+}
+
+div.input div.policy ul {
+	list-style: square;
+	padding-left: 16px;
+}
+
+div.input div.policy ul li {
+	margin-bottom: 2px;
+	font-size: 11px;
+}
+
+div.input div.policy p.subject {
+	font-weight: bold;
+	font-size: 13px;
+	margin-top: 10px;
+}
+
+div.delivery span {
+	width: 21%;
+}
+
+div.delivery input {
+	width: 70%;
+}
+
+
+p.add {
+	margin: 10px;
+	text-align: center;
+	display: block;
+	font-size: 12px;
+	color: #aaa;
+	letter-spacing: -1px;
+}
+
+body.shipping p.add {
+	letter-spacing: 0;
+	text-transform: uppercase;
+	color: #ccc;
+	font-family: "Helvetica Neue";
+	font-size: 10px;
+	margin: 15px 10px;
+}
+
+body.shipping p.add a {
+	color: #aaa;
+	text-decoration: underline;
+	font-family: "HelveticaNeue-CondensedBold";
+}
+
+a.checkout {
+	clear: both;
+	display: block;
+	font-weight: bold;
+	background: #6ac9ff;
+	text-align: center;
+	font-size: 18px;
+	padding: 15px 0 13px 0;
+	margin: 5px 10px 0px 10px;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+
+div.button {
+	width: 100%;
+	clear: both;
+	margin: 0px 0 10px 0;
+	text-align: center;
+	position: relative;
+	height: 50px;
+}
+
+div.button a {
+	clear: both;
+	width: 46%;
+	display: inline-block;
+	font-weight: bold;
+	background: #6ac9ff;
+	text-align: center;
+	font-size: 18px;
+	padding: 15px 0 13px 0;
+	color: #fff;
+}
+
+div.button a.left {
+	position: absolute;
+	left: 10px;
+	top: 0;
+}
+
+div.button a.right {
+	position: absolute;
+	right: 10px;
+}
+
+div.tableWrapper {
+	clear: both;
+	width: 100%;
+}
+
+div.tableContainer {
+	display: block;
+	border: 1px solid #e5e5e5;
+	border-bottom: 0;
+	margin: 0 10px;
+}
+
+div.tableContainer table {
+	width: 100%;
+}
+
+div.tableContainer tr td {
+	border-bottom: 1px solid #e5e5e5;
+	font-size: 12px;
+}
+
+
+div.tableContainer tr.head td {
+	background: #efefef;
+	color: #939393;
+	font-size: 13px;
+}
+
+
+div.tableContainer td.left span {
+	padding: 5px;
+	display: block;
+}
+
+div.tableContainer td.right {
+	width: 100px;
+	border-left: 1px solid #e5e5e5;
+	text-align: center;
+}
+
+div.tableContainer td.right span {
+	padding: 5px 0;
+	display: block;
+}
+
+div.tableContainer tr.loop td.left span {
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+div.tableContainer tr.total td {
+	font-weight: bold;
+	font-size: 13px;
+}
+
+div.generalWrapper {
+	clear: both;
+	width: 100%;
+}
+
+div.generalContainer {
+	display: block;
+	border: 1px solid #000;
+	margin: 0 10px;
+	background: #222;
+}
+
+div.generalContainer span {
+	display: block;
+	font-size: 18px;
+	padding: 15px 0 13px 0;
+	text-align: center;
+	font-weight: bold;
+	color: #6ac9ff;
+}
+
+div.generalContainer span i {
+	display: block;
+	font-style: normal;
+	font-size: 17px;
+	color: #fff;
+}
+
+div.generalContainer span i b {
+	display: block;
+	font-size: 12px;
+}
+
+div.tableContainer table.delivery td.left {
+	color: #939393;
+	width: 60px;
+}
+
+div.tableContainer table.delivery td.right {
+	width: auto;
+	text-align: left;
+}
+
+div.tableContainer table.delivery td.right span {
+	padding: 5px;
+}
+
+div.checkbox {
+	margin: 10px 10px 0 10px;
+	font-size: 14px;
+}
+
+div.checkbox input {
+	zoom: 1.5;
+	-webkit-appearance:checkbox;
+}
+
+div.checkbox label {
+	vertical-align: 30%;
+	display: inline-block;
+	margin-left: 5px;
+}
+
+div.paypalContainer {
+	clear: both;
+	width: 100%;
+}
+
+div.blackContainer {
+	clear: both;
+	width: 100%;
+	height: 190px;
+	background: #000;
+	color: #fff;
+}
+
+div.blackContainer h3 {
+	text-align: center;
+	clear: both;
+	color: #fff;
+	font-family: "Snell Roundhand";
+	font-size: 30px;
+	font-weight: normal;
+	letter-spacing: -1px;
+	margin: 43px 0 0 0;
+}
+
+div.blackContainer h4 {
+	clear: both;
+	text-align: center;
+	margin: 0 0 0 0;
+	font-size: 24px;
+}
+
+div.blackContainer span {
+	display: inline-block;
+	color: #6ac9ff;
+	border-bottom: 2px solid #6ac9ff;
+	text-transform: uppercase;
+}
+
+div.blackContainer h5 {
+	color: #7f7f7f;
+	text-align: center;
+	clear: both;
+	font-size: 12px;
+	margin: 20px 0 0 0;
+	text-transform: uppercase;
+}
+
+ul.confirm {
+	clear: both;
+	width: 100%;
+	list-style: none;
+	overflow: hidden;
+}
+
+ul.confirm li {
+	clear: both;
+	width: 100%;
+	overflow: hidden;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+ul.confirm li div.left {
+	float: left;
+	position: relative;
+	width: 100%;
+	margin: 10px 0;
+}
+
+ul.confirm li div.left p {
+	display: block;
+	text-transform: uppercase;
+	font-size: 12px;
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+ul.confirm li div.left p strong {
+	color: #7f7f7f;
+}
+
+ul.confirm li div.left p.title {
+	color: #6ac9ff;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+
+ul.confirm li div.left div.price {
+	clear: both;
+	font-size: 18px;
+	font-weight: bold;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	text-align: right;
+	margin-right: 10px;
+}
+
+div.addressContainer {
+	clear: both;
+	width: 100%;
+	overflow: hidden;
+	background: #666;
+	color: #fff;
+	padding: 10px 0;
+}
+
+div.addressContainer p {
+	display: block;
+	margin: 0 10px;
+	font-weight: normal;
+	font-size: 12px;
+	color: #ccc;
+}
+
+div.addressContainer p.name {
+	font-size: 18px;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 1.1;
+	margin-bottom: 2px;
+}
+
+div.addressContainer p.name strong {
+	display: block;
+	font-size: 10px;
+	color: #999;
+}
+
+div.paidContainer {
+	clear: both;
+	margin: 20px 0;
+	text-align: center;
+}
+
+div.paidContainer p {
+	display: block;
+	text-transform: uppercase;
+	font-size: 14px;
+	color: #7f7f7f;
+}
+
+div.paidContainer p.total {
+	font-size: 22px;
+	color: #000;
+}

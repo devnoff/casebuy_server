@@ -1,0 +1,1 @@
+<div>exchanges block</div>

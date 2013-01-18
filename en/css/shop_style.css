@@ -1,0 +1,3291 @@
+* { padding: 0; margin: 0; outline: none; }
+
+body {
+	font-family: "Dotum", "Helvetica";
+	color: #1b1e24;
+	overflow-y: scroll;
+	/overflow-y: auto;
+	font-size: 12px;
+}
+
+input, textarea, select {
+	font-family: "Dotum", "Helvetica";
+}
+
+img { border: 0; }
+
+a, a:visited, a:active { text-decoration: none; color: #000; cursor:pointer;}
+a:hover { text-decoration: underline; }
+
+div.headerWrapper {
+	width: 100%;
+	border-bottom: 1px solid #DADCDF;
+	overflow: hidden;
+}
+
+div.headerContainer {
+	width: 900px;
+	height: 150px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+div.headerContainer h1 {
+	float: left;
+	width: 147px;
+	height: 58px;
+	text-indent: -999px;
+	background: url(../img/h1.png) 0 0 no-repeat;
+	margin-top: 42px;
+}
+
+div.headerContainer h1 a {
+	display: block;
+	text-indent: -999px;
+	width: 147px;
+	height: 58px;
+}
+
+div.headerContainer ul.left {
+	float: left;
+	list-style: none;
+	font-size: 16px;
+	font-family: "NanumGothicWeb";
+	color: #727376;
+	margin: 0 0 0 30px;
+	letter-spacing: -1px;
+}
+
+div.headerContainer ul.left li {
+	float: left;
+	margin-left: 20px;
+	margin-top: 65px;
+}
+
+
+div.headerContainer ul.left li.search {
+	margin-top: 62px;
+	margin-left: 25px;
+}
+
+
+div.headerContainer ul.left li.search input {
+	font-size: 11px;
+	padding: 5px;
+	width: 100px;
+	font-family: "Dotum", "Helvetica";
+}
+
+
+div.headerContainer ul.right {
+	list-style: none;
+	float: right;
+	margin: 65px 0 0 0;
+}
+
+div.headerContainer ul.right li {
+	float: left;
+	font-size: 15px;
+	margin-left: 15px;
+	font-family: "NanumGothicWeb";
+	letter-spacing: -1px;
+}
+
+div.headerContainer ul.right li a {
+	color: #727376;
+	padding-bottom: 2px;
+}
+
+div.headerContainer ul.right li a:hover {
+	color: #000;
+	border-bottom: 2px solid #000;
+	text-decoration: none;
+}
+
+div.headerContainer ul.right li a.selected {
+	color: #f92855;
+	border-bottom: 2px solid #f92855;
+}
+
+div.mainWrapper {
+	width: 900px;
+	margin: 0 auto;
+	overflow: hidden;
+
+}
+
+div.menuWrapper {
+	float: left;
+	overflow: hidden;
+	width: 200px;
+	padding-top: 50px;
+}
+
+div.menuWrapper h2 {
+	float: left;
+	width: 150px;
+	height: 20px;
+	text-indent: -999px;
+	background: url(../img/h2_category.png) 0 0 no-repeat;
+	margin-top: 50px;
+}
+
+div.menuContainer {
+	float: left;
+	width: 188px;
+	color: #727376;
+}
+
+div.menuContainer h3 {
+	overflow: hidden;
+	float: left;
+	font-size: 12px;
+	letter-spacing: -1px;
+	color: #f92855;
+}
+
+div.menuContainer h3 span.icon {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	background: url(../img/icon_bg.png) no-repeat;
+}
+
+div.menuContainer h3 span.name {
+	display: inline-block;
+	color: #515560;
+	vertical-align: top;
+	font-size: 14px;
+	font-family: "Lato", "NanumGothicWeb", "Helvetica";
+	letter-spacing: 1px;
+	margin: 10px 0 0 4px;
+
+}
+
+div.menuContainer h3 span.name a {
+	color: #515560;
+}
+
+
+div.menuContainerSelected h3 span.name a {
+	color: #F92855;
+}
+
+div.menuContainerSelected h3 span.icon {
+	background: url(../img/icon_bg_on.png) no-repeat;
+}
+
+div.menuContainerSelected h3 span.name {
+	color: #f92855;
+}
+
+div.menuContainer ul {
+	clear: both;
+	overflow: hidden;
+	list-style: none;
+	margin: 0 0 20px 14px;
+}
+
+div.menuContainer ul li {
+	clear: both;
+	margin: 8px 0;
+	overflow: hidden;
+	color: #000;
+	font-size: 12px;
+	background: url(../img/sub.png) 2px 2px no-repeat;
+	padding-left: 14px;
+	font-family: "Dotum", "Helvetica";
+}
+
+div.menuContainer ul li a {
+	color: #515560;
+	font-size: 13px;
+	font-family: "NanumGothicBoldWeb";
+}
+
+div.menuContainer ul li.selected a {
+	text-decoration: underline;
+	font-weight: bold;
+	color: #f92855;
+}
+
+div.menuContainer ul li span {
+	color: #ccc;
+	display: inline-block;
+	font-size: 14px;
+	margin-right: 5px;
+
+}
+
+
+div.contentWrapper {
+	float: left;
+	width: 700px;
+	margin: 0 auto;
+	background: #fff;
+	overflow: hidden;
+	padding-top: 50px;
+}
+
+
+div.contentWrapper ul.list {
+	list-style: none;
+	width: 720px;
+	clear: both;
+	overflow: hidden;
+}
+
+div.contentWrapper ul.list li {
+	float: left;
+	width: 220px;
+	margin: 0 20px 10px 0;
+	height: 300px;
+}
+
+div.contentWrapper ul.list li div.photo {
+	float: left;
+	width: 220px;
+	text-align: center;
+	background: #f2f3f6;
+}
+
+div.contentWrapper ul.list li div.photo img {
+	width: 220px;
+	height: 220px;
+	display: block;
+}
+
+div.contentWrapper ul.list li div.text {
+	float: left;
+	width: 100%;
+	overflow: hidden;
+	margin-top: 10px;
+}
+
+div.contentWrapper ul.list li div.text p {
+	text-align: left;
+	color: #000;
+}
+
+div.contentWrapper ul.list li div.text p.subject {
+	font-size: 14px;
+	font-weight: bold;
+	letter-spacing: -1px;
+	font-family: "Dotum", "Helvetica";
+}
+
+div.contentWrapper ul.list li div.text p.subject a {
+	color: #5b5b63;
+	width: 210px;
+	display: block;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+
+div.contentWrapper ul.list li div.text p.comment {
+	color: #95969e;
+	font-size: 11px;
+	letter-spacing: -1px;
+	margin-bottom: 5px;
+}
+
+
+div.contentWrapper ul.list li div.text p.price {
+	letter-spacing: 0;
+	margin-top: 5px;
+	font-size: 11px;
+	color: #20232c;
+	margin-bottom: 25px;
+}
+
+div.contentWrapper ul.list li div.text p.price strong {
+	font-family: "Tahoma";
+	font-weight: bold;
+	font-size: 12px;
+	margin-left: 1px;
+}
+
+div.contentWrapper ul.list li div.text p.price strong i {
+	font-style: normal;
+	font-family: "Dotum", "Helvetica";
+	font-weight: normal;
+}
+
+div.contentWrapper ul.list li div.text p.price span {
+	font-size: 11px;
+	font-weight: bold;
+	color: #6E87C1;
+	font-family: "Tahoma", "Dotum";
+
+}
+
+div.contentWrapper ul.list li div.text p.price span b {
+	letter-spacing: 0;
+}
+
+
+
+
+div.productWrapper {
+	list-style: none;
+	width: 700px;
+	clear: both;
+	overflow: hidden;
+}
+
+div.productWrapper div.photo {
+	float: left;
+	width: 700px;
+	background: #f2f3f6;
+}
+
+div.productWrapper div.photo img {
+	display: block;
+	width: 700px;
+	/*height: 400px;*/
+}
+
+
+div.productWrapper div.infoWrapper {
+	float: left;
+	width: 700px;
+	list-style: none;
+	margin-top: 30px;
+	overflow: hidden;
+	border-bottom: 1px solid #DADCDF;
+	padding-bottom: 40px;
+	font-family: "Dotum", "Helvetica";
+}
+
+div.productWrapper div.infoWrapper div.text {
+	float: left;
+	width: 700px;
+	margin-bottom: 20px;
+}
+
+div.productWrapper div.infoWrapper div.text p.comment {
+	font-size: 16px;
+	color: #727376;
+	font-family: "NanumGothicBoldWeb";
+	margin-bottom: 5px;
+}
+
+div.productWrapper div.infoWrapper div.text p.subject {
+	font-weight: bold;
+	font-size: 32px;
+	letter-spacing: -1px;
+	font-family: "NanumGothicBoldWeb";
+	margin-bottom: 10px;
+}
+
+div.productWrapper div.infoWrapper div.text p.price {
+	font-family: "Lato", "Tahoma";
+	font-size: 25px;
+	letter-spacing: 0px;
+	margin-bottom: 10px;
+}
+
+div.productWrapper div.infoWrapper div.text p.price i {
+	font-style: normal;
+	text-decoration: line-through;
+	color: #949599;
+	font-size: 14px;
+	letter-spacing: 0;
+	font-family: "Lato", "Tahoma";
+}
+
+div.productWrapper div.infoWrapper div.text p.price u {
+	font-weight: bold;
+	text-decoration: none;
+	letter-spacing: 0;
+}
+
+div.productWrapper div.infoWrapper div.text p.price b {
+	font-size: 14px;
+	vertical-align: 1px;
+	font-family: "Dotum", "Helvetica";
+}
+
+div.productWrapper div.infoWrapper div.text p.price span {
+	font-size: 11px;
+	font-family: "Dotum","Helvetica";
+	color: #727376;
+	letter-spacing: -1px;
+	vertical-align: 2px;
+}
+
+
+div.productWrapper div.info {
+	float: right;
+	margin: 0 14px 0 0;
+}
+
+div.productWrapper div.info p.quantity {
+	clear: both;
+	margin: 0 0 10px 0;
+	text-align: right;
+	overflow: hidden;
+}
+
+div.productWrapper div.info p.quantity span {
+	font-size: 12px;
+	color: #555;
+	display: inline-block;
+	margin: 7px 5px 0 0;
+	letter-spacing: -1px;
+}
+
+div.productWrapper div.info p.quantity select {
+	display: inline-block;
+	padding: 2px;
+	width: 60px;
+	font-size: 12px;
+	font-family: "Tahoma";
+}
+
+
+div.productWrapper div.info p.mileage {
+	clear: both;
+	font-size: 11px;
+	text-align: right;
+	overflow: hidden;
+	font-size: 11px;
+	color: #727376;
+	letter-spacing: -1px;
+	padding-right: 1px;
+	border-top: 2px solid #969696;
+	padding-top: 5px;
+}
+
+div.productWrapper div.info p.mileage strong {
+	letter-spacing: 0;
+	color: #333;
+}
+
+div.productWrapper div.info p.mileage strong.price {
+	color: #f92855;
+}
+
+div.productWrapper div.button {
+	float: right;
+	margin-top: 1px;
+}
+
+div.productWrapper div.button a {
+	float: left;
+	margin-left: 3px;
+}
+
+div.productWrapper div.button a {
+	width: 120px;
+	height: 53px;
+	float: left;
+	overflow: hidden;
+	color: #fff;
+	background: #f92855 url(../img/button_a.png) no-repeat;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: "NanumGothicBoldWeb";
+	letter-spacing: -1px;
+	text-align: center;
+	-webkit-transition: all .2s ease;
+	margin-right: 2px;
+	text-shadow: 0 -1px #d4123d;
+}
+
+div.productWrapper div.button a span {
+	display: block;
+	margin-top: 15px;
+}
+
+div.productWrapper div.button a:hover {
+	background: #000;
+	text-decoration: none;
+	text-shadow: 0 0;
+}
+
+
+div.productWrapper div.button a.square {
+	width: 70px;
+	background: #a2a3a8 url(../img/button_b.png) no-repeat;
+	font-size: 15px;
+	text-shadow: 0 -1px #787878;
+}
+
+div.productWrapper div.button a.square span {
+	display: block;
+	margin-top: 17px;
+}
+
+
+div.productWrapper div.button a.square:hover {
+	background: #000;
+	text-shadow: 0 0;
+}
+
+div.detailWrapper {
+	list-style: none;
+	width: 700px;
+	clear: both;
+	overflow: hidden;
+	margin: 40px 0;
+}
+
+div.detailWrapper ul.tab {
+	clear: both;
+	width: 700px;
+	height: 38px;
+	overflow: hidden;
+	list-style: none;
+	background: url(../img/tab.png) 0 0;
+}
+
+div.detailWrapper ul.tab li {
+	float: left;
+	width: 175px;
+	text-align: center;
+	font-family: "NanumGothicWeb";
+	font-size: 13px;
+}
+
+div.detailWrapper ul.tab li a {
+	display: block;
+	color: #fff;
+	padding-top: 11px;
+	height: 38px;
+}
+
+
+
+
+div.detailWrapper ul.tab li a strong {
+	font-family: "Tahoma";
+	font-size: 11px;
+	color: #fff;
+	letter-spacing: 0;
+}
+
+div.detailWrapper ul.tab li.selected {
+	width: 175px;
+	height: 38px;
+	background: url(../img/tab_selected.png) 0 0 no-repeat;
+}
+
+div.detailWrapper ul.tab li.selected a {
+	color: #fff;
+	font-weight: bold;
+}
+
+div.detailWrapper div.detailContainer {
+	width: 700px;
+}
+
+div.detailWrapper div.detailContainer img.detail {
+	display: block;
+	width: 700px;
+}
+
+
+div.detailContainer {
+	width: 100%;
+	clear: both;
+	overflow: hidden;
+
+}
+
+
+div.detailContainer div.titleQna {
+	clear: both;
+	width: 100%;
+	overflow: hidden;
+	background: #efefef;
+	text-align: center;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+
+div.detailContainer div.titleQna a {
+	display: inline-block;
+	overflow: hidden;
+	text-align: center;
+	margin: 10px 0 5px 0;
+	background: #fff;
+	border: 1px solid #d0d0d0;
+	border-bottom: 1px solid #b7b7ba;
+	padding: 10px 20px;
+	color: #565960;
+	font-weight: bold;
+	letter-spacing: -1px;
+	font-size: 12px;
+}
+
+div.detailContainer div.titleQna p {
+	display: block;
+	font-size: 11px;
+	color: #838993;
+	letter-spacing: -1px;
+	margin-bottom: 10px;
+}
+
+div.detailContainer ul.inputQna {
+	clear: both;
+	width: 100%;
+	overflow: hidden;
+	list-style: none;
+	background: #efefef;
+	border-bottom: 1px solid #e0e0e0;
+	padding-top: 10px;
+}
+
+div.detailContainer ul.inputQna li {
+	clear: both;
+	overflow: hidden;
+}
+
+
+div.detailContainer ul.inputQna li div.title {
+	clear: both;
+	width: 400px;
+	margin: 0 auto;
+}
+
+
+div.detailContainer ul.inputQna li div.title span {
+	color: #656a72;
+	margin: 15px 0 0 0;
+	display: inline-block;
+	font-size: 11px;
+	letter-spacing: -1px;
+}
+
+div.detailContainer ul.inputQna li div.content {
+	clear: both;
+	width: 400px;
+	margin: 0 auto;
+}
+
+div.detailContainer ul.inputQna li.subject input, div.detailContainer ul.inputQna li.name input {
+	width: 400px;
+	padding: 5px;
+	border: 1px solid #bbb;
+	font-size: 12px;
+	font-family: "Dotum","Helvetica";
+	margin: 5px 0 0 0px;
+}
+
+div.detailContainer ul.inputQna li.name input {
+	width: 200px;
+ }
+
+div.detailContainer ul.inputQna li.subject select {
+	padding: 5px;
+	border: 1px solid #bbb;
+	font-size: 12px;
+	font-family: "Dotum","Helvetica";
+	margin: 5px 0 0 0px;
+}
+
+div.detailContainer ul.inputQna li.subjectRate input {
+	width: 300px;
+	padding: 5px;
+	border: 1px solid #bbb;
+	font-size: 12px;
+	font-family: "Dotum","Helvetica";
+	margin: 5px 0 0 0px;
+ }
+
+div.detailContainer ul.inputQna li div.content textarea {
+	width: 400px;
+	height: 100px;
+	display: block;
+	padding: 5px;
+	border: 1px solid #bbb;
+	font-size: 12px;
+	font-family: "Dotum","Helvetica";
+	margin: 5px 0 0 0;
+}
+
+div.detailContainer ul.inputQna li.secret div.content {
+	clear: both;
+	width: 400px;
+	margin: 0 auto;
+}
+
+div.detailContainer ul.inputQna li.secret input {
+	display: inline-block;
+	font-size: 12px;
+	margin-right: 2px;
+	width: 15px;
+	height: 15px;
+	margin: 14px 3px 0 0;
+}
+
+div.detailContainer ul.inputQna li.secret div.content span {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 15px;
+	color: #656a72;
+	font-size: 11px;
+	letter-spacing: -1px;
+}
+
+div.detailContainer ul.inputQna li.button {
+	clear: both;
+	width: 400px;
+	margin: 20px auto;
+	text-align: center;
+}
+
+div.detailContainer ul.inputQna li.button a {
+	display: inline-block;
+	overflow: hidden;
+	text-align: center;
+	margin: 0 0 10px 0;
+	background: #fff;
+	border: 1px solid #d0d0d0;
+	border-bottom: 1px solid #b7b7ba;
+	padding: 10px 20px;
+	color: #565960;
+	font-weight: bold;
+	letter-spacing: -1px;
+	font-size: 12px;
+}
+
+div.detailContainer ul.inputQna li.button a.cancel {
+	border: 1px solid #a5a9b3;
+	border-bottom: 1px solid #969ca6;
+	background: #b9bcc3;
+	color: #fff;
+}
+
+div.detailContainer ul.inputQna li.button p {
+	display: block;
+	font-size: 11px;
+	color: #838993;
+	letter-spacing: -1px;
+	margin-bottom: 10px;
+}
+
+ul.listQna {
+	clear: both;
+	width: 100%;
+	overflow: hidden;
+	list-style: none;
+}
+
+
+ul.listQna li {
+	clear: both;
+	width: 100%;
+	overflow: hidden;
+	border-bottom: 1px solid #ededed;
+	font-size: 11px;
+	letter-spacing: -1px;
+	color: #969696;
+}
+
+ul.listQna li div.left {
+	float: left;
+	width: 520px;
+	overflow: hidden;
+}
+
+
+ul.listQna li div.left strong {
+	float: left;
+	text-align: center;
+	width: 90px;
+	color: #B3B3B3;
+	padding: 10px 0;
+}
+
+ul.listQna li div.left strong.reply {
+	color: #828795;
+}
+
+ul.listQna li div.left span {
+	float: left;
+	color: #515560;
+	width: 414px;
+	font-size: 12px;
+	background: url(../img/icon_q.png) 0 10px no-repeat;
+	padding: 10px 0;
+	padding-left: 16px;
+	cursor: pointer;
+}
+
+
+
+
+
+ul.listQna li div.left span a {
+	color: #515560;
+}
+
+ul.listQna li div.left b {
+	font-style: normal;
+	color: #868fa8;
+	font-weight: bold;
+	letter-spacing: 0;
+	font-family: "Tahoma";
+	font-size: 11px;
+}
+
+ul.listQna li div.left i {
+	display: inline-block;
+	width: 10px;
+	height: 12px;
+	background: url(../img/icon_secret.png) 0 0 no-repeat;
+	vertical-align: -2px;
+	margin-left: 4px;
+}
+
+
+
+ul.listQna li div.right {
+	float: left;
+	overflow: hidden;
+	width: 180px;
+	padding: 10px 0;
+}
+
+ul.listQna li div.right strong {
+	float: left;
+	text-align: center;
+	width: 90px;
+}
+
+ul.listQna li div.right span {
+	float: left;
+	font-size: 11px;
+	text-align: center;
+	width: 90px;
+	font-family: "Tahoma";
+	letter-spacing: 0;
+	color: ##B3B3B3;
+}
+
+ul.listQna li div.content {
+	clear: both;
+	width: 414px;
+	overflow: hidden;
+	margin-left: 90px;
+	padding-top: 0px;
+	color: #8e8e8e;
+	font-size: 12px;
+	line-height: 1.5em;
+	padding-left: 16px;
+}
+
+
+ul.listQna li div.reply {
+	clear: both;
+	width: 414px;
+	margin-left: 90px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-top: 1px solid #ececec;
+	padding-top: 8px;
+	color: #8e8e8e;
+	font-size: 12px;
+
+}
+
+ul.listQna li div.reply span {
+	width: 414px;
+	font-size: 12px;
+	background: url(../img/icon_a.png) 0 0 no-repeat;
+	padding-left: 16px;
+	padding-top: 1px;
+	line-height: 1.5em;
+}
+
+
+
+
+
+div.detailContainer div.titleRate {
+	clear: both;
+	width: 100%;
+	overflow: hidden;
+	background: #efefef;
+	text-align: center;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+
+div.detailContainer div.titleRate a {
+	display: inline-block;
+	overflow: hidden;
+	text-align: center;
+	margin: 10px 0 5px 0;
+	background: #fff;
+	border: 1px solid #d0d0d0;
+	border-bottom: 1px solid #b7b7ba;
+	padding: 10px 20px;
+	color: #565960;
+	font-weight: bold;
+	letter-spacing: -1px;
+	font-size: 12px;
+}
+
+div.detailContainer div.titleRate p {
+	display: block;
+	font-size: 11px;
+	color: #838993;
+	letter-spacing: -1px;
+	margin-bottom: 10px;
+}
+
+div.detailContainer div.titleRate p span {
+	color: #656a72;
+}
+
+div.detailContainer div.titleRate p span strong {
+	letter-spacing: 0;
+}
+
+
+
+
+
+
+
+
+
+
+div.detailContainer ul.listRate {
+	clear: both;
+	width: 100%;
+	overflow: hidden;
+	list-style: none;
+}
+
+
+div.detailContainer ul.listRate li {
+	clear: both;
+	width: 100%;
+	overflow: hidden;
+	border-bottom: 1px solid #ededed;
+	font-size: 11px;
+	letter-spacing: -1px;
+	color: #969696;
+}
+
+div.detailContainer ul.listRate li div.left {
+	float: left;
+	width: 520px;
+	overflow: hidden;
+}
+
+
+div.detailContainer ul.listRate li div.left strong {
+	float: left;
+	text-align: center;
+	width: 90px;
+	color: #B3B3B3;
+}
+
+
+div.detailContainer ul.listRate li div.left strong img {
+	margin-top: 7px;
+}
+
+div.detailContainer ul.listRate li div.left span {
+	float: left;
+	color: #515560;
+	width: 414px;
+	font-size: 12px;
+	line-height: 1.5em;
+	padding: 8px 0;
+}
+
+div.detailContainer ul.listRate li div.left b {
+	font-style: normal;
+	color: #868fa8;
+	font-weight: bold;
+	letter-spacing: 0;
+	font-family: "Tahoma";
+	font-size: 11px;
+}
+
+div.detailContainer ul.listRate li div.left i {
+	font-style: normal;
+}
+
+
+
+div.detailContainer ul.listRate li div.right {
+	float: left;
+	overflow: hidden;
+	width: 180px;
+	padding: 10px 0;
+}
+
+div.detailContainer ul.listRate li div.right strong {
+	float: left;
+	text-align: center;
+	width: 90px;
+}
+
+div.detailContainer ul.listRate li div.right span {
+	float: left;
+	font-size: 11px;
+	text-align: center;
+	width: 90px;
+	font-family: "Tahoma";
+	letter-spacing: 0;
+	color: ##B3B3B3;
+}
+
+div.detailContainer ul.listRate li div.content {
+	clear: both;
+	width: 430px;
+	overflow: hidden;
+	margin-left: 90px;
+	padding-top: 10px;
+	color: #8e8e8e;
+	font-size: 12px;
+}
+
+
+
+
+div.detailContainer ul.deliverInfo {
+	clear: both;
+	margin: 10px 0 20px 0;
+	padding: 0 0 20px 15px;
+	overflow: hidden;
+	border-bottom: 1px solid #ededed;
+}
+
+div.detailContainer ul.deliverInfo li {
+	clear: both;
+	font-size: 11px;
+	letter-spacing: -1px;
+	color: #969696;
+	padding: 2px 0;
+}
+
+div.detailContainer ul.deliverInfo li ul {
+	clear: both;
+	margin: 5px 0 10px 15px;
+}
+
+
+
+div.contentWrapper h4 {
+	font-size: 40px;
+	font-family: "NanumGothicBoldWeb";
+	color: #515560;
+	font-size: 24px;
+	letter-spacing: -1px;
+}
+
+table.cartWrapper {
+	width: 700px;
+	margin-top: 10px;
+}
+
+
+table.cartWrapper th {
+	height: 30px;
+	text-align: center;
+	border-bottom: 1px solid #ededed;
+	border-top: 1px solid #e0e0e0;
+	font-size: 11px;
+	color: #838993;
+	border-left: 1px solid #ededed;
+	font-weight: normal;
+}
+
+table.cartWrapper th.subject {
+	text-align: left;
+	border-left: 0;
+	padding-left: 10px;
+}
+
+table.cartWrapper th.final {
+	background: #f7f7f7;
+	color: #000;
+}
+
+table.cartWrapper td.final {
+	background: #f7f7f7;
+}
+
+table.cartWrapper td {
+	height: 75px;
+	border-bottom: 1px solid #ededed;
+}
+
+
+
+table.cartWrapper td.photo {
+	width: 75px;
+}
+
+table.cartWrapper td img {
+	width: 75px;
+	height: 75px;
+	display: block;
+}
+
+table.cartWrapper td.subject {
+	width: 325px;
+}
+
+table.cartWrapper td.subject p {
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 5px 0 0 10px;
+	letter-spacing: -1px;
+}
+
+table.cartWrapper td.subject a {
+	display: inline-block;
+	margin: 6px 0 0 10px;
+	font-size: 11px;
+	border: 1px solid #d0d0d0;
+	border-bottom: 1px solid #b7b7ba;
+	color: #777;
+	letter-spacing: -1px;
+	padding: 5px 5px 2px 3px;
+	background: #fff;
+	-webkit-transition: all .2s ease;
+}
+
+table.cartWrapper td.subject a:hover {
+	background: #eee;
+	text-decoration: none;
+}
+
+table.cartWrapper td.price {
+	border-left: 1px solid #ededed;	
+	width: 100px;
+	text-align: center;
+	font-family: "Arial";
+	font-size: 12px;
+}
+
+table.cartWrapper td.price span {
+	color: #515560;
+	font-family: "Tahoma";
+	font-weight: bold;
+}
+
+table.cartWrapper td.price span i {
+	font-style: normal;
+	font-size: 11px;
+	font-family: "Dotum", "Helvetica";
+	font-weight: normal;
+	vertical-align: middle;
+}
+
+
+table.cartWrapper td.quantity {
+	border-left: 1px solid #ededed;	
+	width: 100px;
+	text-align: center;
+	font-family: "Tahoma";
+	font-size: 12px;
+	color: #515560;
+	font-weight: bold;
+}
+
+table.cartWrapper td.quantity select {
+	padding: 2px;
+	font-size: 11px;
+	font-family: "Tahoma";
+}
+
+table.cartWrapper td.final {
+	border-left: 1px solid #ededed;	
+	text-align: center;
+	width: 150px;
+	font-size: 11px;
+	font-size: 16px;
+	font-family: "Lato", "Tahoma";
+	font-weight: bold;
+}
+
+table.cartWrapper td.final i {
+	font-style: normal;
+	font-family: "Dotum","Helvetica";
+	font-size: 12px;
+	vertical-align: middle;
+}
+
+
+div.finalPrice {
+	width: 700px;
+	clear: both;
+	overflow: hidden;
+	text-align: center;
+}
+
+div.finalPrice ul {
+	clear: both;
+	margin: 0 auto;
+	overflow: hidden;
+	list-style: none;
+	border-bottom: 2px solid #e0e0e0;
+	margin-top: 30px;
+	padding-bottom: 25px;
+	margin-bottom: 30px;
+}
+
+div.finalPrice ul div.useMileage {
+	display: inline-block;
+	overflow: hidden;
+	font-size: 11px;
+	letter-spacing: -1px;
+	padding-bottom: 10px;
+	margin-bottom: 25px;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+div.finalPrice ul div.useMileage span {
+	color: #838993;
+	display: inline-block;
+	margin-right: 5px;
+}
+
+div.finalPrice ul div.useMileage span strong {
+	letter-spacing: 0;
+	color: #515560;
+}
+
+div.finalPrice ul div.useMileage span i {
+	font-style: normal;
+	color: #515560;
+}
+
+div.finalPrice ul div.useMileage input {
+	padding: 3px;
+	font-size: 11px;
+	letter-spacing: -1px;
+	font-family: "Dotum","Helvetica";
+}
+
+div.finalPrice ul div.useMileage input.text {
+	width: 112px;
+}
+
+div.finalPrice ul div.useMileage input.button {
+	min-width: 32px;
+	background: #8d929d;
+	border: 1px solid #7e828b;
+	border-bottom: 1px solid #646871;
+	color: #fff;
+	margin-left: 5px;
+	padding: 4px;
+	letter-spacing: -1px;
+}
+
+div.finalPrice ul li {
+	display: inline-block;
+	text-align: left;
+	/display: inline;
+	zoom: 1;
+}
+
+div.finalPrice ul li span {
+	display: block;
+	font-size: 11px;
+	color: #838993;
+	letter-spacing: -1px;
+}
+
+div.finalPrice ul li.split {
+	margin: 0 8px;
+}
+
+div.finalPrice ul li.split span {
+	font-size: 30px;
+	display: inline-block;
+	margin-top: 2px;
+}
+
+div.finalPrice ul li strong {
+	font-size: 24px;
+	font-family: "Lato", "Tahoma";
+	font-weight: normal;
+}
+
+div.finalPrice ul li.c span {
+	color: #fb5e80;
+}
+
+div.finalPrice ul li.c strong {
+	font-weight: bold;
+	color: #F92855;
+}
+
+div.finalPrice ul li.m strong {
+	color: #838993;
+}
+
+div.finalPrice ul li strong i {
+	font-family: "Dotum","Helvetica";
+	vertical-align: middle;
+	font-style: normal;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+div.finalPrice a {
+	display: inline-block;
+	overflow: hidden;
+	text-align: center;
+	background: #f92855;
+	border: 1px solid #e11c47;
+	border-bottom: 1px solid #ca1039;
+	padding: 12px 20px;
+	color: #fff;
+	font-weight: bold;
+	font-family: "NanumGothicBoldWeb";
+	font-size: 22px;
+	letter-spacing: -1px;
+}
+
+div.finalPrice a:hover {
+	background: #000;
+	text-decoration: none;
+	border-color: #000;
+}
+
+div.finalPrice a.orderedList {
+	background: #8d929d;
+	border: 1px solid #7e828b;
+	border-bottom: 1px solid #646871;
+}
+
+div.finalPrice a.orderedList:hover {
+	background: #000;
+	text-decoration: none;
+	border-color: #000;
+}
+
+div.finalPrice span.m {
+	display: block;
+	font-weight: normal;
+	font-size: 11px;
+	color: #727376;
+	letter-spacing: -1px;
+	margin-top: 10px;
+}
+
+div.finalPrice span.m strong {
+	color: #f92855;
+	letter-spacing: 0;
+}
+
+div.finalPrice div.pay {
+	clear: both;
+	overflow: hidden;
+	font-size: 12px;
+	margin-bottom: 20px;
+}
+
+div.finalPrice div.pay input {
+	display: inline-block;
+	margin: 0 2px 0 10px;
+}
+
+div.finalPrice div.pay span {
+	display: inline-block;
+	vertical-align: top;
+}
+
+div.finalPrice div.agreenomember {
+	clear: both;
+	width: 400px;
+	margin: 0 auto;
+	overflow: hidden;
+	border-bottom: 1px solid #e0e0e0;
+	padding-bottom: 20px;
+	margin-bottom: 25px;
+}
+
+div.finalPrice div.agreenomember span.title {
+	display: block;
+	text-align: left;
+	letter-spacing: -1px;
+	font-size: 11px;
+	color: #838993;
+}
+
+div.finalPrice div.agreenomember textarea {
+	border: 1px solid #bbb;
+	padding: 5px;
+	width: 388px;
+	height: 50px;
+	font-family: "Dotum", "Helvetica";
+	letter-spacing: -1px;
+	line-height: 1.5em;
+	color: #515560;
+	font-size: 11px;
+	margin: 5px 0;
+}
+
+div.finalPrice div.agreenomember p {
+	display: block;
+	text-align: left;
+	font-size: 11px;
+}
+
+div.finalPrice div.agreenomember p input {
+	width: 15px;
+	height: 15px;
+}
+
+div.finalPrice div.agreenomember p span {
+	color: #515560;
+    display: inline-block;
+    margin-left: 2px;
+    padding-top: 2px;
+    vertical-align: top;
+}
+
+
+
+
+
+
+
+div.loginForm {
+	width: 700px;
+	clear: both;
+	overflow: hidden;
+}
+
+div.loginForm div.member {
+	clear: both;
+	overflow: hidden;
+	margin: 0 auto;
+	text-align: center;
+
+}
+
+div.loginForm div.member p {
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: top;
+	/display: inline;
+	zoom: 1;
+}
+
+div.loginForm div.member p.title {
+	display: block;
+	letter-spacing: -1px;
+	padding-bottom: 30px;
+}
+
+div.loginForm div.member p.title strong {
+	display: block;
+	font-size: 36px;
+	font-family: "NanumGothicBoldWeb";
+	color: #87a9ef;
+}
+
+div.loginForm div.member p.title span {
+	display: block;
+	color: #969696;
+	font-size: 11px;
+	margin-top: 5px;
+}
+
+div.loginForm div.member p input {
+	width: 200px;
+	display: block;
+	padding: 15px;
+	border: 2px solid #bbb;
+	font-size: 16px;
+	font-family: "Lato", "NanumGothicBoldWeb";
+	margin: 0 0 10px 0px;
+	font-weight: bold;
+}
+
+div.loginForm div.member p a.button {
+	display: block;
+	overflow: hidden;
+	width: 114px;
+	height: 114px;
+	background: #87a9ef;
+	border: 2px solid #85a2e2;
+	border-bottom: 2px solid #6e87c1;
+	color: #fff;
+	font-weight: bold;
+	font-family: "NanumGothicBoldWeb";
+	letter-spacing: -1px;
+	margin: 0 0 10px 6px;
+}
+
+
+div.loginForm div.member p a.button:hover {
+	background: #000;
+	border-color: #000;
+	text-decoration: none;
+}
+
+
+div.loginForm div.member p a.button span {
+	display: block;
+	text-align: center;
+	font-size: 26px;
+	margin-top: 42px;
+}
+
+div.loginForm div.member2 {
+	clear: both;
+	overflow: hidden;
+	margin: 10px auto 0 auto;;
+	text-align: center;
+	font-size: 14px;
+	letter-spacing: -1px;
+}
+
+div.loginForm div.member2 a {
+	display: inline-block;
+	color: #838993;
+	font-weight: bold;
+}
+
+div.loginForm div.member2 a.join {
+
+	padding-right: 6px;
+	border-right: 1px solid #e1e1e1;
+	margin-right: 6px;
+	color: #515560;
+}
+
+div.loginForm div.member2 span {
+	display: block;
+	font-size: 11px;
+	text-align: center;
+	letter-spacing: -1px;
+	color: #969696;
+	overflow: hidden;
+	margin-top: 8px;
+}
+
+div.loginForm div.nomember {
+	clear: both;
+	width: 700px;
+	overflow: hidden;
+}
+
+div.loginForm div.nomember div {
+	width: 364px;
+	clear: both;
+	margin: 0 auto;
+	text-align: center;
+	border-top: 1px solid #e0e0e0;
+	padding-top: 40px;
+	margin-top: 40px;
+}
+
+div.loginForm div.nomember div span {
+	display: block;
+	font-size: 11px;
+	text-align: center;
+	letter-spacing: -1px;
+	color: #969696;
+	overflow: hidden;
+	margin-top: 8px;
+}
+
+div.loginForm div.nomember div a {
+	display: inline-block;
+	overflow: hidden;
+	width: 90px;
+	text-align: center;
+	background: #8d929d;
+	border: 1px solid #7e828b;
+	border-bottom: 1px solid #646871;
+	padding: 12px 20px;
+	color: #fff;
+	font-weight: bold;
+	font-family: "NanumGothicBoldWeb";
+	font-size: 18px;
+	letter-spacing: -1px;
+}
+
+div.loginForm div.nomember div a:hover {
+	background: #000;
+	border-color: #000;
+	text-decoration: none;
+}
+
+
+div.mainProduct {
+	clear: both;
+	position: relative;
+	overflow: hidden;
+	width: 700px;
+	height: 400px;
+	list-style: none;
+	padding-bottom: 30px;
+}
+
+ul.mainProduct a.left {
+	position: absolute;
+	clear: both;
+	overflow: hidden;
+	z-index: 30;
+	width: 50px;
+	height: 700px;
+	background: url(../img/arrow_left.png) 0 0 no-repeat;
+	top: 0;
+	left: 0;
+	-webkit-transition: all .2s ease;
+}
+
+ul.mainProduct a.right {
+	position: absolute;
+	clear: both;
+	overflow: hidden;
+	z-index: 30;
+	width: 50px;
+	height: 700px;
+	background: url(../img/arrow_right.png) 0 0 no-repeat;
+	top: 0;
+	right: 0;
+	-webkit-transition: all .2s ease;
+}
+
+ul.mainProduct a.left:hover {
+	background: url(../img/arrow_left_on.png) 0 0 no-repeat;
+}
+
+ul.mainProduct a.right:hover {
+	background: url(../img/arrow_right_on.png) 0 0 no-repeat;
+}
+
+ul.mainProduct a.left, ul.mainProduct a.right {
+	display: none;
+
+}
+
+ul.mainProduct:hover a.left, ul.mainProduct:hover a.right {
+	display: block;
+}
+
+
+ul.mainProduct li {
+	width: 700px;
+	height: 400px;
+	clear: both;
+	overflow: hidden;
+	position: relative;
+	background-color: #f2f3f6;
+	background-position: 150px 0;
+}
+
+ul.mainProduct li div.mainTitle {
+	position: absolute;
+	top: 22px;
+	left: 22px;
+	font-family: "NanumGothicBoldWeb";
+	color: #515560;
+	font-size: 17px;
+	letter-spacing: -1px;
+}
+
+
+div.mainProduct div.overlay {
+	clear: both;
+	margin: 130px 0 0 50px;
+}
+
+div.mainProduct div.overlay p {
+	display: block;
+	font-family: "NanumGothicWeb";
+}
+
+div.mainProduct div.overlay p.a {
+	display: inline-block;
+	color: #838993;
+	letter-spacing: -1px;
+	padding-bottom: 4px;
+	font-size: 13px;
+	border-bottom: 1px solid #838993;
+}
+
+
+div.mainProduct div.overlay p.b {
+	font-size: 20px;
+	margin-top: 20px;
+	letter-spacing: -1px;
+	font-family: "NanumGothicBoldWeb";
+}
+
+div.mainProduct div.overlay p.c {
+	font-size: 32px;
+
+	letter-spacing: -1px;
+	font-family: "NanumGothicBoldWeb";
+	background: #F2F3F6;
+	display: inline-block;
+	padding: 3px 8px 5px 0;
+}
+
+div.mainProduct div.overlay p.d {
+	margin-top: 10px;
+	font-size: 28px;
+	font-weight: bold;
+	color: #515560;
+	font-family: "Lato", "Helvetica";
+}
+
+div.mainProduct div.overlay p.d span {
+	font-size: 15px;
+	vertical-align: middle;
+	font-family: "NanumGothicWeb";
+}
+
+div.mainProduct div.overlay a {
+	color: #000;
+	text-decoration: none;
+}
+
+div.mainProduct div.overlay a:hover {
+	color: #f92855;
+}
+
+div.mainProduct div.overlay a:hover p.d {
+	color: #f92855;
+}
+
+div.mainContentWrapper ul.list {
+	margin-top: 0;
+}
+
+div.contentWrapper h4.main {
+	font-family: "Lato";
+	color: #f92855;
+	font-size: 19px;
+	letter-spacing: 5px;
+	font-weight: normal;
+	margin-bottom: 10px;
+}
+
+div.contentWrapper h4.main span {
+	display: inline-block;
+	letter-spacing: -1px;
+	font-size: 14px;
+	vertical-align: 10%;
+	margin-left: 4px;
+	font-family: "NanumGothicWeb";
+}
+
+
+div.orderForm {
+	width: 700px;
+	clear: both;
+	overflow: hidden;
+	margin-top: 30px;
+}
+
+div.orderForm div.left {
+	float: left;
+	width: 350px;
+	border-right: 1px solid #ededed;
+}
+
+div.orderForm div.right {
+	float: left;
+	width: 349px;
+}
+
+div.orderForm div.left div.container {
+	width: 330px;
+}
+
+div.orderForm div.right div.container {
+	width: 329px;
+	margin-left: 20px;
+}
+
+div.contentWrapper h5 {
+	font-size: 16px;
+	float: left;
+	font-weight: normal;
+	letter-spacing: -1px;
+	color: #515560;
+	font-family: "NanumGothicBoldWeb";
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+
+div.contentWrapper h5.join {
+	display: block;
+	float:none;
+	font-size: 11px;
+	font-weight: normal;
+	color: #838993;
+	font-family: "Dotum","Helvetica";
+	margin-top: 30px;
+}
+
+
+div.orderForm h5 {
+	font-size: 16px;
+	float: left;
+	font-weight: normal;
+	letter-spacing: -1px;
+	color: #515560;
+	font-family: "NanumGothicBoldWeb";
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+
+div.orderForm div.checkbox {
+	float: left;
+	font-size: 11px;
+	letter-spacing: -1px;
+	overflow: hidden;
+	margin: 2px 0 0 8px;
+}
+
+div.orderForm div.checkbox input {
+	width: 15px;
+	height: 15px;
+}
+
+div.orderForm div.checkbox span {
+	display: inline-block;
+	margin-left: 2px;
+	vertical-align: top;
+	padding-top: 2px;
+	color: #515560;
+}
+
+div.orderForm table {
+	width: 100%;
+	border-top: 1px solid #e0e0e0;
+	clear: both;
+	overflow: hidden;
+}
+
+div.orderForm table th {
+	background: #f7f7f7;
+	width: 100px;
+	border-right: 1px solid #ededed;
+	border-bottom: 1px solid #ededed;
+	color: #515560;
+	text-align: left;
+}
+
+div.orderForm table th span {
+	font-weight: normal;
+	display: block;
+	margin-left: 10px;
+}
+
+div.orderForm table td {
+	border-bottom: 1px solid #ededed;
+	padding: 8px 0 8px 8px;
+
+	color: #515560;
+}
+
+div.orderForm table td input {
+	width: 210px;
+	padding: 3px;
+	border: 1px solid #bbb;
+	font-size: 11px;
+	font-family: "Dotum", "Helvetica";
+}
+
+div.orderForm tr.name input {
+	width: 94px;
+}
+
+div.orderForm table td input.search {
+	min-width: 75px;
+	background: #87a9ef;
+	border: 1px solid #85a2e2;
+	border-bottom: 1px solid #6e87c1;
+	color: #fff;
+	margin-left: 8px;
+	letter-spacing: -1px;
+}
+
+div.orderForm table tr.adress1 th {
+	border-bottom: 0;
+	padding-bottom: 0;
+	padding-top: 8px;
+}
+
+div.orderForm table tr.adress1 td {
+	border-bottom: 0;
+	padding-bottom: 0;
+}
+
+div.orderForm table td span {
+	display: inline-block;
+	margin: 0 5px;
+	color: #bbb;
+}
+
+
+div.orderForm table tr.adress1 td input {
+	width: 35px;
+	text-align: center;
+}
+div.orderForm table tr.adress2 th {
+	border-bottom: 0;
+	padding-bottom: 0;
+	padding-top: 8px;
+}
+
+div.orderForm table tr.adress2 td {
+	border-bottom: 0;
+	padding-bottom: 0;
+}
+
+div.orderForm table tr.adress2 th span, div.orderForm table tr.adress3 th span {
+	font-size: 11px;
+	letter-spacing: -1px;
+	padding-left: 10px;
+}
+
+div.orderForm table tr.phone input {
+	width: 35px;
+	text-align: center;
+}
+
+div.orderForm table td select {
+	width: 50px;
+	padding: 2px;
+	border: 1px solid #bbb;
+	font-size: 11px;
+	font-family: "Dotum", "Helvetica";
+
+}
+
+
+
+
+div.footerWrapper {
+	width: 100%;
+	border-top: 1px solid #DADCDF;
+	overflow: hidden;
+	margin-top: 50px;
+}
+
+div.footerContainer	 {
+	width: 900px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+
+div.footerContainer p {
+	color: #333;
+	text-align: center;
+	font-size: 10px;
+	font-family: "Tahoma";
+	color: #a1a1a1;
+	clear: both;
+	overflow: hidden;
+	margin-bottom: 60px;
+}
+
+div.footerContainer p strong {
+	letter-spacing: -1px;
+	font-family: "NanumGothicWeb";
+	font-size: 11px;
+}
+
+div.footerContainer ul.contact {
+	clear: both;
+	margin: 30px auto 10px auto;
+	list-style: none;
+	text-align: center;
+	overflow: hidden;
+}
+
+div.footerContainer ul.contact li {
+	font-size: 13px;
+	letter-spacing: -1px;
+	display: inline-block;
+	color:  #333;
+	border-right: 1px solid #e5e5e5;
+	padding: 0 6px 0 2px;
+	font-family: "NanumGothicWeb";
+	font-weight: bold;
+	/display: inline;
+	zoom: 1;
+}
+
+div.footerContainer ul.contact li a {
+	color: #333;
+}
+
+div.footerContainer ul.contact li span {
+	font-weight: normal;
+	font-family: "Tahoma";
+	letter-spacing: 0;
+}
+
+
+div.footerContainer ul.info {
+	clear: both;
+	margin: 20px auto 20px auto;
+	list-style: none;
+	text-align: center;
+	overflow: hidden;
+}
+
+div.footerContainer ul.info li {
+
+}
+
+
+
+
+div.detailContainer h4 {
+	margin-top: 15px;
+	font-size: 16px;
+	font-weight: normal;
+	letter-spacing: -1px;
+	color: #515560;
+	font-family: "NanumGothicBoldWeb";
+	font-weight: bold;
+}
+
+
+div.contentWrapper h4.checked {
+	background: #F92855;
+	color: #fff;
+	overflow: hidden;
+	clear: both;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+div.contentWrapper h4.checked p {
+	display: block;
+	margin: 35px 0;
+}
+
+div.contentWrapper h4.checked p strong {
+	display: inline-block;
+	font-size: 30px;
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+	border-bottom: 2px solid #fff;
+}
+
+div.contentWrapper h4.checked p span {
+	display: block;
+	font-size: 12px;
+	vertical-align: middle;
+	font-family: "Dotum","Helvetica";
+}
+
+div.contentWrapper h4.checked p span i {
+	font-style: normal;
+	letter-spacing: 0;
+}
+
+div.contentWrapper h4.checked p span.b {
+	color: #fcabb7;
+	font-weight: normal;
+	font-size: 11px;
+	margin-top: 5px;
+}
+
+
+
+
+
+
+
+
+table.orderList {
+	width: 700px;
+	margin-top: 10px;
+}
+
+
+table.orderList th {
+	height: 30px;
+	text-align: center;
+	border-bottom: 1px solid #ededed;
+	border-top: 1px solid #e0e0e0;
+	font-size: 11px;
+	color: #838993;
+	border-left: 1px solid #ededed;
+	font-weight: normal;
+}
+
+table.orderList th span {
+	display: block;
+	text-align: left;
+	margin-left: 10px;
+}
+
+table.orderList th.subject {
+	text-align: left;
+	border-left: 0;
+	padding-left: 10px;
+}
+
+table.orderList th.final {
+	background: #f7f7f7;
+	color: #000;
+}
+
+table.orderList td.final {
+	background: #f7f7f7;
+}
+
+table.orderList td {
+	min-height: 75px;
+	border-bottom: 1px solid #ededed;
+}
+
+
+
+table.orderList td.a {
+	width: 110px;
+	text-align: center;
+	font-size: 11px;
+	color: #656A72;
+}
+
+table.orderList td.a strong {
+	display: block;
+	font-size: 11px;
+	color: #969696;
+}
+
+
+table.orderList td.b {
+	border-left: 1px solid #ededed;	
+}
+
+table.orderList td.b ul {
+	list-style: none;
+	margin: 20px 10px;
+
+}
+
+table.orderList td.b ul li {
+	clear: both;
+	overflow: hidden;
+	padding: 5px 0;
+}
+
+table.orderList td.b ul li span {
+	font-size: 11px;
+	color: #828795;
+}
+
+table.orderList td.b ul li span i {
+	font-style: normal;
+}
+
+
+table.orderList td.c {
+	border-left: 1px solid #ededed;	
+	width: 100px;
+	text-align: center;
+	font-family: "Arial";
+	font-size: 12px;
+}
+
+table.orderList td.c span {
+	color: #515560;
+}
+
+table.orderList td.c span i {
+	font-style: normal;
+	font-size: 11px;
+	font-family: "Dotum","Helvetica";
+	vertical-align: middle;
+}
+
+
+table.orderList td.d {
+	border-left: 1px solid #ededed;	
+	width: 100px;
+	text-align: center;
+	font-family: "Dotum", "Helvetica";
+	font-size: 12px;
+	color: #515560;
+}
+
+table.orderList td.d span.repay {
+	color: red;
+}
+
+table.orderList td.d span.change {
+	color: red;
+}
+
+
+table.orderList td.e {
+	background: #f7f7f7;
+	border-left: 1px solid #ededed;	
+	text-align: center;
+	width: 120px;
+	font-size: 12px;
+}
+
+table.orderList td.e span.delivery {
+	color: #87a9ef;
+}
+
+table.orderList td.e span.ready {
+	color: #515560;
+}
+
+table.orderList td.e span.end {
+	color: #828795;
+}
+
+
+table.orderList td.e a {
+	display: inline-block;
+	font-size: 11px;
+	background: #87a9ef;
+	border: 1px solid #85a2e2;
+	border-bottom: 1px solid #6e87c1;
+	color: #fff;
+	letter-spacing: -1px;
+	padding: 4px 5px 3px 3px;
+	margin-left: 6px;
+}
+
+table.orderList td.e a:hover {
+	background: #000;
+	border-color: #000;
+	text-decoration: none;
+}
+
+
+
+div.contentWrapper ul.subMenu {
+	clear: both;
+	width: 700px;
+	overflow: hidden;
+	margin: 0 0 20px 0;
+}
+
+div.contentWrapper ul.subMenu li {
+	float: left;
+	width: 140px;
+	text-align: center;
+	list-style: none;
+	padding: 10px 0;
+	font-size: 15px;
+	font-family: "NanumGothicBoldWeb";
+	letter-spacing: -1px;
+}
+
+div.contentWrapper ul.subMenu li a {
+	display: block;
+	color: #696c76;
+}
+
+div.contentWrapper ul.subMenu li.selected {
+	background: #f92855;
+	border-radius: 50px;
+	text-decoration: none;
+}
+
+div.contentWrapper ul.subMenu li.selected a {
+	color: #fff;
+}
+
+table.fullTable {
+	width: 700px;
+	border-top: 1px solid #e0e0e0;
+}
+
+table.fullTable th {
+	width: 150px;
+	background: #f7f7f7;
+	border-right: 1px solid #ededed;
+	border-bottom: 1px solid #ededed;
+	color: #515560;
+	font-size: 12px;
+	padding: 15px;
+	font-weight: normal;
+	text-align: left;
+}
+
+table.fullTable td {
+	font-size: 12px;
+	color: #515560;
+	padding: 8px 8px 8px 14px;
+	border-bottom: 1px solid #ededed;
+}
+
+table.fullTable td input {
+	border: 1px solid #bbb;
+	font-family: "Dotum", "Helvetica";
+	padding: 4px;
+	width: 100px;
+}
+
+table.fullTable tr.email input {
+	width: 300px;
+}
+
+table.fullTable tr.phone input {
+	text-align: center;
+	width: 33px;
+	border: 1px solid #bbb;
+	font-family: "Dotum", "Helvetica";
+	padding: 4px;
+}
+
+table.fullTable tr.id span {
+	display: inline-block;
+	margin: 0 4px;
+	color: red;
+	font-size: 11px;
+	letter-spacing: -1px;
+}
+
+
+table.fullTable tr.phone span {
+	display: inline-block;
+	margin: 0 4px;
+	color: #bbb;
+}
+
+div.twoButton {
+	width: 100%;
+	text-align: center;
+	clear: both;
+	overflow: hidden;
+	margin: 20px 0;
+}
+
+div.twoButton a {
+	display: inline-block;
+	overflow: hidden;
+	width: 90px;
+	text-align: center;
+	background: #87a9ef;
+	border: 1px solid #85a2e2;
+	border-bottom: 1px solid #6e87c1;
+	padding: 12px 20px;
+	color: #fff;
+	font-weight: bold;
+	font-family: "NanumGothicBoldWeb";
+	font-size: 18px;
+	letter-spacing: -1px;
+	margin: 0 5px;
+}
+
+div.twoButton a.cancel {
+	background: #aeafb3;
+	border: 1px solid #999b9f;
+	border-bottom: 1px solid #7f8082;
+}
+
+
+div.twoButton a:hover {
+	background: #000;
+	text-decoration: none;
+	border-color: #000;
+}
+
+div.mileageHead {
+	width: 700px;
+	clear: both;
+	overflow: hidden;
+	background: #87a9ef;
+	color: #fff;
+	border: 0;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+div.mileageHead p {
+	font-size: 40px;
+	font-family: "Lato", "Tahoma";
+	font-weight: bold;
+	margin: 40px 0;
+}
+
+div.mileageHead p span {
+	font-family: "NanumGothicWeb";
+	vertical-align: middle;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+div.mileageHead strong {
+	display: block;
+	font-size: 11px;
+	font-family: "Dotum", "Helvetica";
+	font-weight: normal;
+	letter-spacing: -1px;
+	margin-top: 5px;
+}
+
+
+
+table.mileageHistory {
+	width: 700px;
+	border-top: 1px solid #e0e0e0;
+}
+
+
+table.mileageHistory th {
+	height: 30px;
+	font-size: 11px;
+	color: #838993;
+	font-weight: normal;
+	border-left: 1px solid #ededed;
+	border-bottom: 1px solid #ededed;
+	text-align: center;
+}
+
+table.mileageHistory th span {
+	display: block;
+	margin-left: 10px;
+}
+
+table.mileageHistory td {
+	color: #656A72;
+	text-align: center;
+	border-bottom: 1px solid #ededed;
+	border-left: 1px solid #ededed;
+	height: 75px;
+}
+
+table.mileageHistory td.a, table.mileageHistory td.c, table.mileageHistory td.d {
+	width: 100px;
+}
+
+table.mileageHistory td.a {
+	font-size: 11px;
+}
+
+table.mileageHistory td.b {
+	text-align: left;
+}
+
+table.mileageHistory td.b p {
+	margin-left: 10px;
+	display: block;
+	font-size: 28px;
+	font-family: "Lato", "Tahoma";
+	font-weight: bold;
+}
+
+table.mileageHistory td.b p span {
+	font-size: 16px;
+	vertical-align: middle;
+	font-family: "NanumGothicWeb";
+}
+
+table.mileageHistory td.b p.plus {
+	color: #F92855;
+}
+
+table.mileageHistory td.d a {
+	display: inline-block;
+	font-size: 11px;
+	background: #87a9ef;
+	border: 1px solid #85a2e2;
+	border-bottom: 1px solid #6e87c1;
+	color: #fff;
+	letter-spacing: -1px;
+	padding: 5px 5px 1px 3px;
+	margin-left: 6px;
+}
+
+table.mileageHistory td.d a:hover {
+	background: #000;
+	text-decoration: none;
+	border-color: #000;
+}
+
+
+div.policy {
+	clear: both;
+	width: 698px;
+	height: 200px;
+	border: 1px solid #bbb;
+	overflow-y: scroll;
+	margin-bottom: 30px;
+}
+
+div.policy div {
+	margin: 20px;
+	color: #969696;
+}
+
+div.policy div p {
+	margin-bottom: 10px;
+	line-height: 1.5em;
+	text-align: justify;
+}
+
+
+div.nomemberCode {
+	width: 700px;
+	clear: both;
+	overflow: hidden;
+}
+
+div.nomemberCode div {
+	clear: both;
+	overflow: hidden;
+	margin: 0 auto;
+	text-align: center;
+
+}
+
+div.nomemberCode div p {
+	display: block;
+	overflow: hidden;
+	vertical-align: top;
+	text-align: center;
+}
+
+div.nomemberCode div. p.title {
+	width: 100%;
+	display: block;
+	letter-spacing: -1px;
+	padding-bottom: 30px;
+}
+
+div.nomemberCode div p.title strong {
+	display: block;
+	font-size: 36px;
+	font-family: "NanumGothicBoldWeb";
+	color: #87a9ef;
+}
+
+div.nomemberCode div p.title span {
+	display: block;
+	color: #969696;
+	font-size: 11px;
+	margin-top: 5px;
+	letter-spacing: -1px;
+}
+
+div.nomemberCode div p input {
+	width: 250px;
+	display: inline-block;
+	padding: 15px;
+	border: 2px solid #bbb;
+	font-size: 16px;
+	font-family: "Lato", "NanumGothicBoldWeb";
+	margin: 30px 0 10px 0px;
+	font-weight: bold;
+	text-align: center;
+}
+
+div.nomemberCode div p a.button {
+	display: inline-block;
+	overflow: hidden;
+	width: 90px;
+	text-align: center;
+	background: #87a9ef;
+	border: 1px solid #85a2e2;
+	border-bottom: 1px solid #6e87c1;
+	padding: 12px 20px;
+	color: #fff;
+	font-weight: bold;
+	font-family: "NanumGothicBoldWeb";
+	font-size: 18px;
+	letter-spacing: -1px;
+	margin: 0 5px;
+}
+
+div.nomemberCode div p a.button:hover {
+	background: #000;
+	text-decoration: none;
+	border-color: #000;
+}
+
+
+
+
+ul.listQna li div.left span a.product {
+	color: #838993;
+	font-weight: bold;
+}
+
+
+ul.listNotice li div.content {
+	clear: both;
+	width: 530px;
+	overflow: hidden;
+	margin-left: 0px;
+	padding-top: 0px;
+	color: #8e8e8e;
+	font-size: 12px;
+	line-height: 1.5em;
+	padding-left: 16px;
+	margin-bottom: 10px;
+}
+
+ul.listNotice li div.left span {
+	background: url(../img/icon_n.png) 0 10px no-repeat;
+	width: 500px;
+}
+
+div.pagination {
+	clear: both;
+	list-style: none;
+	text-align: center;
+	width: 700px;
+	margin: 20px 0;
+	font-family: "Dotum", "Helvetica";
+	letter-spacing: -1px;
+	position: relative;
+}
+
+div.pagination a {
+	display: inline-block;
+	font-size: 11px;
+	padding: 6px 10px;
+	border: 1px solid #e1e1e1;
+	font-weight: bold;
+	color: #868686;
+}
+
+div.pagination a:hover {
+	text-decoration: none;
+	border-color: #ccc;
+	color: #333;
+}
+
+div.pagination strong {
+	display: inline-block;
+	font-size: 11px;
+	padding: 6px 10px;
+	background: #f92855;
+	color: #fff;
+	border: 1px solid #f92855;
+	font-weight: bold;
+}
+
+div.pagination a.write {
+	position: absolute;
+	right: 10px;
+	color: #fff;
+	background: #87a9ef;
+	border: 1px solid #85a2e2;
+	border-bottom: 1px solid #6e87c1;
+}
+
+
+div.pagination a.write:hover {
+	background: #000;
+	border-color: #000;
+	text-decoration: none;
+}
+
+div.detailContainer ul.boardQna {
+	border-top: 1px solid #e0e0e0;
+	margin-top: 10px;
+	padding-top: 20px;
+}
+
+div.detailContainer .description img{
+	width:700px;
+}
+
+
+#zipcode_form {
+	max-width: 290px;
+	background-color: #fff;
+	padding: 20px;
+	border: 1px solid #eee;
+}
+
+#zipcode_form input{
+	float: left;
+}
+
+#zipcode_form button{
+	float: right;
+}
+
+#zipcode_form select {
+	clear: both;
+	width: 280px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.placeholder { color: #aaa; }
+
+
+div.authWrapper {
+	clear: both;
+	display: table;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	text-align: center;
+}
+
+div.authContainer {
+	clear: both;
+	display: table-cell;
+	width: 100%;
+	height: 100%;
+
+	vertical-align: middle;
+}
+
+div.auth {
+	clear: both;
+	margin: 200px auto;
+	width: 950px;
+	overflow: hidden;
+}
+
+
+div.auth div.left {
+	width: 412px;
+	float: left;
+	border-right: 2px solid #ededed;
+	padding-right: 35px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+div.auth div.left img {
+	display: block;
+}
+
+div.auth div.right {
+	width: 430px;
+	float: left;
+	margin-left: 70px;
+	padding-top: 30px;
+}
+
+div.auth div.right h2 {
+	display: block;
+	font-size: 13px;
+	font-family: "NanumGothicBoldWeb";
+	border-bottom: 1px solid #e0e0e0;
+	width: 430px;
+	margin-bottom: 30px;
+	padding-bottom: 30px;
+	line-height: 1.5em;
+	overflow: hidden;
+	color: #f92855;
+	text-align: left;
+}
+
+div.auth div.right h2 img {
+	display: inline-block;
+}
+
+div.auth div.right h2 p {
+	display: inline-block;
+	width: 305px;
+	margin: 14px 0 0 15px;
+	text-align: justify;
+	letter-spacing: -1px;
+}
+
+
+div.auth div.right h2 p a {
+	color: #F92855;
+	text-decoration: underline;
+	display: block;
+
+}
+
+div.auth div.right ul {
+	width: 200px;
+	float: left;
+	list-style: none;
+
+}
+
+div.auth div.right ul h3 {
+	font-family: "NanumGothicBoldWeb";
+	font-size: 22px;
+	letter-spacing: -1px;
+	color: #515560;
+	margin-bottom: 15px;
+	text-align: left;
+
+}
+
+div.auth div.right ul li {
+	clear: both;
+	color: #ccc;
+	text-align: left;
+}
+
+div.auth div.right label {
+	display: block;
+	font-size: 12px;
+	margin: 10px 0 3px 0;
+	color: #515560;
+	text-align: left;
+}
+
+div.auth div.right input {
+	border: 2px solid #bbb;
+	padding: 8px;
+	width: 180px;
+}
+
+div.auth div.right li.jm input {
+	width: 73px;
+}
+
+div.auth div.right li.button {
+	text-align: center;
+}
+
+div.auth div.right li.button input {
+	width: 125px;
+	display: inline-block;
+	overflow: hidden;
+	text-align: center;
+	background: #87a9ef;
+	border: 2px solid #85a2e2;
+	border-bottom: 2px solid #6e87c1;
+	padding: 12px 16px;
+	color: #fff;
+	font-weight: bold;
+	font-family: "NanumGothicBoldWeb";
+	font-size: 20px;
+	letter-spacing: -1px;
+	margin-top: 20px;
+}
+
+div.auth div.right li.button input:hover {
+	border-color: #000;
+	background: #000;
+}
+
+div.auth div.right li.button input:active {
+	border-color: #666;
+	background: #666;
+}
+
+div.auth div.right li.button span {
+	display: block;
+	font-size: 11px;
+	letter-spacing: -1px;
+	padding-top: 10px;
+	color: #838993;
+}
+
+div.about {
+	width: 700px;
+	clear: both;
+	margin-top: 20px
+}
+
+div.about p {
+	font-size: 30px;
+	font-family: "NanumGothicWeb";
+	line-height: 1.2em;
+	text-align: justify;
+	margin-bottom: 10px;
+	color: #5B5B63;
+	letter-spacing: -1px;
+}
+
+div.about p strong {
+	font-family: "Lato";
+	color: #87A9EF;
+}
+
+div.about ul {
+	clear: both;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+
+div.about ul li {
+	font-size: 14px;
+	font-family: "NanumGothicWeb";
+	clear: both;
+	margin-left: 50px;
+	margin-bottom: 10px;
+}
+
+div.about ul li strong {
+	font-family: "NanumGothicBoldWeb";
+}
+
+div.about img.map {
+	margin-left: 35px;
+}
+
+div.rule {
+	width: 700px;
+	clear: both;
+	white-space: pre-line;
+	font-family: "NanumGothicWeb";
+	color: #5B5B63;
+	font-size: 12px;
+	line-height: 1.5em;
+	text-align: justify;
+}
+
+
+#blogContainer #content {
+	font-family: "NanumGothicWeb";
+}
+
+#blogContainer #content h2 {
+	margin-bottom: 18px;
+}
+
+#blogContainer #content h2 a {
+	font-family: "NanumGothicBoldWeb";
+	font-size: 24px;
+	font-weight: normal;
+	color: #151515;
+	display: block;
+	border-bottom: 1px dotted #DADCDF;
+	padding-bottom: 18px;
+}
+
+#blogContainer #content p {
+	font-family: "NanumGothicWeb";
+	font-size: 16px;
+	color: #666;
+    line-height: 22px;
+    padding-bottom: 18px;
+    text-align: justify;
+}
+
+div.widget h4 {
+	font-size: 14px;
+	font-weight: normal;
+	font-family: "NanumGothicBoldWeb";
+	color: #151515;
+}
+
+div.widget li {
+	font-size: 11px;
+	letter-spacing: -1px;
+	background: transparent !important;
+	padding-left: 0  !important;
+	white-space: nowrap;
+	width: 144px;
+	text-overflow: ellipsis;
+}
+
+div.widget li a {
+	font-family: "Dotum" !important;
+	font-size: 11px !important;
+
+}
+
+div.widget li.cat-item a {
+	font-family: "NanumGothicBoldWeb" !important;
+	font-size: 16px !important;
+	letter-spacing: 0;
+}
+
+label.screen-reader-text {
+	display: none;
+}
+
+#searchform div {
+	padding-top: 10px;
+}
+
+#s {
+    font-family: "Dotum","Helvetica";
+    font-size: 11px;
+    padding: 5px;
+    width: 60px;
+}
+
+div.hentry {
+	margin-bottom: 50px;
+}
+
+span.write_comment {
+	display: inline-block;
+	overflow: hidden;
+	background: #87a9ef;
+	border: 1px solid #85a2e2;
+	border-bottom: 1px solid #6e87c1;
+	color: #fff;
+	font-weight: bold;
+	font-family: "NanumGothicBoldWeb";
+	letter-spacing: -1px;
+	padding: 10px;
+}
+
+span.write_comment:hover {
+	background: #000;
+	border-color: #000;
+}
+
+span.write_comment2 {
+	display: inline-block;
+	overflow: hidden;
+	background: #f92855;
+	border: 1px solid #e11c47;
+	border-bottom: 1px solid #ca1039;
+	color: #fff;
+	font-weight: bold;
+	font-family: "NanumGothicBoldWeb";
+	letter-spacing: -1px;
+	padding: 10px;
+}
+
+span.write_comment2:hover {
+	background: #000;
+	border-color: #000;
+}
+
+#comments h3 {
+	font-size: 16px;
+	font-weight: normal;
+	font-family: "NanumGothicBoldWeb";
+	color: #151515;
+	margin-bottom: 10px;
+}
+
+#comments li {
+	margin-bottom: 10px;
+	border: 1px solid #e0e0e0;
+	background: #efefef;
+}
+
+#comments li div.comment-body {
+	margin: 20px;
+}
+
+cite.fn {
+	font-style: normal;
+	font-size: 14px;
+	font-family: "NanumGothicBoldWeb";
+}
+
+div.reply a {
+	display: inline-block;
+	overflow: hidden;
+	text-align: center;
+	background: #fff;
+	border: 1px solid #d0d0d0;
+	border-bottom: 1px solid #b7b7ba;
+	padding: 10px 20px;
+	color: #565960;
+	font-weight: bold;
+	letter-spacing: -1px;
+	font-size: 12px;
+}
+
+
+#commentform {
+	margin-top: 20px;
+}
+
+#commentform p {
+	padding-bottom: 10px !important;
+}
+
+#commentform label {
+	display: block;
+}
+
+#detail_view {
+	background: #efefef;
+	border-bottom: 1px solid #e0e0e0;
+	overflow: hidden;
+}
+
+#detail_view ul {
+	margin: 20px 10px;
+}
+
+#detail_view ul li {
+	margin: 10px 0;
+	font-size: 16px;
+	font-family: "NanumGothicBoldWeb";
+	margin-left: 20px;
+	color: #515560;
+}
+
+
+span.odate {
+	display: block;
+	font-size: 11px;
+	font-family: "Dotum";
+	font-weight: normal;
+	letter-spacing: -1px;
+	margin-top: 10px;
+	color: #999;
+}
+
+span.odate strong {
+	color: #838993;
+	letter-spacing: 0;
+}
+
+span.odate i {
+	color: #e0e0e0;
+	font-style: normal;
+}
+
+#zipcode_form {
+	background: #fff;
+
+}
+
+
+#zipcode_form h4 {
+	font-size: 15px !important;
+	margin-bottom: 10px;
+}
+
+#zipcode_form form input {
+    border: 1px solid #BBBBBB;
+    font-family: "Dotum","Helvetica";
+    font-size: 11px;
+    padding: 3px;
+    width: 214px;
+}
+
+#zipcode_form form button {
+    background: none repeat scroll 0 0 #8D929D;
+    border-color: #7E828B #7E828B #646871;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    letter-spacing: -1px;
+    margin-left: 8px;
+    min-width: 50px;
+	font-size: 11px;
+	float: left;
+	font-family: "Dotum";
+	padding: 2px;
+}
+
+#zipcode_form select {
+	border: 1px solid #BBBBBB;
+	background: #fff;
+}
+
+#zipcode_form button.cancel {
+    background: none repeat scroll 0 0 #B9BCC3;
+    border-color: #A5A9B3 #A5A9B3 #969CA6;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    letter-spacing: -1px;
+    margin: 4px;
+    min-width: 50px;
+	font-size: 11px;
+	float: left;
+	font-family: "Dotum";
+	padding: 2px;
+}
+
+#zipcode_form button.apply {
+    background: none repeat scroll 0 0 #87A9EF;
+    border-color: #85A2E2 #85A2E2 #6E87C1;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    letter-spacing: -1px;
+    margin: 4px;
+	margin-left: 85px;
+    min-width: 50px;
+	font-size: 11px;
+	float: left;
+	font-family: "Dotum";
+	padding: 2px;
+}
+
+
+
+div.virtualAccount {
+	background: #8D929D;
+	color: #fff;
+	overflow: hidden;
+	clear: both;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+div.virtualAccount p.number {
+	display: inline-block;
+	font-size: 26px;
+	font-family: "NanumGothicBoldWeb";
+	letter-spacing: -1px;
+	margin-top: 40px;
+	padding-bottom: 15px;
+	margin-bottom: 14px;
+	line-height: 0.8em;
+	border-bottom: 2px solid #FFFFFF;
+}
+
+
+div.virtualAccount p.number strong {
+	font-family: "Lato";
+	letter-spacing: 0px;
+	font-size: 28px;
+	vertical-align: -3px;
+}
+
+
+div.virtualAccount p.message {
+	display: inline-block;
+	width: 700px;
+	font-size: 12px;
+	font-family: "Dotum";
+	letter-spacing: -1px;
+	padding-bottom: 36px;
+	font-weight: bold;
+}
+
+
+
+div.virtualAccount ul {
+	float: left;
+	background: #fff;
+	color: #000;
+	width: 700px;
+}
+
+div.virtualAccount ul li {
+	text-align: left;
+	float: left;
+	width: 350px;
+	border-bottom: 1px solid #dfdfdf;
+	padding: 14px 0;
+	list-style: none;
+
+}
+
+div.virtualAccount ul li span {
+	color: #838993;
+}
+
+table.checkedOut th {
+	width: 90px;
+	padding: 0;
+	padding-left: 10px;
+}
+
+table.checkedOut td {
+	padding-left: 10px;
+}

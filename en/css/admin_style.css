@@ -1,0 +1,1221 @@
+/** Body Style **/
+body, html {
+    font-size: 9pt;
+    margin: 0;
+    padding: 0;
+    display:table;
+    width:100%;
+    height:100%;
+}
+
+/** Common **/
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.text_color_confirmed {
+    color: green;
+}
+
+.text_color_cancelled {
+    color: red;
+}
+
+.text_color_normal {
+    color: black;
+}
+
+/** Header **/
+.header_wrapper {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #ccc;
+    
+}
+
+.header_wrapper div {
+    position:relative;
+    top: 80px;
+    right: 10px;
+    text-align: right;
+    vertical-align: middle;
+    color: white;
+    font-family: Verdana;
+}
+
+.header_wrapper div span {
+    font-weight: bold;
+}
+
+
+
+/** Navigation **/
+.navigation_wrapper {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #bbb;
+    display:table;
+}
+
+.navigation_wrapper ul {
+    display:table-row;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation_wrapper ul li {
+    min-width: 140px;
+    font-size: 12px;
+    line-height:100%;
+    float: left;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.navigation_wrapper .selected, .navigation_wrapper .selected:hover{
+    background-color: #000;
+}
+
+.navigation_wrapper ul li:hover{
+    background-color: #aaa;
+}
+
+.navigation_wrapper ul li:active{
+    background-color: #000;
+}
+
+.navigation_wrapper ul li a {
+	width: 100%;
+	height: 100%;
+	padding: 14px;
+	line-height:40px;
+    color: white;
+    text-decoration:none;
+}
+
+/** Sub Navigation **/
+.sub_navigation_wrapper {
+
+    margin: 0;
+    padding-top: 1px;
+    min-width: 138px;
+    max-width: 150px;
+}
+
+.sub_navigation_wrapper ul {
+    display:table-row;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #ccc;
+}
+
+.sub_navigation_wrapper ul li {
+    display: table-cell;
+    background-color: #ccc;
+    min-width: 130px;
+    height: 40px;
+    font-size: 12px;
+    line-height:100%;
+    text-align: center;
+}
+
+.sub_navigation_wrapper .selected, .sub_navigation_wrapper .selected:hover{
+    background-color: #f20093;
+}
+
+.sub_navigation_wrapper ul li:hover{
+    background-color: #bbb;
+}
+
+.sub_navigation_wrapper ul li:active{
+    background-color: #f20093;
+}
+
+.sub_navigation_wrapper ul li a {
+	width: 100%;
+	height: 100%;
+	line-height:40px;
+    color: white;
+    text-decoration:none;
+}
+
+
+/** Content Body **/
+.content_wrapper {
+    float:left;
+    padding: 20px;
+    margin-left: 20px;
+    min-height:400px;
+}
+
+
+/** Footer **/
+.footer_wrapper {
+    display:table-row;
+    clear:both;
+    height:100px;
+    background-color: #eee;
+    color:white;
+    font-weight: bold;
+    font-family: Verdana;
+}
+
+.footer_wrapper div {
+    display:table-cell;
+    vertical-align:middle;
+    height:100px;
+    width:100%;
+    text-align:center;
+}
+
+
+
+
+/**
+*
+* 컨텐츠별 스타일
+*
+**/
+
+/*************************************************************/
+/**                  메인화면관리 > 판매량순조회                        **/
+/*************************************************************/
+.product_tile {
+    background-color: #eee;
+    min-width: 800px;
+    max-width: 980px;
+    font-size: 8pt;
+}
+
+.product_tile .clear {
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+}
+
+.product_tile .item_wrapper {
+    float:left;
+}
+
+.product_tile div {
+    padding: 10px;
+    width: 120px;
+}
+
+.product_tile div .img_container {
+    display: table-cell;
+    background-color: #ddd;
+    width: 130px;
+    height: 130px;
+    border: 1px solid #ccc;
+    vertical-align: bottom;
+    padding: 0;
+    margin: 0;
+    background-position:center top;
+    background-repeat: no-repeat;
+    background-size:130px 130px;
+}
+
+.product_tile div div p {
+    display: block;
+    margin: 0;
+    padding: 0;
+    background-color: #ccc;
+    color: black;
+    opacity:0.7;
+}
+
+
+
+.product_tile div ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    
+}
+
+.product_tile div ul li{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+
+}
+
+.product_tile div ul li div{
+    display:table-cell;
+    margin: 0;
+    padding: 0;
+}
+
+.product_tile div ul li div:nth-child(2){
+    text-align:right;
+}
+
+.product_tile div ul li p{
+    margin: 0;
+    padding: 0;
+    text-align:center;
+}
+
+.product_tile div ul li:nth-child(5) div:nth-child(2){
+    font-weight: bold;
+    color: red;
+}
+
+.product_tile div ul li p button{
+    background-color: white;
+}
+
+/*************************************************************/
+/**                  상품정보관리 > 판매상품조회                        **/
+/*************************************************************/
+
+.product_list_table {
+/**    border: 1px solid gray;**/
+    font-size: 9pt;
+    min-width: 960px;
+}
+
+.product_list_table thead{
+    font-weight: bold;
+}
+
+.product_list_table thead td{
+    font-weight: bold;
+    background-color: #eee;
+}
+
+.product_list_table td{
+    padding: 3px;
+    min-width: 40px;
+    max-width: 80px;
+    text-align: center;
+}
+
+.product_list_table tbody td{
+    font-size: 8pt;
+}
+
+.product_list_table tbody tr {
+    background-color: #fafafa;
+}
+
+.product_list_table tbody tr:hover {
+    background: #eee;
+
+}
+
+.product_list_table .product_name_cell {
+    min-width:250px;
+    width: 300px;
+}
+
+.product_list_table .product_name_cell div:nth-child(2){
+    min-width: 180px;
+}
+.product_list_table .action_cell {
+    width: 100px;
+}
+
+.product_list_table tbody td div{
+    float:left;
+    text-align: left;
+    min-width: 60px;
+    min-height: 60px;
+    padding: 2px;
+}
+
+.product_list_table tbody td div img{
+    width: 60px;
+    height: 60px;
+    background-color: #eee;
+}
+
+
+
+/*************************************************************/
+/**                  상품정보관리 > 상품정보등록                        **/
+/*************************************************************/
+.regi_product_wrapper {
+
+}
+
+.regi_product_wrapper div{
+    background-color: #eee;
+    margin: 15px;
+    padding: 10px;
+}
+
+.regi_product_wrapper div ul{
+    display:table;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    min-width: 440px;
+}
+
+.regi_product_wrapper div ul li {
+    display:table-row;
+}
+
+.regi_product_wrapper div ul li:hover {
+    background-color: #fff;
+}
+
+.regi_product_wrapper div ul li input{
+    min-width: 150px;
+}
+
+.regi_product_wrapper div ul li select{
+    min-width: 130px;
+}
+
+.regi_product_wrapper div ul li label{
+    float: left;
+    display:table-cell;
+    padding: 5px;
+    margin-right: 50px;
+    font-weight: bold;
+}
+
+.regi_product_wrapper div ul li label span{
+    font-size: 7pt;
+    font-weight: normal;
+}
+
+.regi_product_wrapper div ul li select,.regi_product_wrapper div ul li input{
+    float: right;
+    display:table-cell;
+    margin: 5px;
+    padding: 0;
+    vertical-align: bottom;
+}
+
+
+/** 상품 기본 정보 **/
+.regi_product_wrapper .basic_info{
+    float: left;
+    margin-bottom: 30px;
+}
+
+/** 수익 정보 **/
+.regi_product_wrapper .profit_info{
+    float: right;
+}
+
+.regi_product_wrapper .profit_info ul{
+    min-width: 300px;
+    width: 360px;
+    max-width: 400px;
+}
+
+.regi_product_wrapper .profit_info ul li input{
+    text-align: right;
+    font-size: 15pt;
+    min-width: 100px;
+    max-width: 140px;
+    background-color: #ddd;
+    border: 0px;
+}
+
+/** 상태 정보 **/
+.regi_product_wrapper .state_info {
+    clear: right;
+    float: right;
+}
+
+.regi_product_wrapper .state_info ul{
+    min-width: 300px;
+    width: 360px;
+    max-width: 400px;
+
+
+}
+
+.regi_product_wrapper .state_info ul .product_state{
+    display: block;
+    height:20px;
+    padding:0;
+    padding-left:35px;
+    margin-left: 0px;
+    margin-top: 22px;
+    background-color:#fff;
+}
+
+.regi_product_wrapper .state_info ul .product_state input{
+    min-width: 0px;
+    float:left;
+    padding: 5px;
+}
+
+.regi_product_wrapper .state_info ul .product_state label{
+    min-width: 0px;
+    float:left;
+    margin:0;
+    
+}
+
+
+/** 추가 정보 **/
+.regi_product_wrapper .extra_info {
+    clear: right;
+    float: right;
+}
+
+.regi_product_wrapper .extra_info ul{
+    min-width: 300px;
+    width: 360px;
+    max-width: 400px;
+}
+
+.regi_product_wrapper .extra_info ul li input{
+    min-width: 40px;
+    width: 90px;
+    max-width: 100px;
+}
+
+
+/** 생산자 정보 **/
+.regi_product_wrapper .producer_info {
+    clear: both;
+    max-width: 850px;
+    margin-bottom: 30px;
+}
+
+.regi_product_wrapper .producer_info ul{
+    display: table;
+    width: 100%;
+}
+
+.regi_product_wrapper .producer_info ul li{
+    display: table-cell;
+    margin: 0;
+    padding: 10px;
+}
+
+.regi_product_wrapper .producer_info ul li label{
+    margin: 0;
+
+}
+
+
+/** 상품 설명 **/
+.regi_product_wrapper .descriptions {
+    margin-bottom: 30px;
+    max-width: 850px;
+}
+
+.regi_product_wrapper .descriptions textarea{
+    width: 846px;
+    margin: 0;
+    padding: 0;
+}
+
+.regi_product_wrapper .descriptions .file_manager {
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+    min-height: 150px;
+    display:table;
+}
+
+.regi_product_wrapper .descriptions .file_manager select {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 450px;
+    min-height: 150px;
+}
+
+.regi_product_wrapper .descriptions .file_manager img {
+    margin-left: 10px;
+    float: left;
+    width: 150px;
+    height: 150px;
+
+}
+
+.regi_product_wrapper .descriptions .file_manager div{
+    float: right;
+    margin: 0;
+    padding: 10px;
+    font-family: Verdana;
+}
+
+
+/** 상품 이미지 **/
+.regi_product_wrapper .product_images {
+    margin-bottom: 30px;
+    max-width: 850px;
+}
+
+.regi_product_wrapper .product_images div {
+    margin: 0;
+    padding: 0;
+    width: 50%;
+}
+
+.regi_product_wrapper .product_images div h4{
+    display:block;
+    text-align: left;
+}
+
+.regi_product_wrapper .product_images div div{
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+
+.regi_product_wrapper .product_images div:nth-child(3);{
+    margin-top: 10px;
+}
+
+.regi_product_wrapper .product_images div div:nth-child(2){
+    width: 100px;
+    height: 100px;
+/**    border: 1px solid #ccc;**/
+/**    background-color: #ddd;**/
+    display: table-cell;
+    text-align: center;
+    vertical-align: center;
+}
+
+.regi_product_wrapper .product_images div div img{
+    margin: 0;
+    padding: 0;
+    margin-right: 10px;
+    max-width:100px;
+    max-height: 100px;
+}
+
+/** 상품 추가 이미지 **/
+.regi_product_wrapper .product_images_extra {
+    max-width: 850px;
+}
+
+.regi_product_wrapper .product_images_extra .product_images_manager {
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+    min-height: 150px;
+    display:table;
+
+}
+
+.regi_product_wrapper .product_images_extra .product_images_manager select {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 400px;
+    min-height: 150px;
+}
+
+.regi_product_wrapper .product_images_extra .product_images_manager img {
+    margin-left: 10px;
+    float: left;
+    width: 150px;
+    height: 150px;
+
+}
+
+.regi_product_wrapper .product_images_extra .product_images_manager div{
+    float: right;
+    margin: 0;
+    padding: 10px;
+    font-family: Verdana;
+}
+
+/** 상품 설명 앱용 **/
+.regi_product_wrapper .app_description {
+
+}
+
+.regi_product_wrapper .app_description input{
+    min-width: 850px;
+}
+
+
+
+
+/** 전송 버튼 **/
+.regi_product_wrapper .buttons {
+    background-color: #fff;
+    text-align:center;
+}
+
+.regi_product_wrapper .buttons input {
+    background-color: #22292e;
+    
+	background-image: -webkit-linear-gradient(top, rgb(47,55,61) 50%, rgb(26,31,36));
+	background-image: -moz-linear-gradient(top, rgb(47,55,61) 50%, rgb(26,31,36));
+	background-image: -ms-linear-gradient(top, rgb(47,55,61) 50%, rgb(26,31,36));
+	background-image: -o-linear-gradient(top, rgb(47,55,61) 50%, rgb(26,31,36));
+	background-image: linear-gradient(top, rgb(47,55,61) 50%, rgb(26,31,36));
+	
+    border: 1px solid #0b1319;
+    color: #aeb6bc;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 3px;
+    padding: 8px 14px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.2) inset;
+	-moz-box-shadow: 0 2px 4px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.2) inset;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.2) inset;
+    position: relative;
+    cursor: pointer;
+	
+    -webkit-transition: color 0.3s ease-in-out;
+	-moz-transition: color 0.3s ease-in-out;
+	-ms-transition: color 0.3s ease-in-out;
+	-o-transition: color 0.3s ease-in-out;
+	transition: color 0.3s ease-in-out;
+}
+
+.regi_product_wrapper .buttons .highlight {
+    width: 100%;
+    height: 1px; 
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: -webkit-linear-gradient(left top, rgba(255,255,255,0.0), rgba(255,255,255,0.6) 35%, rgba(255,255,255,0.6) 70%, rgba(255,255,255,0));
+	background: -moz-linear-gradient(left top, rgba(255,255,255,0.0), rgba(255,255,255,0.6) 35%, rgba(255,255,255,0.6) 70%, rgba(255,255,255,0));
+	background: -ms-linear-gradient(left top, rgba(255,255,255,0.0), rgba(255,255,255,0.6) 35%, rgba(255,255,255,0.6) 70%, rgba(255,255,255,0));
+	background: -o-linear-gradient(left top, rgba(255,255,255,0.0), rgba(255,255,255,0.6) 35%, rgba(255,255,255,0.6) 70%, rgba(255,255,255,0));
+	background: linear-gradient(left top, rgba(255,255,255,0.0), rgba(255,255,255,0.6) 35%, rgba(255,255,255,0.6) 70%, rgba(255,255,255,0));
+    opacity: 0.2;
+	
+    -webkit-transition: opacity 0.3s ease-in-out;
+	-moz-transition: opacity 0.3s ease-in-out;
+	-ms-transition: opacity 0.3s ease-in-out;
+	-o-transition: opacity 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.regi_product_wrapper .buttons input:hover .highlight {
+    opacity: 1;
+}
+
+.regi_product_wrapper .buttons input:hover {
+    color: #FFF;
+}
+
+
+/*************************************************************/
+/**                  상품정보관리 > 카테고리관리                        **/
+/*************************************************************/
+
+.category {
+	
+}
+
+.category .categories ul{
+	list-style-type: none;
+}
+
+.category .categories ul li{
+	cursor: pointer;
+	padding: 1px;
+}
+
+
+.category .categories input {
+	border: 1px solid #eee;
+}
+
+
+.category .categories ul li div p {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background-color: #ddd;
+}
+
+
+
+.category .categories ul li div ul li {
+	margin: 1px;
+	background-color: #eee;
+}
+
+.category .categories ul li div ul li div span img {
+    width: 30px;
+    height: 30px;
+}
+
+.category .categories .sortable_sub_category p {
+	background-color: #bbb;
+}
+
+
+/*************************************************************/
+/**                  판매결제관리 > 판매내역조회                        **/
+/*************************************************************/
+
+.order_list {
+	
+}
+
+.order_list .navigation_container div {
+	float: left;
+	padding: 5px;
+	margin-right: 10px;
+}
+
+.order_list .navigation_container div:nth-child(4) {
+	float: right;
+	font-size: 7pt;
+	font-weight: bold;
+	font-family: Tahoma;
+}
+
+
+.order_list_table {
+/**    border: 1px solid gray;**/
+    font-size: 9pt;
+    min-width: 800px;
+}
+
+.order_list_table thead{
+    font-weight: bold;
+}
+
+.order_list_table thead td{
+    font-weight: bold;
+    background-color: #eee;
+}
+
+.order_list_table td{
+    padding: 3px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.order_list_table tbody td{
+    font-size: 8pt;
+}
+
+.order_list_table tbody tr {
+    background-color: #fafafa;
+}
+
+.order_list_table tbody tr:hover {
+    background: #eee;
+
+}
+
+.order_list_table .product_name_cell {
+    min-width:250px;
+}
+
+.order_list_table .action_cell {
+    width: 100px;
+}
+
+
+/*************************************************************/
+/**                  Q&A 관리 > 질문답변조회                        **/
+/*************************************************************/
+
+.qna_list {
+    
+}
+
+.qna_list .navigation_container div {
+	float: left;
+	padding: 5px;
+	margin-right: 10px;
+}
+
+.qna_list .navigation_container div:nth-child(4) {
+	float: right;
+	font-size: 7pt;
+	font-weight: bold;
+	font-family: Tahoma;
+}
+
+.qna_list table {
+    float:left;
+    font-size: 9pt;
+    width: 700px;
+    margin: 10px;
+}
+
+.qna_list table thead td{
+    font-weight: bold;
+    background-color: #eee;
+}
+
+.qna_list table td{
+    padding: 3px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.qna_list table tbody td{
+    font-size: 8pt;
+}
+
+..qna_list table tbody tr {
+   background-color: #fafafa;
+}
+
+.qna_list table tbody tr:hover {
+    background: #eee;
+
+}
+
+.qna_list table .product_name_cell {
+    min-width:250px;
+}
+
+.qna_list table .action_cell {
+    width: 100px;
+}
+
+.qna_list .article {
+    float: left;
+    min-width: 200px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #eee;
+    text-align: right;
+}
+
+.qna_list .article textarea {
+    width: 300px;
+    height: 100px;
+    margin-bottom: 5px;
+}
+
+.qna_list .article p{
+    text-align: left;
+    font-weight: bold;
+}
+
+
+/** List Qna **/
+ul.listQna {
+	clear: both;
+	width: 100%;
+	overflow: hidden;
+	list-style: none;
+}
+
+
+ul.listQna li {
+	clear: both;
+	width: 100%;
+	overflow: hidden;
+	border-bottom: 1px solid #ededed;
+	font-size: 11px;
+	letter-spacing: -1px;
+	color: #969696;
+}
+
+ul.listQna li div.left {
+	float: left;
+	width: 520px;
+	overflow: hidden;
+}
+
+
+ul.listQna li div.left strong {
+	float: left;
+	text-align: center;
+	width: 90px;
+	color: #B3B3B3;
+	padding: 10px 0;
+}
+
+ul.listQna li div.left strong.reply {
+	color: #828795;
+}
+
+ul.listQna li div.left span {
+	float: left;
+	color: #515560;
+	width: 414px;
+	font-size: 12px;
+	background: url(../img/icon_q.png) 0 10px no-repeat;
+	padding: 10px 0;
+	padding-left: 16px;
+}
+
+
+
+
+ul.listQna li div.left span a {
+	color: #515560;
+}
+
+ul.listQna li div.left b {
+	font-style: normal;
+	color: #868fa8;
+	font-weight: bold;
+	letter-spacing: 0;
+	font-family: "Tahoma";
+	font-size: 11px;
+}
+
+ul.listQna li div.left i {
+	display: inline-block;
+	width: 10px;
+	height: 12px;
+	background: url(../img/icon_secret.png) 0 0 no-repeat;
+	vertical-align: -2px;
+	margin-left: 4px;
+}
+
+
+
+ul.listQna li div.right {
+	float: left;
+	overflow: hidden;
+	width: 180px;
+	padding: 10px 0;
+}
+
+ul.listQna li div.right strong {
+	float: left;
+	text-align: center;
+	width: 90px;
+}
+
+ul.listQna li div.right span {
+	float: left;
+	font-size: 11px;
+	text-align: center;
+	width: 90px;
+	font-family: "Tahoma";
+	letter-spacing: 0;
+	color: ##B3B3B3;
+}
+
+ul.listQna li div.content {
+	clear: both;
+	width: 414px;
+	overflow: hidden;
+	margin-left: 90px;
+	padding-top: 0px;
+	color: #8e8e8e;
+	font-size: 12px;
+	line-height: 1.5em;
+	padding-left: 16px;
+}
+
+
+ul.listQna li div.reply {
+	clear: both;
+	width: 414px;
+	margin-left: 90px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-top: 1px solid #ececec;
+	padding-top: 8px;
+	color: #8e8e8e;
+	font-size: 12px;
+
+}
+
+ul.listQna li div.reply span {
+	width: 414px;
+	font-size: 12px;
+	background: url(../img/icon_a.png) 0 0 no-repeat;
+	padding-left: 16px;
+	padding-top: 1px;
+	line-height: 1.5em;
+}
+
+ul.listNotice li div.content {
+	clear: both;
+	width: 530px;
+	overflow: hidden;
+	margin-left: 0px;
+	padding-top: 0px;
+	color: #8e8e8e;
+	font-size: 12px;
+	line-height: 1.5em;
+	padding-left: 16px;
+	margin-bottom: 10px;
+}
+
+ul.listNotice li div.left span {
+	background: url(../img/icon_n.png) 0 10px no-repeat;
+	width: 500px;
+}
+
+
+
+/*************************************************************/
+/**                  베경화면 관리 > 목록                        **/
+/*************************************************************/
+
+.wallpaper_list_wrapper {
+
+}
+
+.wallpaper_list_wrapper #wallpaper_tile {
+    list-style-type: none; margin: 0; padding: 0; width: 680px;
+}
+
+.wallpaper_list_wrapper #wallpaper_tile .ui-selecting { 
+    background: #FECA40; 
+}
+.wallpaper_list_wrapper #wallpaper_tile .ui-selected { 
+    background: blue; color: white; 
+}
+
+.wallpaper_list_wrapper #wallpaper_tile li { 
+    margin: 3px; 
+
+    float: left; 
+    width: 160px; 
+    height: 160px; 
+    font-size: 4em; 
+    text-align: center; 
+    position: relative;
+}
+
+.wallpaper_list_wrapper #wallpaper_tile li img {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
+.wallpaper_list_wrapper #wallpaper_tile button {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    z-index: 100;
+}
+
+
+
+.wallpaper_list_wrapper .wallpapers {
+    float: left;
+    padding: 10px;
+}
+
+.wallpaper_list_wrapper .related_product {
+    width: 250px;
+    height: 1200px;
+    overflow: scroll;
+    background-color: #eee;
+    float: left;
+    padding: 10px;
+}
+
+.wallpaper_list_wrapper .related_product select {
+    width: 240px;
+}
+
+.wallpaper_list_wrapper .related_product select option {
+    padding-left: 30px;
+    height: 20px;
+}
+
+#related_product_list {
+    list-style-type: none; margin: 0; padding: 0;
+}
+
+#related_product_list li{
+    
+}
+
+#related_product_list li img{
+    width: 50px;
+    height: 50px;
+}
+
+#related_product_list .ui-selecting { 
+    background: #FECA40; 
+}
+#related_product_list .ui-selected { 
+    background: #F39814; color: white; 
+}
+
+
+/*************************************************************/
+/**                  베경화면 관리 > 추가                        **/
+/*************************************************************/
+
+.wallpaper_add_wrapper {
+    width: 600px;
+}
+
+.wallpaper_add_wrapper form ul {
+ 
+}
+
+.wallpaper_add_wrapper form ul li {
+    padding: 10px;
+    display: block;
+}
+
+.wallpaper_add_wrapper form ul li p{
+    margin-top: 20px;
+    clear: both;
+}
+
+.wallpaper_add_wrapper form ul li div{
+    display: block;   
+    height: 100px;
+    float: left;
+}
+
+.wallpaper_add_wrapper form ul li .clear {
+    height: 0px;
+    clear: both;
+}
+
+
+.wallpaper_add_wrapper form ul li img {
+    width: 100px;
+    height: 100px;
+    display: block;
+    float: left;
+}
+
+
+.wallpaper_add_wrapper div {
+    clear: both;
+    text-align: center;
+}
+
+.wallpaper_add_wrapper div button {
+    width:100px;
+    height:40px;
+}
+
+.wallpaper_add_wrapper input {
+    padding: 40px;
+
+}
+
+
+
+
+
