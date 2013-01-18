@@ -23,6 +23,9 @@
     	<div>
     	    <span>Transaction:<span><span id="transaction_result">None</span>
     	</div>
+      <div style='float:right'>
+        <button onclick="removeTrashOrder();">찌꺼기 주문 일괄 삭제</button>
+    </div>
     </div>
     <table class="order_list_table">
         <thead>
@@ -318,6 +321,33 @@ $('input[name="point_refund_checkbox"]').change(function(){
 	}
 	
 });
+
+
+
+
+/* 찌꺼기 주문 삭제 */
+var removeTrashOrder = function(){
+
+  var c = confirm('정말 삭제 하시겠습니까?');
+  if (!c)
+    return;
+
+  $.ajax({
+    type: 'POST',
+    url: '<?=site_url();?>/admins/order/removeTrash',
+    success: function(json){
+
+          if (json.success){
+              // alert('성공');
+              location.href = '';
+
+          } else {
+              // alert('실패');
+              transaction('failed');
+          }
+    }
+  });
+}
 
 
 </script>
