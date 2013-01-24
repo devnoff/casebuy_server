@@ -88,10 +88,23 @@
 	            	}
 	            ?>
                 </td>
-                <td>
-                    <input orders_id="<?=$data->id;?>" type="text" value="<?=$data->invoice_no;?>" /><button orders_id="<?=$data->id;?>" name="invoice_btn" for="<?=$data->id;?>" type="button">입력</button>
+                <td width="150">
+                    <select name="delivery_agency" orders_id="<?=$data->id;?>">
+                    <?php 
+                      foreach($delivery_agency as $dagency){
+                        
+                    ?>
+                        <option value="<?=$dagency->id;?>" <?=$data->delivery_agent_id==$dagency->id?"selected":"";?>><?=$dagency->agency_name;?></option>
+                    <?php 
+                      }
+                    ?>
+                    </select>
+                    <input name="invoice_no" orders_id="<?=$data->id;?>" type="text" value="<?=$data->invoice_no;?>" style="width:90px"/><button orders_id="<?=$data->id;?>" name="invoice_btn" for="<?=$data->id;?>" type="button">입력</button>
                 </td>
-                <td><button order_code="<?=$data->order_code;?>" type="button" name="detail_button" class="detail_button">상세보기</button></td>
+                <td>
+                  <button order_code="<?=$data->order_code;?>" type="button" name="detail_button" class="detail_button">상세보기</button>
+                  <button onclick="removeOrder(<?=$data->id;?>);">삭제</button>
+                </td>
             </tr>
             
 <?php
@@ -211,15 +224,15 @@ $('button[for="search_keyword"]').click(function(){
  *
  */
  
- var updateShipInvoice = function(id, no){
+ var updateShipInvoice = function(id, no, dseq){
      transaction('working');
      
      $.ajax({
-         		type: 'POST',
-         		url: '<?=site_url();?>/admins/order/updateInvoiceNo/true',
-         		data: {id:id, invoice_no:no},
-         		success: function(text){
-         			var json = eval("("+text+")");
+            type: 'POST',
+            url: '<?=site_url();?>/admins/order/updateInvoiceNo/true',
+            data: {id:id, invoice_no:no, delivery_agent_id:dseq},
+            success: function(text){
+              var json = eval("("+text+")");
 
                   if (json.success){
                       // alert('성공');
@@ -230,16 +243,18 @@ $('button[for="search_keyword"]').click(function(){
                       // alert('실패');
                       transaction('failed');
                   }
-         		}
-         	});
+            }
+          });
  };
  
 $('button[name="invoice_btn"]').click(function(){
     var id = $(this).attr('orders_id');
-    var val = $('input[orders_id="'+id+'"]').val();
+    var invoice = $('input[orders_id="'+id+'"][name="invoice_no"]').val();
+    var dseq = $('select[orders_id="'+id+'"][name="delivery_agency"]').val();
     
-    updateShipInvoice(id,val);
+    updateShipInvoice(id,invoice,dseq);
 });
+
 
 
 /*
@@ -328,7 +343,7 @@ $('input[name="point_refund_checkbox"]').change(function(){
 /* 찌꺼기 주문 삭제 */
 var removeTrashOrder = function(){
 
-  var c = confirm('정말 삭제 하시겠습니까?');
+  var c = confirm("하루가 지난 주문취소, 결제전 상태의 주문 또는 5일이 지난 입금대기 상태의 주문을 삭제 합니다");
   if (!c)
     return;
 
@@ -343,6 +358,31 @@ var removeTrashOrder = function(){
 
           } else {
               // alert('실패');
+              transaction('failed');
+          }
+    }
+  });
+}
+
+/* 주문 삭제 */
+var removeOrder = function(orders_id){
+
+  var c = confirm("삭제한 주문 내역은 다시 볼 수 없습니다. 정말 삭제 하시겠습니까?");
+  if (!c)
+    return;
+
+  $.ajax({
+    type: 'POST',
+    url: '<?=site_url();?>/admins/order/removeOrder',
+    data: {orders_id:orders_id},
+    success: function(json){
+
+          if (json.success){
+              // alert('성공');
+              location.href = '';
+
+          } else {
+              alert(json.reason);
               transaction('failed');
           }
     }

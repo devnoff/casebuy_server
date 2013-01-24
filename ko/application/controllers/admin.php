@@ -488,6 +488,8 @@ class Admin extends CI_Controller {
 		// 주문상태옵션로드
 		$order_data['order_states'] = $this->orders_model->orderStates();
 		
+		// 배송업체 로드
+		$order_data['delivery_agency'] = $this->db->get('delivery_agency')->result();
 		
 		$order_data['PAYMENT_TYPE'] = $this->PAYMENT_TYPE;
 	    
