@@ -60,11 +60,11 @@ class Orders_model extends CI_Model {
 (select count(*) from member_points where ref_orders_id = orders.id and reason in ('EARN_REFUND','SPEND_FOR_CANCEL')) has_refunded, 
 (select count(*) from member_points where ref_orders_id = orders.id and reason in ('EARN_TO_BUY','SPEND_FOR_PAYMENT')) has_point   
 from 
-(select o.id as id, order_code, order_title, members_id, none_member_pass, date_order, format(totalPrice,0) totalPrice, format(delivery_fee,0) delivery_fee,used_point, format(payable_amount,0) payable_amount, order_state, date_modified, last_admin, c_name, d_name, invoice_no  
+(select o.id as id, order_code, order_title, members_id, none_member_pass, date_order, format(totalPrice,0) totalPrice, format(delivery_fee,0) delivery_fee,used_point, format(payable_amount,0) payable_amount, order_state, date_modified, last_admin, c_name, d_name, invoice_no, delivery_agent_id  
 from 
 orders o 
 left join (select name as c_name, orders_id from order_customer_info) c on (o.id = c.orders_id) 
-left join (select name as d_name, orders_id, invoice_no from order_delivery_info) d on (o.id = d.orders_id)) 
+left join (select name as d_name, orders_id, invoice_no, delivery_agent_id from order_delivery_info) d on (o.id = d.orders_id)) 
 orders left join (select payment_method, rOrdNo from payments group by rOrdNo,payment_method) p on orders.id = p.rOrdNo  ";
         
         

@@ -150,6 +150,8 @@ class S extends CI_Controller {
 	function categoryProducts(){
 		$categories_id = $this->input->get('categories_id');
 		$offset = $this->input->get('offset');
+		$sort_by = $this->input->get('sort_order');
+
 		$offset = $offset ? $offset : 0;
 		$limit = 40; // 한번에 불러올 상품 갯수
 
@@ -164,7 +166,10 @@ class S extends CI_Controller {
 		
 		$this->load->model('products_model');
 
-		$products = $this->products_model->sale_products_simple($categories_id,$offset,$limit);
+		if ($sort_by && $sort_by == 'sales_volume')
+			 $products = $this->products_model->sale_products_simple_by_sales($categories_id,$offset,$limit);
+		else 
+			$products = $this->products_model->sale_products_simple($categories_id,$offset,$limit);
 			
 		if (gettype($products)=='array'){
 			$result['code'] = API_RESULT_OK;
@@ -183,6 +188,7 @@ class S extends CI_Controller {
 	function products(){
 		$categories_id = $this->input->get('categories_id');
 		$offset = $this->input->get('offset');
+
 		$offset = $offset ? $offset : 0;
 		$limit = 40; // 한번에 불러올 상품 갯수
 		
@@ -204,7 +210,10 @@ class S extends CI_Controller {
 			$parent_id = $category->parent_id;
 			$category_name = $category->category_name;
 			 if (strtoupper($category_name)=='ALL'){
-			 	$products = $this->products_model->sale_products_simple($parent_id,$offset,$limit);
+			 	if ($sort_by && $sort_by == 'sales_volume')
+			 		$products = $this->products_model->sale_products_simple_by_sales($parent_id,$offset,$limit);
+			 	else 
+			 		$products = $this->products_model->sale_products_simple($parent_id,$offset,$limit);
 			 } else {
 			 	$products = $this->products_model->productsByTagSimple($parent_id,$category_name,$offset,$limit);
 			 }
@@ -329,6 +338,49 @@ class S extends CI_Controller {
 			 ->set_content_type('application/json')
 			 ->set_output(json_encode($finalResult));
 		
+	}
+
+
+	/*
+	 * 메인 편집 상품
+	 */
+	function mainContentCategory(){
+		$categories_id = $this->input->get('categories_id');
+
+		$result['code'] = API_RESULT_FAIL;
+
+		if (!$categories_id){
+			$result['code'] = API_RESULT_LACK_PARAMS;
+			$this->output
+				 ->set_content_type('application/json')
+				 ->set_output(json_encode($result));
+			return;		
+		}
+
+		$this->db->select("concat('".RESOURCEHOST."',ifnull(app_detail_img, '/ko/img/empty.png'))as thumb",false);
+		$this->db->where('categories_id',$categories_id);
+		$populars = $this->db->get_where('products',array('pop'=>'Y'),4,0)->result();;
+		
+		$this->db->select("concat('".RESOURCEHOST."',ifnull(app_detail_img, '/ko/img/empty.png'))as thumb",false);
+		$this->db->where('categories_id',$categories_id);
+		$this->db->order_by('id','desc');
+		$new_arvls = $this->db->get_where('products',array('new'=>'Y'),6,0)->result();
+
+		$this->db->select("concat('".RESOURCEHOST."',ifnull(app_detail_img, '/ko/img/empty.png'))as thumb",false);
+		$this->db->where('categories_id',$categories_id);
+		$bests = $this->db->get_where('products',array('hit'=>'Y'))->result();
+
+		$result['result']['populars'] = $populars;
+		$result['result']['new_arrivals'] = $new_arvls;
+		$result['result']['best_sellers'] = $bests;
+
+		$result['code'] = API_RESULT_OK;
+
+		$this->output
+			 ->set_content_type('application/json')
+			 ->set_output(json_encode($result));
+
+
 	}
 
 
@@ -1301,6 +1353,35 @@ class S extends CI_Controller {
 				 ->set_output(json_encode($result));
 		
 	}
+
+	/*
+	 * 주문 취소
+	 */
+	function cancelOrder(){
+		$orders_id = $this->input->post('orders_id');
+
+		$result['code'] = API_RESULT_FAIL;
+		if (!$orders_id){
+			$result['code'] = API_RESULT_LACK_PARAMS;
+			$this->output
+				 ->set_content_type('application/json')
+				 ->set_output(json_encode($result));
+		}
+
+		$data['id'] = $orders_id;
+		$data['order_state'] = 'CANCEL_REQUESTED';
+
+		$this->load->model('orders_model');
+
+		if ($this->orders_model->update($data)){
+			$result['code'] = API_RESULT_OK;
+		}
+
+		$this->output
+			 ->set_content_type('application/json')
+			 ->set_output(json_encode($result));
+
+	}
 	
 	
 	
@@ -1371,7 +1452,12 @@ class S extends CI_Controller {
 			$order->payable_amount = number_format($order->payable_amount,0);
 
 			$orderer = $this->db->get_where('order_customer_info',array('orders_id'=>$orders_id))->row();
-			$recipient = $this->db->get_where('order_delivery_info',array('orders_id'=>$orders_id))->row();
+
+			$this->db->select('*');
+			$this->db->from('order_delivery_info');
+			$this->db->join('delivery_agency','order_delivery_info.delivery_agent_id=delivery_agency.id','left');
+			$this->db->where(array('orders_id'=>$orders_id));
+			$recipient = $this->db->get()->row();
 
 			$vir = $this->db->get_where('payments', array('rOrdNo'=>$orders_id,'payment_method'=>'virtual'))->row();
 
@@ -1381,6 +1467,7 @@ class S extends CI_Controller {
 				$virInfo['agency'] = getCenter_cd($vir->VIRTUAL_CENTERCD);
 				$result['virtual'] = $virInfo;
 			}
+
 
 			$result['order'] = $order;
 			$result['order_items'] = $orders;

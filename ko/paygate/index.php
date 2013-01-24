@@ -209,7 +209,7 @@ $goodoption1 = $result['id'];
 	
 	<div id="PGIOscreen"></div>  <!-- (꼭!필요합니다.)openpay API 의 결제 화면을 불러 오는 함수입니다. 절대 form안에는 넣지 말아주세요 오류의 원인이 됩니다. -->
 
-	 
+	<div id="wait_message_box" style="width:100%;padding-top:30px;padding-bottom:30px;display:none;text-align:center">처리 중입니다.<br/>잠시만 기다려 주세요.</div>
 	<form name="PGIOForm"><!-- (꼭!필요합니다.)openpay API 에 입력되게될 form값입니다. 이안에서 결제 방식 구매자명 머천트계정 가격등 결제진행 방향을 정하게 됩니다.-->
 	<table border=0 cellpadding=0 style="display:none">
 	    <TR>
@@ -490,8 +490,22 @@ $goodoption1 = $result['id'];
 	<script>
 
 
+	var smsNotifyOrder = function(orders_id,type){
+		$.ajax({
+	        type: 'POST',
+	        url: 'http://casebuy.me/ko/index.php/admins/order/smsNotifyOrder/'+orders_id+'/'+type,
+	        success: function(json){
+
+	        }
+	    });
+	}
+
 	var payment_virtual = function(){
 		console.log('가상계좌');
+
+		// 관리자 결제 완료 통보
+		smsNotifyOrder('<?=$orders_id;?>','');
+
 
 		// 현재 가상 계좌가 아닌 회사 계좌로 입금하게 되어있음
 
@@ -515,6 +529,10 @@ $goodoption1 = $result['id'];
 
 	var payment_success = function(){
 		console.log('결제 성공');
+
+		// 관리자 결제 완료 통보
+		smsNotifyOrder('<?=$orders_id;?>','done');
+
 		var card_agent = document.PGIOForm.elements['cardtype'].value;
 		$('#payment_result_form > input[name="card_agent"]').val(card_agent);
 
@@ -534,6 +552,8 @@ $goodoption1 = $result['id'];
 	}
 
 	var callbackfail = function(){
+
+
 		docuemnt.location = "scomdcom:failed";
 	}
 
@@ -624,6 +644,8 @@ $goodoption1 = $result['id'];
 	?>
 		// payment_virtual();
 		setTimeout("payment_virtual()",500);
+
+		$('#wait_message_box').show();
 	<?
 	}
 	?>

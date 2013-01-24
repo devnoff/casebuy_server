@@ -53,6 +53,31 @@ class Products_model extends CI_Model {
         
         return $query->result();
     }
+
+    function sale_products_simple_by_sales($categories_id=null,$offset=0,$limit=null){
+
+        $this->db->select("id,sales_volume ,upper(title) title, sales_price,concat('$this->resource_host',ifnull(app_detail_img, '/ko/img/empty.png')) thumb,concat('$this->resource_host',ifnull(app_list_img, '/ko/img/empty.png')) image, sales_state", false);
+
+        if ($categories_id){
+            $this->db->where('categories_id',$categories_id, false);
+        }
+        
+        $this->db->where_not_in('sales_state',array('WAIT','END','OUT'));
+
+        if ($limit){
+            $this->db->limit($limit,$offset);
+        }
+
+        $this->db->from('products');
+        $this->db->join("(select products_id, count(products_id) as sales_volume from order_items group by products_id) order_products","products.id = order_products.products_id",'left');
+
+        $this->db->order_by('sales_volume','desc');
+        $this->db->order_by("title", "asc");
+        
+        $query = $this->db->get();
+        
+        return $query->result();
+    }
     
     function sale_products($limit=10,$offset=0,$category_id=null,$sub_category_id=null){
         

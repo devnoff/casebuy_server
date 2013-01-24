@@ -17,6 +17,11 @@ function paymentReady(orders_id,payment_method){
 	payment_ready_form.submit();
 }
 
+var direct = '<?=$_GET["direct"];?>';
+if (direct == 'true'){
+	payment_ready_form.submit();	
+}
+
 
 </script>
 </body>

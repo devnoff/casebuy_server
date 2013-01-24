@@ -753,6 +753,7 @@ body, html {
 
 .order_list_table {
 /*    border: 1px solid gray;*/
+    clear: both;
     font-size: 9pt;
     min-width: 800px;
 }

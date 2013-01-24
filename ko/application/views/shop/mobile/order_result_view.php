@@ -160,7 +160,7 @@
 					<tr class="head">
 						<td class="left" style="text-align:center;">
 						<? if ($data['recipient']->invoice_no){ ?>
-							<a onclick="showDeliveryInquery();" style="text-decoration:underline;color:blue"><span>우체국 <?=$data['recipient']->invoice_no;?></span></a>
+							<a onclick="showDeliveryInquery();" style="text-decoration:underline;color:blue"><span><?=$data['recipient']->agency_name;?> <?=$data['recipient']->invoice_no;?></span></a>
 						<? } else { ?>
 							<span>아직 배송중이 아닙니다.</span>
 						<? } ?>
@@ -191,20 +191,39 @@
 			개인정보관리책임자: 박용남(casebuy@cultstory.com)</center>
 
 		<div id="wrap">
-			<iframe name="deliveryIframe" id="deliveryIframe" src="http://service.epost.go.kr/iservice/trace/Trace_ok.jsp?sid1=<?=$data['recipient']->invoice_no;?>" style="display:none;position:fixed;width:100%;height:100%;overflow:scroll;border:0;left:0;top:0;" scrolling="yes" ></iframe>
+			<iframe name="deliveryIframe" id="deliveryIframe" src="<?=$data['recipient']->search_url.$data['recipient']->invoice_no;?>" style="display:none;position:fixed;width:100%;height:100%;overflow:scroll;border:0;left:0;top:0;" scrolling="yes" ></iframe>
 			<button id="closeBtn" style="display:none;position:fixed;">닫기</button>
 		</div>
+
+
+
 		<script>
+
+
+		if (/OS 6_/.test(navigator.userAgent)) {
+			$.ajaxSetup({ cache: false });
+		}
+
+
 		var queryShipping = function(invoice_no){
 			if (!invoice_no || invoice_no==''){
 				alert('아직 배송중이 아닙니다.');
 			}
 		}
 
+		var appVersion = 1.1;
+
 
 		// 배송 정보 보기
 		var showDeliveryInquery = function(){
 
+			// 앱 버전이 1.1 보다 클 경우 사파리에서 조회
+			if (appVersion > 1.1){
+				location.href = '<?=$data['recipient']->search_url.$data['recipient']->invoice_no;?>#openInSafari';
+				return;
+			}
+
+			// Iframe 으로 보여주기
 			$('#closeBtn').fadeIn('fast',function(){
 				$('#deliveryIframe').fadeIn();
 			});
@@ -229,11 +248,15 @@
 
 			$.ajax({
                 type: 'POST',
-                url: '<?=site_url();?>/api/s/removeOrder',
+                url: '<?=site_url();?>/api/s/cancelOrder/'+Math.random(),
                 data: {orders_id:id},
+                cache: false,
                 success: function(json){
                 	if (json.code == 0){
                 		alert('주문 취소 요청이 완료되었습니다.');
+                		location.href = '#cancelRequestDone';
+                		location.reload(true);
+
                 	}
                 }
             });
