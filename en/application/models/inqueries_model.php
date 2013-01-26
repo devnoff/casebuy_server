@@ -73,7 +73,7 @@ class Inqueries_model extends CI_Model {
 		    return false;
 	    }
 	    
-	    $this->db->select("id, inqueries_id,ifnull((select nickname from members where members.id=inqueries.members_id),'색콤달콤') as nickname, ifnull(title,'') title, content, date_format(date_write,'%Y.%m.%d') date_write",false);
+	    $this->db->select("id, inqueries_id,ifnull((select nickname from members where members.id=inqueries.members_id),'CASEBUY') as nickname, ifnull(title,'') title, content, date_format(date_write,'%Y.%m.%d') date_write",false);
 	    $query = $this->db->get_where('inqueries', array('inqueries_id'=>$inqueries_id));
 	    
 	    return $query->result();

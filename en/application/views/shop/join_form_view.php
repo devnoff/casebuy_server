@@ -1,7 +1,7 @@
 		<script type="text/javascript" src="/loveholic/js/jquery.watermark.min.js"></script>
 		<h4>회원정보 입력</h4>
 		<form action="<?=site_url('actions/member/join');?>" method="POST">
-		<h5 class="join">색콤달콤은 실명과 주소를 입력받지 않습니다</h5>
+		<h5 class="join">CASEBUY은 실명과 주소를 입력받지 않습니다</h5>
 		<table cellpadding="0" cellspacing="0" border="0" class="fullTable">
 			<tr class="id">
 				<th>아이디</th>
@@ -297,7 +297,7 @@
 			   			var json = eval('('+text+')');
 			               
 			            if (json.success){
-			            	alert("환영합니다! 색콤달콤에 가입해주셔서 감사합니다. 로그인 후 정상적으로 이용이 가능합니다. 즐거운 쇼핑 되세요 :)");
+			            	alert("환영합니다! CASEBUY에 가입해주셔서 감사합니다. 로그인 후 정상적으로 이용이 가능합니다. 즐거운 쇼핑 되세요 :)");
 			              	location.href='<?=$ref_to;?>';  
 			            } else {
 				            alert(json.reason);

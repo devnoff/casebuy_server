@@ -620,7 +620,7 @@ class S extends CI_Controller {
 
 	// 	$data['question'] = $question;
 
-	// 	$this->db->select("id,ifnull(nickname,'색콤달콤') nickname,content,date_format(date_write,'%Y.%m.%d') date_write", false);
+	// 	$this->db->select("id,ifnull(nickname,'CASEBUY') nickname,content,date_format(date_write,'%Y.%m.%d') date_write", false);
 	// 	$answer = $this->db->get_where('questions', array('questions_id'=>$questions_id))->result();		
 
 	// 	$data['answers'] = $answer;

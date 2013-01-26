@@ -5,7 +5,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Cache-Control" content="No-Cache">
 <meta http-equiv="Pragma" content="No-Cache"> 
-	<title>색콤달콤 - <?=!empty($title)?$title:'';?></title>
+	<title>CASEBUY - <?=!empty($title)?$title:'';?></title>
 	
 	<link rel="stylesheet" href="/loveholic/css/shop_style.css" />
 	<link type="text/css" href="/loveholic/css/ui-lightness/jquery-ui-1.8.22.custom.css" rel="stylesheet" />

@@ -359,7 +359,7 @@ function Display(form){
 					</tr>
 					<tr>
 						<td class=clsleft>☞ 상점명 (50)</td>
-						<td colspan=2><input type=text style=width:300px name=StoreNm value="색콤달콤"></td>
+						<td colspan=2><input type=text style=width:300px name=StoreNm value="CASEBUY"></td>
 					</tr>
 					<tr>
 						<td class=clsleft>☞ 상품명 (300)</td>

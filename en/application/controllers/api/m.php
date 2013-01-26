@@ -287,7 +287,7 @@ class M extends CI_Controller {
 		    	echo '{"success": true}';
 		    	return;
 		    } else {
-			    echo '{"success": false, "reason":"색콤달콤은 성인만 이용하실 수 있습니다. 감사합니다."}';
+			    echo '{"success": false, "reason":"CASEBUY은 성인만 이용하실 수 있습니다. 감사합니다."}';
 			    return;
 		    }
 	    } 
@@ -424,11 +424,11 @@ class M extends CI_Controller {
 			
 			$this->load->library('email',$config);
 			
-			$this->email->from('support@scomdcom.com', '색콤달콤');
+			$this->email->from('support@scomdcom.com', 'CASEBUY');
 			$this->email->to($email); 
 			
-			$this->email->subject('색콤달콤 임시 비밀번호 입니다.');
-			$this->email->message('안녕하세요. <br/>색콤달콤입니다. <br/><br/>회원님께서 임시 비밀번호 생성을 요청하셨습니다. <br/>임시 비밀번호 '.$new_password.' <br/><br/>사이트에 로그인하신 후 MY > 내 정보에서 비밀번호를 변경해주세요. <br/><br/>본인이 아닐 경우 고객센터로 연락바랍니다.<br/>고객센터 : 070-8650-2086<br/><br/> 감사합니다.<br/>좋은 하루 되세요 <br/><br/>[색콤달콤] http://www.scomdcom.com <br/>[TEL] 070-8650-2086');	
+			$this->email->subject('CASEBUY 임시 비밀번호 입니다.');
+			$this->email->message('안녕하세요. <br/>CASEBUY입니다. <br/><br/>회원님께서 임시 비밀번호 생성을 요청하셨습니다. <br/>임시 비밀번호 '.$new_password.' <br/><br/>사이트에 로그인하신 후 MY > 내 정보에서 비밀번호를 변경해주세요. <br/><br/>본인이 아닐 경우 고객센터로 연락바랍니다.<br/>고객센터 : 070-8650-2086<br/><br/> 감사합니다.<br/>좋은 하루 되세요 <br/><br/>[CASEBUY] http://www.scomdcom.com <br/>[TEL] 070-8650-2086');	
 			
 			
 			if($this->email->send()){
@@ -478,7 +478,7 @@ class M extends CI_Controller {
 		if ($member){
 
 			$new_password = $this->createPassword();
-			$msg = '[색콤달콤] 회원님의 임시 비밀번호는 '.$new_password.' 입니다. 감사합니다.';
+			$msg = '[CASEBUY] 회원님의 임시 비밀번호는 '.$new_password.' 입니다. 감사합니다.';
 			$mobile = $dashedMobile;
 			
 			$sms_url = "http://sslsms.cafe24.com/sms_sender.php"; // 전송요청 URL

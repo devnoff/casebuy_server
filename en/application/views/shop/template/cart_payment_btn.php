@@ -187,7 +187,7 @@
 					is_payable = false;
 					
 					if (!is_ie){
-						var c = confirm('인터넷 익스플로러와 아이폰, 안드로이드폰의 ‘색콤달콤’ 앱에서 결제하실 수 있습니다. 주문입력 후 나중에 결제 하시겠습니까?');
+						var c = confirm('인터넷 익스플로러와 아이폰, 안드로이드폰의 ‘CASEBUY’ 앱에서 결제하실 수 있습니다. 주문입력 후 나중에 결제 하시겠습니까?');
 						if (c){
 							console.log('confirm');
 							pay();

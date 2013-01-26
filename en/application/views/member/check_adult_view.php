@@ -13,12 +13,12 @@
 	<meta http-equiv="Pragma" content="No-Cache"> 
 	<meta name="Classification" content="홈" />
 	<meta name="Subject" content="어른 쇼핑몰" />
-	<meta name="Title" content="색콤달콤" />
+	<meta name="Title" content="CASEBUY" />
 	<meta name="Description" content="어른들을 위한, 어른에 의한, 어른 쇼핑몰" />
 	<meta name="Keywords" content="성인, 어른, 쇼핑몰, 성인 쇼핑몰, 콘돔, 마사지젤, 기구, 자위" />
 	<meta name="Author" content="YU LAB" />
 	<meta name="robots" content="index,follow" />
-	<title>색콤달콤</title>
+	<title>CASEBUY</title>
 	<link rel="stylesheet" href="/en/css/shop_style.css" />
 	<link href='http://api.mobilis.co.kr/webfonts/css/?fontface=NanumGothicWeb' rel='stylesheet' type='text/css' />
 	<link href='http://api.mobilis.co.kr/webfonts/css/?fontface=NanumGothicBoldWeb' rel='stylesheet' type='text/css' />

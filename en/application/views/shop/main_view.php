@@ -97,7 +97,7 @@
 				<a href="#" class="right control" id="rightControl"></a>
 				<li>
 					<div class="overlay">
-						<p class="a">색콤달콤 추천상품</p>
+						<p class="a">CASEBUY 추천상품</p>
 						<a href="<?=site_url('shop/product?id='.$recomm[0]->id.'&c_id='.$recomm[0]->categories_id.'&sc_id='.$recomm[0]->sub_category_id);?>">
 							<p class="b"><?=$recomm[0]->sub_title;?></p>
 							<p class="c"><?=$recomm[0]->title;?></p>
@@ -121,7 +121,7 @@
 			?>
 				<div class="slide" style="background: #F2F3F6 url('<?=$i->web_detail_img;?>') no-repeat 150px 0;">
 					<div class="overlay">
-						<p class="a">색콤달콤 추천상품</p>
+						<p class="a">CASEBUY 추천상품</p>
 						<a href="<?=site_url('shop/product?id='.$i->id.'&c_id='.$i->categories_id.'&sc_id='.$i->sub_category_id);?>">
 							<p class="b"><?=$i->sub_title;?></p>
 							<p class="c"><?=$i->title;?></p>

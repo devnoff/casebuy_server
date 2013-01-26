@@ -124,19 +124,19 @@ class Shop extends CI_Controller {
 		
 		/* 메타 태그 */
 		if (empty($meta['Subject']))
-			$meta['Subject'] = array('name' => 'Subject', 'content' => '어른 쇼핑몰');
+			$meta['Subject'] = array('name' => 'Subject', 'content' => 'iPhone iPad Case shop');
 
 		if (empty($meta['Title']))
-			$meta['Title'] = array('name' => 'Title', 'content' => '색콤달콤 - '.$data['title']);
+			$meta['Title'] = array('name' => 'Title', 'content' => 'CASEBUY - '.$data['title']);
 
 		if (empty($meta['Description']))
-			$meta['Description'] = array('name' => 'Description', 'content' => '성인용품 쇼핑몰 색콤달콤입니다. 콘돔, 마사지젤, 러브젤, 입욕제, 남성단련, 세정제, 란제리 등을 판매하고 있습니다.');
+			$meta['Description'] = array('name' => 'Description', 'content' => 'Case mall for iPhone, iPad ');
 
 		if (empty($meta['Keywords']))
-			$meta['Keywords'] = array('name' => 'Keywords', 'content' => '어른, 쇼핑몰, 콘돔, 마사지젤, 기구, 자위, 오카모토, 펀펀데이, 사가미, 커플, 부부, 남친, 여친, 섹시, 아내, 남편, 후지라텍스, 한국라텍스, 롱텍스, 입욕젤, 마사지젤, 페로몬, 향수, 세정제, 남성,여성, 단련제, 란제리, 색콤달콤, 새콤달콤');
+			$meta['Keywords'] = array('name' => 'Keywords', 'content' => '아이폰, 아이패드, iPhone, iPad, iPad Mini, 케이스');
 
 		if (empty($meta['Author']))
-			$meta['Author'] = array('name' => 'Author', 'content' => 'YU LAB');
+			$meta['Author'] = array('name' => 'Author', 'content' => 'CultStory Inc.');
 
 		if (empty($meta['robots']))
 			$meta['robots'] = array('name' => 'robots', 'content' => 'index,follow');

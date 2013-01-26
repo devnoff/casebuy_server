@@ -32,7 +32,7 @@
 
 <div class="headerWrapper">
 	<div class="headerContainer">
-		<h1 onclick="location.href='<?=site_url('shop');?>';" style="cursor:pointer">색콤달콤</h1>
+		<h1 onclick="location.href='<?=site_url('shop');?>';" style="cursor:pointer">CASEBUY</h1>
 		<form method="GET" action="<?=site_url('shop/product_search');?>">
 		<ul class="left">
 			<li class="search"><input name="keyword" type="text" placeholder="상품 검색" /></li>
@@ -87,17 +87,16 @@ $('.headerContainer').find('.'+uri).find('a').addClass('selected');
 		</ul>
 
 	
-		<p>Copyright © <strong>색콤달콤</strong> All Rights Reserved.</p>
+		<p>Copyright © <strong>CASEBUY</strong> All Rights Reserved.</p>
 	</div>
 </div>
 
 <div id="loading_dialog" class="ui-widget-overlay" style="display:none;position:fixed"></div>
 
-</body>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-35124373-1']);
+  _gaq.push(['_setAccount', 'UA-37995511-1']);
   _gaq.push(['_trackPageview']);
 
   (function() {

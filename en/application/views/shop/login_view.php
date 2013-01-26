@@ -1,7 +1,7 @@
 			<div class="loginForm">
 				<form name="login_form" method="POST" action="/loveholic/index.php/actions/member/login/">
 				<div class="member">
-					<p class="title"><strong>환영합니다♥</strong><span>색콤달콤을 이용해주셔서 감사합니다!</span></p>
+					<p class="title"><strong>환영합니다♥</strong><span>CASEBUY을 이용해주셔서 감사합니다!</span></p>
 					<p><input name="username" type="text" placeholder="아이디" /><input name="password" type="password" placeholder="비밀번호" /></p>
 					<p><a onclick="login();" class="button"><span>로그인</span></a></p>
 				</div>
