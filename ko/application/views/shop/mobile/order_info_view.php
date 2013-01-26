@@ -76,14 +76,14 @@
 				</div>
 				<div class="input delivery">
 					<span>배송메시지</span>
-					<input name="recipient_msg" type="text">
+					<input name="recipient_msg" type="text" placeholder="+ 상품옵션">
 				</div>
 			</div>
 		</div>
 
 		<a onclick="javascript:complete();" class="checkout">입력 완료</a>
 	</form>
-		<p class="add">입력하신 배송정보를 다시 한 번 확인해주세요 ^_^</p>
+		<p class="add" style="text-decoration:underline;color:red;">상품 옵션이 있는 경우 배송메세지에 남겨주세요!</p>
 
 
 

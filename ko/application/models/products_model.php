@@ -295,7 +295,7 @@ class Products_model extends CI_Model {
     
     // Select Simple Product Info
     function productAppSimple($id){
-    	$this->db->select("id, title,sub_title, sales_price, app_description,sales_state,replace(product_images,'\'','\"') product_images", false);
+    	$this->db->select("id, title,sub_title, sales_price, app_description,sales_state,replace(product_images,'\'','\"') product_images, likes", false);
     	$this->db->where('id',$id);
     	$query = $this->db->get('products');
     	

@@ -124,19 +124,19 @@ class Shop extends CI_Controller {
 		
 		/* 메타 태그 */
 		if (empty($meta['Subject']))
-			$meta['Subject'] = array('name' => 'Subject', 'content' => '어른 쇼핑몰');
+			$meta['Subject'] = array('name' => 'Subject', 'content' => '아이폰 케이스 쇼핑몰');
 
 		if (empty($meta['Title']))
 			$meta['Title'] = array('name' => 'Title', 'content' => 'CASEBUY - '.$data['title']);
 
 		if (empty($meta['Description']))
-			$meta['Description'] = array('name' => 'Description', 'content' => '성인용품 쇼핑몰 CASEBUY입니다. 콘돔, 마사지젤, 러브젤, 입욕제, 남성단련, 세정제, 란제리 등을 판매하고 있습니다.');
+			$meta['Description'] = array('name' => 'Description', 'content' => '아이폰 5, 아이폰 4, 아이폰 4s, 아이패드 케이스 쇼핑몰 입니다~! ');
 
 		if (empty($meta['Keywords']))
-			$meta['Keywords'] = array('name' => 'Keywords', 'content' => '어른, 쇼핑몰, 콘돔, 마사지젤, 기구, 자위, 오카모토, 펀펀데이, 사가미, 커플, 부부, 남친, 여친, 섹시, 아내, 남편, 후지라텍스, 한국라텍스, 롱텍스, 입욕젤, 마사지젤, 페로몬, 향수, 세정제, 남성,여성, 단련제, 란제리, CASEBUY, 새콤달콤');
+			$meta['Keywords'] = array('name' => 'Keywords', 'content' => '아이폰, 아이패드, iPhone, iPad, iPad Mini, 케이스');
 
 		if (empty($meta['Author']))
-			$meta['Author'] = array('name' => 'Author', 'content' => 'YU LAB');
+			$meta['Author'] = array('name' => 'Author', 'content' => 'CultStory Inc.');
 
 		if (empty($meta['robots']))
 			$meta['robots'] = array('name' => 'robots', 'content' => 'index,follow');
@@ -295,6 +295,85 @@ class Shop extends CI_Controller {
 	    
 	    /* 본문 컨텐츠 */
 		$contentView = $this->load->view('shop/product_detail_view', $data, true);
+		
+		
+
+		/* 메타 태그 */
+		$category_name = $category_id?$this->db->get_where('product_categories',array('id'=>$category_id))->row()->category_name:'';
+		$sub_category_name = $sub_category_id?$this->db->get_where('product_categories',array('id'=>$sub_category_id))->row()->category_name:'';
+
+		/* 타이틀 */
+	    $product_name = $data['product']?$data['product']->title : '';
+	    $d['title'] = $category_name.' '.$sub_category_name.' '.$product_name;
+		
+		$d['meta']['Classification'] = array('name' => 'Classification', 'content' => $category_name.($sub_category_id?'/'.$sub_category_name:''));
+		$d['meta']['Description'] = array('name' => 'Description', 'content' => $product_name.' 입니다 :) '.$data['product']->app_description);
+	    
+	    
+		
+		$this->loadView($sideView, $contentView, $d, $d['meta']);
+		
+	}
+
+	/* 상품 상세 */
+	function product1(){
+		$this->sessionValid(); 
+	    
+		$product_id = $this->input->get('id');
+		$category_id = $this->input->get('c_id');
+		$sub_category_id = $this->input->get('sc_id');
+		
+		/* 상품 정보 */
+		$data['product'] = $this->products_model->productById($product_id);
+		$sub_category_id = $data['product']->sub_category_id;
+		
+		/* 카테고리 뷰 */
+		$sideView = $this->categoryView($data['product']->categories_id, $sub_category_id);
+		
+		/* 회원 정보 */
+		$data['member'] = $this->memberObj();
+		
+		/* 구매 이력 */
+		$data['has_purchase'] = false;
+		$members_id = empty($data['member'])?null:$data['member']->id;
+		
+		$data['is_wishItem'] = false;
+		if ($members_id){
+			// 구입 여부
+			$data['has_purchase'] = $this->products_model->hasPurchase($members_id, $product_id);
+			
+			// 찜 여부
+			$q = $this->db->get_where('wishlist', array('members_id'=>$members_id, 'products_id'=>$product_id));
+			$data['is_wishItem'] = count($q->result())>0?true:false;
+		}
+		
+		/* 기존 리뷰 */
+		$data['review'] = null;
+		if ($members_id){
+			$query = $this->db->get_where('reviews', array('members_id'=>$members_id, 'products_id'=>$product_id));
+			$data['review'] = $query->row();
+		}
+		
+		if ($data['review']==null) {
+			$data['review'] = new stdClass();
+			$data['review']->id = '';
+			$data['review']->rating = '5';
+			$data['review']->nickname = '';
+			$data['review']->content = '';
+		}
+		
+		
+		/* 리뷰 카운트 */
+		$this->db->where('products_id',$product_id);
+		$data['review_cnt'] = $this->db->count_all_results('reviews');
+		
+		/* QnA 카운트 */
+		$this->db->where(array('products_id'=>$product_id,'step'=>0));
+		$data['qna_cnt'] = $this->db->count_all_results('questions');
+		
+	    
+	    /* 본문 컨텐츠 */
+		$contentView = $this->load->view('shop/product_detail_view1', $data, true);
 		
 		
 

@@ -136,7 +136,7 @@ $username = $_COOKIE['casebuy_username'];
 
 		<ul class="contact">
 			<li><a href="http://casebuy.me/ko/index.php/shop/etc/company">회사소개</a></li>
-			<li>문의전화 <span>070-8650-2086</span></li>
+			<li>문의전화 <span>070-8280-4090</span></li>
 			<li>문의메일 <span>support@casebuy.me</span></li>
 			<li><a href="http://casebuy.me/ko/index.php/shop/etc/terms">이용약관</a></li>
 			<li style="border-right: 0;"><a href="http://casebuy.me/ko/index.php/shop/etc/policy">개인정보보호정책</a></li>

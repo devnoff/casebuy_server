@@ -67,7 +67,7 @@
 					<li class="c"><span>결제금액</span><strong id="payable_amount">85,500<i>원</i></strong></li>
 				</ul>
 				<a href="#">구매하기</a>
-				<span class="m">결제 시 적립금 <strong id="point_amount">855</strong>원이 적립됩니다</span>
+				<!-- span class="m">결제 시 적립금 <strong id="point_amount">855</strong>원이 적립됩니다</span -->
 			</div>
 
 			<script>

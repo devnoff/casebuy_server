@@ -1,20 +1,6 @@
 
 		<div class="sideWidget">
-			<p style="text-align:center;color:gray">
-				<span style="font-weight:bold">아이폰에서 간편하게 이용하세요!</span><br/>
-			</p>
 			<a href="https://itunes.apple.com/ko/app/casebuy-iphone-cases-wallpapers/id583783910?l=ko&ls=1&mt=8" target="_blank" border="0"><img width="250" src="/ko/img/casebuy_app_promote_side.png"/></a>
-			<br/>
-			<br/>
-			<p style="text-align:center;color:gray">
-				<span style="font-weight:bold">결제사 안내</span>
-				<br/>
-				<span>케이스바이는 모든 브라우저에서<br/> 결제가 가능합니다.</span>
-				<br/><br/>
-				<a href="http://www.paygate.net/" target="_blank" border="0"><img src="/ko/img/paygate_banner.png"/></a>
-				<br/><br/>
-				<a href="http://www.paypal.com/" target="_blank" border="0"><img src="/ko/img/paypal_banner.png"/></a>
-			</p>
 		</div>
 
 		<div class="productWrapper">
@@ -33,9 +19,9 @@
 					<p class="button">
 						<a onclick="<?=$product->sales_state!='SALE'?'soldout()':'order()';?>"><span>바로구매</span></a>
 						<a onclick="<?=$product->sales_state!='SALE'?'soldout()':'addToCart('.$product->id.',false)';?>" class="square"><span>장바구니</span></a>
-						<!-- a id="zzimBtn" zzim="<?=$is_wishItem?'true':'false';?>" onclick="zzimBtnTapped();" class="square">
+						<a id="zzimBtn" zzim="<?=$is_wishItem?'true':'false';?>" onclick="zzimBtnTapped();" class="square">
 							<span><?=$is_wishItem?'찜해제':'찜하기';?></span>
-						</a -->
+						</a>
 					</p>
 				</div>
 				<div class="info">
@@ -54,7 +40,7 @@
 							<option value="10">10</option>
 						</select>
 					</p>
-					<p class="mileage">결제금액 <strong class="price" id="purchase_price"><?=number_format($product->sales_price);?></strong>원</p>
+					<p class="mileage">결제금액 <strong class="price" id="purchase_price"><?=number_format($product->sales_price);?></strong>원 (적립금 <strong id="final_point"><?=$product->point_amount;?></strong>원)</p>
 				</div>
 			</div>
 
@@ -274,7 +260,7 @@
 					</ul>
 	
 	
-					<h4>교환/환불을 원하시는 경우 070-8280-4090 으로 연락주세요. 감사합니다.</h4>
+					<h4>교환/환불을 원하시는 경우 070-8650-2086 으로 연락주세요. 감사합니다.</h4>
 
 
 				</div>

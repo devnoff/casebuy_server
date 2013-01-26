@@ -77,8 +77,8 @@
 					<li class="split"><span>+</span></li>
 					<li class="b"><span>배송료</span><strong id="delivery_fee" delivery_fee="2500">2,500<i>원</i></strong></li>
 					<!-- 포인트 사용시 출력 -->
-					<li class="split spending_point" style="display:none"><span>-</span></li>
-					<li class="m spending_point" style="display:none"><span>적립금 사용</span><strong id="spending_point">1,000<i>원</i></strong></li>
+					<!--li class="split spending_point" style="display:none"><span>-</span></li>
+					<li class="m spending_point" style="display:none"><span>적립금 사용</span><strong id="spending_point">1,000<i>원</i></strong></li -->
 					<!--               -->
 					
 					<li class="split"><span>=</span></li>

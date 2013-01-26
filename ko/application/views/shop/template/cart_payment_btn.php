@@ -4,7 +4,7 @@
 						<input type="radio" name="payment_method" value="card" checked="checked"><span>신용카드</span>
 					</div>
 
-					<?php if ($member) {  // $member ?>
+					<?php if (false) {  // $member ?>
 					<span class="m">회원 결제 시 적립금 <strong id="point_amount"></strong>원이 적립됩니다</span>
 					<?php } ?>
 				</div>

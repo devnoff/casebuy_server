@@ -46,9 +46,9 @@
 			<li class="my"><a href="<?=site_url('shop/my');?>">MY페이지</a></li>
 			<li class="logout"><a href="<?=site_url('member/logout');?>">로그아웃</a></li>
 			<?php } else { ?>
-			<li class="login"><a href="<?=site_url('shop/login');?>">로그인</a></li>
-			<li class="join"><a href="<?=site_url('shop/join');?>">회원가입</a></li>
-			<li class="orderQuery"><a href="<?=site_url('shop/orderQuery');?>">비회원조회</a></li>
+			<!-- li class="login"><a href="<?=site_url('shop/login');?>">로그인</a></li>
+			<li class="join"><a href="<?=site_url('shop/join');?>">회원가입</a></li -->
+			<li class="orderQuery"><a href="<?=site_url('shop/orderQuery');?>">주문조회</a></li>
 			<?php } ?>
 			
 		</ul>
@@ -76,7 +76,7 @@ $('.headerContainer').find('.'+uri).find('a').addClass('selected');
 
 		<ul class="contact">
 			<li><a href="<?=site_url('shop/etc/company');?>">회사소개</a></li>
-			<li>문의전화 <span>070-8650-2086</span></li>
+			<li>문의전화 <span>070-8280-4090</span></li>
 			<li>문의메일 <span>casebuy@cultstory.com</span></li>
 			<li><a href="<?=site_url('shop/etc/terms');?>">이용약관</a></li>
 			<li style="border-right: 0;"><a href="<?=site_url('shop/etc/policy');?>">개인정보보호정책</a></li>
@@ -84,7 +84,7 @@ $('.headerContainer').find('.'+uri).find('a').addClass('selected');
 		<ul class="info">
 			<li>
 <center>CultStory 대표: 윤제필 사업자등록번호: 105-87-36667 통신판매업신고번호: 제 2012-서울중구-1342 호</center>
-<center>주소: 서울시 중구 충무로2가 50-6 라이온스빌딩 1003 TEL: 070-8650-2086 FAX: 02-6280-7428</center>
+<center>주소: 서울시 중구 충무로2가 50-6 라이온스빌딩 1003 TEL: 070-8280-4090 FAX: 02-6280-7428</center>
 <center>개인정보관리책임자: 박용남(casebuy@cultstory.com)</center>
 			</li>
 		</ul>
@@ -100,7 +100,7 @@ $('.headerContainer').find('.'+uri).find('a').addClass('selected');
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-35124373-1']);
+  _gaq.push(['_setAccount', 'UA-37995511-1']);
   _gaq.push(['_trackPageview']);
 
   (function() {

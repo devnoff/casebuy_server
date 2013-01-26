@@ -428,7 +428,7 @@ class M extends CI_Controller {
 			$this->email->to($email); 
 			
 			$this->email->subject('CASEBUY 임시 비밀번호 입니다.');
-			$this->email->message('안녕하세요. <br/>CASEBUY입니다. <br/><br/>회원님께서 임시 비밀번호 생성을 요청하셨습니다. <br/>임시 비밀번호 '.$new_password.' <br/><br/>사이트에 로그인하신 후 MY > 내 정보에서 비밀번호를 변경해주세요. <br/><br/>본인이 아닐 경우 고객센터로 연락바랍니다.<br/>고객센터 : 070-8650-2086<br/><br/> 감사합니다.<br/>좋은 하루 되세요 <br/><br/>[CASEBUY] http://www.casebuy.me <br/>[TEL] 070-8650-2086');	
+			$this->email->message('안녕하세요. <br/>CASEBUY입니다. <br/><br/>회원님께서 임시 비밀번호 생성을 요청하셨습니다. <br/>임시 비밀번호 '.$new_password.' <br/><br/>사이트에 로그인하신 후 MY > 내 정보에서 비밀번호를 변경해주세요. <br/><br/>본인이 아닐 경우 고객센터로 연락바랍니다.<br/>고객센터 : 070-8280-4090<br/><br/> 감사합니다.<br/>좋은 하루 되세요 <br/><br/>[CASEBUY] http://www.casebuy.me <br/>[TEL] 070-8280-4090');	
 			
 			
 			if($this->email->send()){

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /ko/index.php/admin/
+Disallow: /en/index.php/admin/
+Disallow: /phpMyAdmin/

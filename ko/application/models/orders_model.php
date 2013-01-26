@@ -230,6 +230,7 @@ orders left join (select payment_method, rOrdNo from payments group by rOrdNo,pa
         
         $this->db->trans_begin();
         $this->db->where('id', $data['id']);
+        unset($data['id']);
 		$this->db->update('orders', $data); 
 
     	if ($this->db->trans_status() === FALSE)
@@ -251,6 +252,7 @@ orders left join (select payment_method, rOrdNo from payments group by rOrdNo,pa
         
         $this->db->trans_begin();
         $this->db->where('orders_id', $data['id']);
+        unset($data['id']);
 		$this->db->update('order_delivery_info', $data); 
 
     	if ($this->db->trans_status() === FALSE)
@@ -268,6 +270,7 @@ orders left join (select payment_method, rOrdNo from payments group by rOrdNo,pa
     function insertOrder($data=null){
     	
     	if (!$data) return false;
+
     	
     	$orderCode = $this->generatedOrderCode(); // 주문 코드 생성
     	$this->db->set('order_code',$orderCode);
@@ -353,6 +356,10 @@ orders left join (select payment_method, rOrdNo from payments group by rOrdNo,pa
     // 배송지 정보 입력
     function insertOrderDelivery($data = null){
     	if (!$data) return false;
+
+        if (!empty($data['id'])){
+            unset($data['id']);
+        }
     	
     	$this->db->trans_begin();
         $this->db->insert('order_delivery_info', $data);

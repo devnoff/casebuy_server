@@ -112,7 +112,8 @@ div.headerContainer ul.right li a.selected {
 div.mainWrapper {
 	width: 900px;
 	margin: 0 auto;
-	overflow: hidden;
+	/*overflow: hidden;*/
+	position: relative;
 
 }
 
@@ -227,6 +228,7 @@ div.contentWrapper {
 	background: #fff;
 	overflow: hidden;
 	padding-top: 50px;
+	/*position: relative;*/
 }
 
 
@@ -3293,6 +3295,16 @@ table.checkedOut td {
 }
 
 
+
+div.sideWidget {
+	float: left;
+	overflow: hidden;
+	margin-left: 20px;
+	position: absolute;
+	right: -250px;
+	top: 83px;
+	width: 250;
+}
 
 
 

@@ -9,7 +9,7 @@
     <?php if ( is_singular() && get_option( 'thread_comments') ) wp_enqueue_script( 'comment-reply' ); ?>
     <?php wp_head(); ?>
 
-	<title>색콤달콤 - 회사소개</title>
+	<title>CASEBUY - 회사소개</title>
 	
 	<link rel="stylesheet" href="/loveholic/css/shop_style.css" />
 	<link type="text/css" href="/loveholic/css/ui-lightness/jquery-ui-1.8.22.custom.css" rel="stylesheet" />
@@ -43,7 +43,7 @@ $username = $_COOKIE['loveholic_username'];
 
 <div class="headerWrapper">
 	<div class="headerContainer">
-		<h1 onclick="location.href='http://scomdcom.com/loveholic/index.php/shop';" style="cursor:pointer">색콤달콤</h1>
+		<h1 onclick="location.href='http://scomdcom.com/loveholic/index.php/shop';" style="cursor:pointer">CASEBUY</h1>
 		<form method="GET" action="http://scomdcom.com/loveholic/index.php/shop/product_search">
 		<ul class="left">
 			<li class="search"><input name="keyword" type="text" placeholder="상품 검색" /></li>
@@ -146,7 +146,7 @@ $username = $_COOKIE['loveholic_username'];
 		</ul>
 
 	
-		<p>Copyright © <strong>색콤달콤</strong> All Rights Reserved.</p>
+		<p>Copyright © <strong>CASEBUY</strong> All Rights Reserved.</p>
 	</div>
 </div>
 

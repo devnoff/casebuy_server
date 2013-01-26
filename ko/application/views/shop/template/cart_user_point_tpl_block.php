@@ -1,4 +1,4 @@
-					<div class="useMileage">
+					<!--div class="useMileage">
 						<span><i>적립금 사용</i> (보유 적립금: <strong><?=$user_point;?></strong>원)</span><br/>
 						<p>적립금은 5,000원 이상부터 사용하실 수 있습니다.</p>
 						<input name="spending_point" type="text" class="text" placeholder="사용할 적립금 입력" onKeyPress="return numbersonly(event, false)">
@@ -80,4 +80,4 @@
 						$('#resetPointButton').hide();
 						dispPointState();
 					};
-					</script>
+					</script -->

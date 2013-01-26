@@ -4,7 +4,7 @@
 
 			<ul>
 				<li><strong>주소</strong> 서울시 중구 충무로2가 50-6 라이온스빌딩 1003호</li>
-				<li><strong>연락처</strong> TEL 070-8650-2086</li>
+				<li><strong>연락처</strong> TEL 070-8280-4090</li>
 				<li><strong>FAX</strong> 02-6280-7428</li>
 				<li><strong>Email</strong> casebuy@cultstory.com</li>
 			</ul>

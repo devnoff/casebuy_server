@@ -1,3 +1,21 @@
+	<div class="sideWidget">
+		<p style="text-align:center;color:gray">
+			<span style="font-weight:bold">아이폰에서 간편하게 이용하세요!</span><br/>
+		</p>
+		<a href="https://itunes.apple.com/ko/app/casebuy-iphone-cases-wallpapers/id583783910?l=ko&ls=1&mt=8" target="_blank" border="0"><img width="250" src="/ko/img/casebuy_app_promote_side.png"/></a>
+		<br/>
+		<br/>
+		<p style="text-align:center;color:gray">
+			<span style="font-weight:bold">결제사 안내</span>
+			<br/>
+			<span>케이스바이는 모든 브라우저에서<br/> 결제가 가능합니다.</span>
+			<br/><br/>
+			<a href="http://www.paygate.net/" target="_blank" border="0"><img src="/ko/img/paygate_banner.png"/></a>
+			<br/><br/>
+			<a href="http://www.paypal.com/" target="_blank" border="0"><img src="/ko/img/paypal_banner.png"/></a>
+		</p>
+	</div>
+	
 	<ul class="list">
 	<?php
 		

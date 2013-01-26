@@ -111,6 +111,7 @@ class S extends CI_Controller {
         if ($row){
         	$result['code'] = API_RESULT_OK;
         	$result['result'] = intVal($row->count);
+        	$result['min_count'] = 50;
         }
     	
 
@@ -364,7 +365,7 @@ class S extends CI_Controller {
 		$this->db->select("concat('".RESOURCEHOST."',ifnull(app_detail_img, '/ko/img/empty.png'))as thumb",false);
 		$this->db->where('categories_id',$categories_id);
 		$this->db->order_by('id','desc');
-		$new_arvls = $this->db->get_where('products',array('new'=>'Y'),6,0)->result();
+		$new_arvls = $this->db->get_where('products',array('new'=>'Y'),2,0)->result();
 
 		$this->db->select("concat('".RESOURCEHOST."',ifnull(app_detail_img, '/ko/img/empty.png'))as thumb",false);
 		$this->db->where('categories_id',$categories_id);
@@ -1695,7 +1696,45 @@ class S extends CI_Controller {
 
 
 
-	 
+	 /*
+	  * 좋아요
+	  */
+	 function likeUp(){
+	 	$products_id = $this->input->get_post('products_id');
+
+	 	$result['code'] = API_RESULT_FAIL;
+		if (!$products_id){
+			$result['code'] = API_RESULT_LACK_PARAMS;
+			$this->output
+				 ->set_content_type('application/json')
+				 ->set_output(json_encode($result));
+		}
+
+
+
+		$this->db->trans_begin();
+        $this->db->query('update products set likes = likes +1 where id='.$products_id);
+
+        if ($this->db->trans_status() === FALSE)
+        {
+            $this->db->trans_rollback();
+        } else {
+        	$this->db->trans_commit();	
+        	$result['code'] = API_RESULT_OK;
+
+        	$this->db->select('likes');
+			$product = $this->db->get_where('products',array('id'=>$products_id))->row();
+			$result['result'] = $product->likes;
+        }
+
+
+        $this->output
+			 ->set_content_type('application/json')
+			 ->set_output(json_encode($result));
+        
+
+
+	 }
 
 
 
