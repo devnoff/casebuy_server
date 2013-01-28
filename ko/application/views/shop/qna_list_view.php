@@ -28,9 +28,9 @@
 						<div class="title"><span>내용</span></div>
 						<div class="content"><textarea name="content" placeholder="내용을 입력해주세요"></textarea></div>
 					</li>
-					<li class="secret">
+					<!--li class="secret">
 						<div class="content"><input name="is_private" type="checkbox" checked="checked" name="chk_info" value="open"><span>문의·답변 나만보기</span></div>
-					</li>
+					</li -->
 					<li class="button">
 						<a onclick="sendQuestion();">문의등록</a>
 						<a href="<?=site_url('shop/qna');?>" class="cancel">취소</a>
@@ -71,8 +71,8 @@
 				
 
 				<?php if (!$member) { ?>
-				alert('로구인 후 글쓰기가 가능합니다');
-				return;
+				// alert('로그인 후 글쓰기가 가능합니다');
+				// return;
 				<?php } ?>
 				console.log('hi');
 			
