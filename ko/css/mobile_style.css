@@ -32,7 +32,7 @@ div.subject p {
 	display: block;
 	text-align: left;
 	margin: 20px 10px;
-	font-size: 26px;
+	font-size: 22px;
 	font-weight: bold;
 }
 
@@ -45,11 +45,16 @@ div.subject span {
 div.content {
 	width: 100%;
 	clear: both;
+
 }
 
 div.content p {
 	display: block;
 	margin: 10px;
 	color: #666;
-	font-size: 20px;
+	font-size: 15px;
+}
+
+div.content ul {
+	margin-left: 10px;
 }
