@@ -250,6 +250,30 @@ class Product extends Action {
         
     }
 
+    /*
+     * 상품 이미지 업로드
+     *
+     */
+    function uploadDescImage(){
+
+
+        $result['success'] = false;
+
+        $filename = $this->products_model->uploadPhoto('description');
+
+
+        if ($filenames != null && count($filenames) > 0){
+            $result['success'] = true;
+            $result['result'] = $filename;
+        } else {
+            $result['reason'] = 'Lack of params';
+        }
+
+        $this->output
+             ->set_content_type('application/json')
+             ->set_output(json_encode($result));
+    }
+
 
     /*
      * 상품 이미지 업로드

@@ -49,7 +49,7 @@ var loadEditingData = function(){
     
     // $('#smarteditor_textarea').val(product_json['description']);
 
-    setTimeout("loadSmartContent('"+product_json['description']+"')",500);
+    if (product_json['description']) setTimeout("loadSmartContent('"+product_json['description']+"')",500);
     $('img[class="web_list_img"]').attr('src',product_json['web_list_img']);
     $('img[class="web_detail_img"]').attr('src',product_json['web_detail_img']);
     $('img[class="app_list_img"]').attr('src',product_json['app_list_img']);
@@ -59,7 +59,11 @@ var loadEditingData = function(){
 
 
 var loadSmartContent = function(desc){
-    oEditors.getById["smarteditor_textarea"].exec("PASTE_HTML", [desc]);
+    // $('input[name="description"]').val(desc);
+    // var html = '<img src="'+desc+'"/>';
+    // oEditors.getById["smarteditor_textarea"].exec("PASTE_HTML", [html]);
+    $('.file_manager > img').attr('src',desc);
+
 }
 
 
