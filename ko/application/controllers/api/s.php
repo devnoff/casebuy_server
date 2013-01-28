@@ -148,7 +148,7 @@ class S extends CI_Controller {
 	/*
 	 * 카테고리 상품
 	 */
-	function categoryProducts(){
+	function categoryProducts($flag=null){
 		$categories_id = $this->input->get('categories_id');
 		$offset = $this->input->get('offset');
 		$sort_by = $this->input->get('sort_order');
@@ -168,9 +168,9 @@ class S extends CI_Controller {
 		$this->load->model('products_model');
 
 		if ($sort_by && $sort_by == 'sales_volume')
-			 $products = $this->products_model->sale_products_simple_by_sales($categories_id,$offset,$limit);
+			 $products = $this->products_model->sale_products_simple_by_sales($categories_id,$offset,$limit,$flag);
 		else 
-			$products = $this->products_model->sale_products_simple($categories_id,$offset,$limit);
+			$products = $this->products_model->sale_products_simple($categories_id,$offset,$limit,$flag);
 			
 		if (gettype($products)=='array'){
 			$result['code'] = API_RESULT_OK;
@@ -186,7 +186,7 @@ class S extends CI_Controller {
 	/*
 	 * 서브 카테고리 상품
 	 */
-	function products(){
+	function products($flag = null){
 		$categories_id = $this->input->get('categories_id');
 		$offset = $this->input->get('offset');
 
@@ -202,7 +202,6 @@ class S extends CI_Controller {
 
 			return;
 		}
-		
 		$this->load->model('products_model');
 		
 		$category = $this->db->get_where('product_categories',array('id'=>$categories_id))->row();
@@ -210,6 +209,7 @@ class S extends CI_Controller {
 		if ($category){
 			$parent_id = $category->parent_id;
 			$category_name = $category->category_name;
+
 			 if (strtoupper($category_name)=='ALL'){
 			 	if ($sort_by && $sort_by == 'sales_volume')
 			 		$products = $this->products_model->sale_products_simple_by_sales($parent_id,$offset,$limit);
@@ -225,6 +225,52 @@ class S extends CI_Controller {
 				$result['result'] = $products;
 			}
 		}
+
+		$this->output
+			 ->set_content_type('application/json')
+			 ->set_output(json_encode($result));
+
+	}
+
+
+	/*
+	 * 장치별 인기 상품
+	 */
+	function productsWithFlag($flag=null){
+		$categories_id = $this->input->get('categories_id');
+		$offset = $this->input->get('offset');
+
+		$offset = $offset ? $offset : 0;
+		$limit = 40; // 한번에 불러올 상품 갯수
+		
+		$result['code'] = API_RESULT_FAIL;
+		if (!$flag || $categories_id == null){
+			$result['code'] = API_RESULT_LACK_PARAMS;
+			$this->output
+				 ->set_content_type('application/json')
+				 ->set_output(json_encode($result));
+
+			return;
+		}
+
+
+		$this->db->select("id,upper(title) title, sales_price, sales_state,concat('".RESOURCEHOST."',ifnull(app_detail_img, '/ko/img/empty.png'))as thumb",false);
+		$this->db->where('categories_id',$categories_id);
+
+		if ($flag == 'pop' || $flag == 'hit'){
+			$this->db->where($flag,'Y');
+		}
+
+		else if ($flag == 'new'){
+			$this->db->where('((select max(id) from products) - 20) < id');
+			$this->db->order_by('id','desc');
+		}
+		
+		$resultData = $this->db->get('products')->result();
+
+		$result['result'] = $resultData;
+
+		$result['code'] = API_RESULT_OK;
 
 		$this->output
 			 ->set_content_type('application/json')
@@ -369,7 +415,7 @@ class S extends CI_Controller {
 
 		$this->db->select("concat('".RESOURCEHOST."',ifnull(app_detail_img, '/ko/img/empty.png'))as thumb",false);
 		$this->db->where('categories_id',$categories_id);
-		$bests = $this->db->get_where('products',array('hit'=>'Y'))->result();
+		$bests = $this->db->get_where('products',array('hit'=>'Y'),4,0)->result();
 
 		$result['result']['populars'] = $populars;
 		$result['result']['new_arrivals'] = $new_arvls;
@@ -1713,7 +1759,8 @@ class S extends CI_Controller {
 
 
 		$this->db->trans_begin();
-        $this->db->query('update products set likes = likes +1 where id='.$products_id);
+        $this->db->query('update caseshop.products set likes = likes +1 where id='.$products_id);
+        $this->db->query('update caseshop_ko.products set likes = likes +1 where id='.$products_id);
 
         if ($this->db->trans_status() === FALSE)
         {

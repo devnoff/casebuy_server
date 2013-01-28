@@ -33,7 +33,7 @@ class Products_model extends CI_Model {
     }
     
     
-    function sale_products_simple($categories_id=null,$offset=0,$limit=null){
+    function sale_products_simple($categories_id=null,$offset=0,$limit=null, $flag=null){
 
         $this->db->select("id,upper(title) title, sales_price,concat('$this->resource_host',ifnull(app_detail_img, '/ko/img/empty.png')) thumb,concat('$this->resource_host',ifnull(app_list_img, '/ko/img/empty.png')) image, sales_state", false);
 
@@ -43,6 +43,14 @@ class Products_model extends CI_Model {
         
         $this->db->where_not_in('sales_state',array('WAIT','END','OUT'));
 
+        if ($flag == 'pop' || $flag == 'hit'){
+            $this->db->where($flag,'Y');
+        }
+
+        else if ($flag == 'new'){
+            $this->db->where('((select max(id) from products) - 20) < id');
+        }
+
         if ($limit){
             $this->db->limit($limit,$offset);
         }
@@ -50,6 +58,39 @@ class Products_model extends CI_Model {
         $this->db->order_by('category_order','desc');
 
         $query = $this->db->get('products');
+        
+        return $query->result();
+    }
+
+    function sale_products_simple_by_sales($categories_id=null,$offset=0,$limit=null, $flag=null){
+
+        $this->db->select("id,sales_volume ,upper(title) title, sales_price,concat('$this->resource_host',ifnull(app_detail_img, '/ko/img/empty.png')) thumb,concat('$this->resource_host',ifnull(app_list_img, '/ko/img/empty.png')) image, sales_state", false);
+
+        if ($categories_id){
+            $this->db->where('categories_id',$categories_id, false);
+        }
+        
+        $this->db->where_not_in('sales_state',array('WAIT','END','OUT'));
+
+        if ($flag == 'pop' || $flag == 'hit'){
+            $this->db->where($flag,'Y');
+        }
+
+        else if ($flag == 'new'){
+            $this->db->where('((select max(id) from products) - 20) < id');
+        }
+
+        if ($limit){
+            $this->db->limit($limit,$offset);
+        }
+
+        $this->db->from('products');
+        $this->db->join("(select products_id, count(products_id) as sales_volume from order_items group by products_id) order_products","products.id = order_products.products_id",'left');
+
+        $this->db->order_by('sales_volume','desc');
+        $this->db->order_by("title", "asc");
+        
+        $query = $this->db->get();
         
         return $query->result();
     }
@@ -269,7 +310,7 @@ class Products_model extends CI_Model {
     
     // Select Simple Product Info
     function productAppSimple($id){
-    	$this->db->select("id, title,sub_title, sales_price, app_description,sales_state,replace(product_images,'\'','\"') product_images", false);
+    	$this->db->select("id, title,sub_title, sales_price, app_description,sales_state,replace(product_images,'\'','\"') product_images, likes, concat('$this->resource_host',ifnull(app_list_img, '/ko/img/empty.png')) image", false);
     	$this->db->where('id',$id);
     	$query = $this->db->get('products');
     	
@@ -531,11 +572,11 @@ class Products_model extends CI_Model {
             unset($data['file_explorer']);
         }
         
-        if (empty($data['pop'])) $data['pop'] = 'N';
-        if (empty($data['hit'])) $data['hit'] = 'N';
-        if (empty($data['new'])) $data['new'] = 'N';
-        if (empty($data['dc_sale'])) $data['dc_sale'] = 'N';
-        if (empty($data['recomm'])) $data['recomm'] = 'N';
+        // if (empty($data['pop'])) $data['pop'] = 'N';
+        // if (empty($data['hit'])) $data['hit'] = 'N';
+        // if (empty($data['new'])) $data['new'] = 'N';
+        // if (empty($data['dc_sale'])) $data['dc_sale'] = 'N';
+        // if (empty($data['recomm'])) $data['recomm'] = 'N';
 
         if (!empty($data['product_images'])){
 

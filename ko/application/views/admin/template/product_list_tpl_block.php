@@ -110,7 +110,7 @@ if ($sub_categories){
             <td class="dc_rate_cell"><?=$data->dc_rate;?>%</td>
             <td class="fixed_dc_amount_cell"><?=$data->fixed_dc_amount;?></td>
             <td class="sales_price_cell"><?=$data->sales_price; // $data->regular_price - ($data->dc_rate * 0.01 * $data->regular_price);?></td>
-            <td class="sync"><?=$data->sync>0?"synced":"<button onclick='syncProduct(".$data->id.");'>동기화</button>";?></td>
+            <td class="sync" products_id="<?=$data->id;?>"><?=$data->sync>0?"synced":"<button onclick='syncProduct(".$data->id.");'>동기화</button>";?></td>
             <td class="option_cell">
                 <a href="javascript: showOptionWrite(<?=$data->id;?>,this)">추가</a> <a href="javascript: deleteOption(<?=$data->id;?>)">삭제</a><br/>
                 <? if ($data->options){ ?>
@@ -132,7 +132,10 @@ if ($sub_categories){
             </td>
             <td class="action_cell">
                 <button type="button" onclick="location.href='<?=site_url("admin/product/edit/".$data->id);?>/<?=$return_to?>';">수정</button><br/>
-                <button onclick="raiseOrder(<?=$data->id;?>);">▲</button><button onclick="reduceOrder(<?=$data->id;?>);">▼</button>
+                <button onclick="raiseOrder(<?=$data->id;?>);">▲</button><button onclick="reduceOrder(<?=$data->id;?>);">▼</button><br/>
+                <input products_id="<?=$data->id;?>" class="product_flag_checkbox" type="checkbox" name="pop" <? if($data->pop=='Y') echo 'checked';?>/><label>P</label> 
+                <input products_id="<?=$data->id;?>" class="product_flag_checkbox" type="checkbox" name="new" <? if($data->new=='Y') echo 'checked';?>/><label>N</label> 
+                <input products_id="<?=$data->id;?>" class="product_flag_checkbox" type="checkbox" name="hit" <? if($data->hit=='Y') echo 'checked';?>/><label>H</label>
             </td>
         </tr>
 <?php
@@ -314,7 +317,8 @@ var syncProduct = function(products_id){
         success: function(json){
 
             if (json.success){
-                location.reload(true);
+                // location.reload(true);
+                $('td.sync[products_id="'+products_id+'"]').html('synced');
 
             } else {
 
@@ -392,6 +396,37 @@ var showOptionWrite = function(products_id,el){
     });    
 }
 
+
+/* 상품 상태 변경 (인기, 신상, 베스트) */
+var updateProductFlag = function(products_id, flag_name, state){
+    var data = {};
+    data['id'] = products_id;
+    data[flag_name] = state;
+
+    $.ajax({
+        type: 'POST',
+        url: '<?=site_url();?>/admins/product/updateProduct/ajax',
+        data: data,
+        success: function(json){
+            json = eval(json);
+            if (json.success){
+
+            } else {
+                location.reload(true);
+            }
+        }
+    });
+}
+
+$('input[type="checkbox"][class="product_flag_checkbox"]').change(function(){
+    var flag_name = $(this).attr('name');
+    var checked = $(this).is(':checked')?'Y':'N';
+    var products_id = $(this).attr('products_id');
+
+
+    updateProductFlag(products_id, flag_name, checked);
+
+});
 
 
 </script>

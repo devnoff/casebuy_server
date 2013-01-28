@@ -108,6 +108,7 @@ class S extends CI_Controller {
         if ($row){
         	$result['code'] = API_RESULT_OK;
         	$result['result'] = intVal($row->count);
+        	$result['min_count'] = 40;
         }
     	
 
@@ -144,10 +145,11 @@ class S extends CI_Controller {
 	/*
 	 * 카테고리 상품
 	 */
-	function categoryProducts(){
+	function categoryProducts($flag=null){
 		$categories_id = $this->input->get('categories_id');
-		
 		$offset = $this->input->get('offset');
+		$sort_by = $this->input->get('sort_order');
+
 		$offset = $offset ? $offset : 0;
 		$limit = 40; // 한번에 불러올 상품 갯수
 
@@ -162,7 +164,11 @@ class S extends CI_Controller {
 		
 		$this->load->model('products_model');
 
-		$products = $this->products_model->sale_products_simple($categories_id,$offset,$limit);
+
+		if ($sort_by && $sort_by == 'sales_volume')
+			 $products = $this->products_model->sale_products_simple_by_sales($categories_id,$offset,$limit,$flag);
+		else 
+			$products = $this->products_model->sale_products_simple($categories_id,$offset,$limit,$flag);
 			
 		if (gettype($products)=='array'){
 			$result['code'] = API_RESULT_OK;
@@ -181,6 +187,7 @@ class S extends CI_Controller {
 	function products(){
 		$categories_id = $this->input->get('categories_id');
 		$offset = $this->input->get('offset');
+
 		$offset = $offset ? $offset : 0;
 		$limit = 40; // 한번에 불러올 상품 갯수
 		
@@ -202,7 +209,10 @@ class S extends CI_Controller {
 			$parent_id = $category->parent_id;
 			$category_name = $category->category_name;
 			 if (strtoupper($category_name)=='ALL'){
-			 	$products = $this->products_model->sale_products_simple($parent_id,$offset,$limit);
+			 	if ($sort_by && $sort_by == 'sales_volume')
+			 		$products = $this->products_model->sale_products_simple_by_sales($parent_id,$offset,$limit);
+			 	else 
+			 		$products = $this->products_model->sale_products_simple($parent_id,$offset,$limit);
 			 } else {
 			 	$products = $this->products_model->productsByTagSimple($parent_id,$category_name,$offset,$limit);
 			 }
@@ -327,374 +337,51 @@ class S extends CI_Controller {
 		
 	}
 
-	// /*
-	//  * 상품 리뷰 목록
-	//  */
-	
-	// function reviewsProduct(){
-	// 	$result['success'] = false;
-
-	// 	$reviews = $this->productReviews();
-
-	// 	if (gettype($reviews)=='array'){
-	// 		$result['success'] = true;
-	// 		$result['result'] = $reviews;
-
-	// 	}
-
-	// 	$this->output
-	// 		 ->set_content_type('application/json')
-	// 		 ->set_output(json_encode($result));
-
-	// }
-
-	// private function productReviews(){
-	// 	$lastId = $this->input->get('last_id');
-	// 	$limit = $this->input->get('limit');
-
-	// 	if (!$lastId) $lastId = 0;
-	// 	if (!$limit) $limit = 10;
-
-	// 	$products_id = $this->input->get('products_id');
-
-	// 	$this->db->select('id,nickname,members_id,products_id,content,rating');
-	// 	$this->db->limit($limit);
-	// 	$reviews = $this->db->get_where('reviews', array('products_id'=>$products_id,'id >'=>$lastId))->result();
-
-	// 	return $reviews;
-	// }
 
 
-	// /*
-	//  * 상품 리뷰 입력
-	//  */
-	// function writeProductReview(){
-	// 	$products_id = $this->input->post('products_id');
-	// 	$members_id = $this->input->post('members_id');
-	// 	$content = $this->input->post('content');
-	// 	$rating = $this->input->post('rating');
+	/*
+	 * 메인 편집 상품
+	 */
+	function mainContentCategory(){
+		$categories_id = $this->input->get('categories_id');
 
-	// 	$result['success'] = false;
+		$result['code'] = API_RESULT_FAIL;
 
-	// 	if (!$products_id || !$members_id || !$rating){
-	// 		$this->output
-	// 			 ->set_content_type('application/json')
-	// 			 ->set_output(json_encode($result));
-	// 		return;
-	// 	}
+		if (!$categories_id){
+			$result['code'] = API_RESULT_LACK_PARAMS;
+			$this->output
+				 ->set_content_type('application/json')
+				 ->set_output(json_encode($result));
+			return;		
+		}
 
-	// 	$member = $this->memberObj($members_id);
-	// 	$nickname = $member->nickname;
-
-	// 	$this->db->where(array('members_id' => $members_id,'products_id' => $products_id));
-	// 	$exist = ($this->db->count_all_results('reviews')) > 0 ? true : false;
-
-	// 	$this->db->set('date_write', 'NOW()', FALSE);
+		$this->db->select("concat('".RESOURCEHOST."',ifnull(app_detail_img, '/ko/img/empty.png'))as thumb",false);
+		$this->db->where('categories_id',$categories_id);
+		$populars = $this->db->get_where('products',array('pop'=>'Y'),4,0)->result();;
 		
-	// 	$this->db->trans_begin();
-		
-	// 	if ($exist){
-	// 		$data = array(
-	// 		    'content' => $content,
-	// 		    'rating' => $rating
-	// 		);
-	// 		$this->db->where(array('members_id' => $members_id,'products_id' => $products_id));
-	// 		$this->db->update('reviews', $data);
-	// 	} else {
-	// 		$data = array(
-	// 				    'members_id' => $members_id,
-	// 				    'products_id' => $products_id,
-	// 				    'content' => $content,
-	// 				    'rating' => $rating,
-	// 				    'nickname' => $nickname
-	// 				);
+		$this->db->select("concat('".RESOURCEHOST."',ifnull(app_detail_img, '/ko/img/empty.png'))as thumb",false);
+		$this->db->where('categories_id',$categories_id);
+		$this->db->order_by('id','desc');
+		$new_arvls = $this->db->get_where('products',array('new'=>'Y'),2,0)->result();
 
-	// 		$this->db->insert('reviews', $data);
-	// 	}
-        
- //        if ($this->db->trans_status() === FALSE)
- //        {
- //            $this->db->trans_rollback();
- //        } else {
- //        	$this->db->trans_commit();
-	//         $result['success'] = true;
-	//         $result['nickname'] = $nickname;
- //        }
-        
-	// 	$this->output
-	// 			 ->set_content_type('application/json')
-	// 			 ->set_output(json_encode($result));
-	// }
+		$this->db->select("concat('".RESOURCEHOST."',ifnull(app_detail_img, '/ko/img/empty.png'))as thumb",false);
+		$this->db->where('categories_id',$categories_id);
+		$bests = $this->db->get_where('products',array('hit'=>'Y'),4,0)->result();
+
+		$result['result']['populars'] = $populars;
+		$result['result']['new_arrivals'] = $new_arvls;
+		$result['result']['best_sellers'] = $bests;
+
+		$result['code'] = API_RESULT_OK;
+
+		$this->output
+			 ->set_content_type('application/json')
+			 ->set_output(json_encode($result));
 
 
-	// /*
-	//  * 상품 짐하기 : 맴버
-	//  */
-	// function zzimWithMember(){
-	// 	$zzim = $this->input->post('zzim');
-	// 	$members_id = $this->input->post('members_id');
-	// 	$products_id = $this->input->post('products_id');
-
-	// 	$this->load->model('wishlist_model');
-	// 	$this->wishlist_model->members_id = $members_id;
-	// 	$this->wishlist_model->products_id = $products_id;
-
-	// 	$result['success'] = false;
-	// 	if ($zzim == 'true'){
-	// 		$result['success'] = $this->wishlist_model->insert();
-	// 	} else {
-	// 		$result['success'] = $this->wishlist_model->delete();
-	// 	}
-
-	// 	$this->output
-	// 		 ->set_content_type('application/json')
-	// 		 ->set_output(json_encode($result));
-	// }
-
-	// /*
-	//  * 상품 짐하기 : 앱 
-	//  */
-	// function zzimWithUuid(){
-	// 	$zzim = $this->input->post('zzim');
-	// 	$uuid = $this->input->post('uuid');
-	// 	$products_id = $this->input->post('products_id');
-
-	// 	$this->load->model('wishlist_model');
-	// 	$this->wishlist_model->uuid = $uuid;
-	// 	$this->wishlist_model->products_id = $products_id;
-
-	// 	$result['success'] = false;
-	// 	if ($zzim == 'true'){
-	// 		$result['success'] = $this->wishlist_model->insertForApp();
-	// 	} else {
-	// 		$result['success'] = $this->wishlist_model->deleteForApp();
-	// 	}
-
-	// 	$this->output
-	// 		 ->set_content_type('application/json')
-	// 		 ->set_output(json_encode($result));
-
-	// }
-
-	// /*
-	//  * 찜 목록
-	//  */
-	// function wishlist(){
-	// 	$this->load->model('wishlist_model');
-	// 	$members_id = $this->input->get('members_id');
-	// 	$uuid = $this->input->get('uuid');
-
-	// 	$result['success'] = false;
-
-	// 	if ($members_id){
-	// 		$wishlist = $this->wishlist_model->wishlistByMemberApp($members_id);	
-	// 	}
-	// 	else if ($uuid){
-	// 		$wishlist = $this->wishlist_model->wishlistByUuid($uuid);
-	// 	} else {
-	// 		$this->output
-	// 		 ->set_content_type('application/json')
-	// 		 ->set_output(json_encode($result));
-	// 	}
-		
-
-	// 	if (gettype($wishlist) == 'array'){
-	// 		$result['success'] = true;
-	// 		$result['result'] = $wishlist;
-	// 	}
-
-	// 	$this->output
-	// 		 ->set_content_type('application/json')
-	// 		 ->set_output(json_encode($result));
-
-	// }
+	}
 
 
-
-	// /*
-	//  * 회원 QnA
-	//  */
-
-	// function qnaListMember(){
-	// 	$members_id = $this->input->get('members_id');
-
-	// 	$result['success'] = false;
-
-	// 	if (!$members_id){
-	// 		$this->output
-	// 			 ->set_content_type('application/json')
-	// 			 ->set_output(json_encode($result));
-	// 		return;
-	// 	}
-
-
-	// 	$lastId = $this->input->get('last_id');
-	// 	$limit = $this->input->get('limit');
-
-	// 	if (!$lastId) $lastId = 9999999;
-	// 	if (!$limit) $limit = 10;
-
-
-	// 	$this->db->select('id,members_id,nickname,title,date_format(date_write,"%Y.%m.%d") date_write,is_private, (select count(*) from questions q1 where step=1 and q1.questions_id = questions.id) reply', false);
-	// 	$this->db->limit($limit);
-	// 	$this->db->order_by('id','desc');
-	// 	$query = $this->db->get_where('questions', array('step'=>0,'members_id'=>$members_id, 'id <'=>$lastId));
-
-	// 	$result['success'] = false;
-	// 	$questions = $query->result();
-
-	// 	if (gettype($questions)=='array' && count($questions) > 0){
-	// 		$result['success'] = true;
-	// 		$result['result'] = $questions;
-
-
-	// 		// 남은 데이터
-	// 		if (count($questions) > 0){
-	// 			$lastId = $questions[count($questions)-1]->id;
-	// 			$this->db->where(array('step'=>0,'members_id'=>$members_id, 'id <'=>$lastId));
-	// 			$rest = $this->db->count_all_results('questions');				
-	// 		} else {
-	// 			$rest = 0;
-	// 		}
-
-
-	// 		$result['rest_items'] = $rest > 0 ? true : false;
-	// 	}
-
-	// 	$this->output
-	// 			 ->set_content_type('application/json')
-	// 			 ->set_output(json_encode($result));
-
-	// }
-	
-
-	// /*
-	//  * 상품 QnA 목록
-	//  */
-	// function qnaListProduct(){
-
-	// 	$lastId = $this->input->get('last_id');
-	// 	$limit = $this->input->get('limit');
-
-	// 	if (!$lastId) $lastId = 9999999;
-	// 	if (!$limit) $limit = 10;
-
-	// 	$products_id = $this->input->get('products_id');
-
-	// 	$this->db->select('id,members_id,nickname,title,date_format(date_write,"%Y.%m.%d") date_write,is_private, (select count(*) from questions q1 where step=1 and q1.questions_id = questions.id) reply', false);
-	// 	$this->db->limit($limit);
-	// 	$this->db->order_by('id','desc');
-	// 	$query = $this->db->get_where('questions', array('step'=>0,'products_id'=>$products_id, 'id <'=>$lastId));
-
-	// 	$result['success'] = false;
-	// 	$questions = $query->result();
-
-	// 	if (gettype($questions)=='array'){
-	// 		$result['success'] = true;
-	// 		$result['result'] = $questions;
-	// 	}
-
-	// 	$this->output
-	// 			 ->set_content_type('application/json')
-	// 			 ->set_output(json_encode($result));
-
-	// }
-
-	// /*
-	//  * 상품 QnA 상세
-	//  */
-	// function qnaDetail(){
-	// 	$questions_id = $this->input->get('questions_id');
-
-	// 	$result['success'] = false;
-	// 	if (!$questions_id){
-	// 		$this->output
-	// 			 ->set_content_type('application/json')
-	// 			 ->set_output(json_encode($result));
-	// 		return;
-	// 	}
-
-
-	// 	$this->db->select('id,nickname,title,content,date_format(date_write,"%Y.%m.%d") date_write', false);
-	// 	$question = $this->db->get_where('questions', array('id'=>$questions_id))->row();
-
-	// 	$data['question'] = $question;
-
-	// 	$this->db->select("id,ifnull(nickname,'CASEBUY') nickname,content,date_format(date_write,'%Y.%m.%d') date_write", false);
-	// 	$answer = $this->db->get_where('questions', array('questions_id'=>$questions_id))->result();		
-
-	// 	$data['answers'] = $answer;
-
-	// 	$result['result'] = $data;
-
-	// 	$result['success'] = true;
-
-	// 	$this->output
-	// 			 ->set_content_type('application/json')
-	// 			 ->set_output(json_encode($result));
-
-	// }
-
-	// /*
-	//  * 질문 하기
-	//  */
-	// function writeQna(){
-	
-	// 	$products_id = $this->input->post('products_id');
-	// 	$members_id = $this->input->post('members_id');
-	// 	$title = strip_tags($this->input->post('title'));
-	// 	$content = strip_tags($this->input->post('content'));
-	// 	$is_private = $this->input->post('is_private');
-
-	// 	$member = $this->memberObj($members_id);
-		
-	// 	$nickname = $member->nickname;
-
-	// 	$result['success'] = false;
-
-		
-	// 	// 유효성 검사
-	// 	if ($nickname && $title && $content){
-			
-	// 		$data = array(
-	// 			'members_id'=>$members_id,
-	// 			'products_id'=>$products_id,
-	// 			'nickname'=>$nickname,
-	// 			'title'=>$title,
-	// 			'content'=>$content,
-	// 			'is_private'=>$is_private,
-	// 			'orderby'=>0,
-	// 			'step'=>0
-	// 		);
-			
-	//         $this->db->trans_begin();
-			
-	// 		// 질문 그룹 번호 생성	        
-	//         $this->db->select_max('family','max_family');
-	//         $m = $this->db->get('questions');
-	//         $max = $m->row()->max_family + 1;
-			
-	// 		$this->db->set('family', $max);
-	// 		$this->db->set('date_write', 'NOW()', FALSE);
-	//         $this->db->insert('questions', $data);
-	        
-	//         if ($this->db->trans_status() === FALSE)
-	//         {
-	//             $this->db->trans_rollback();
-	//         } else {
-	//         	$this->db->trans_commit();
-	//         	$result['success'] = true;
-	//         }
-				
-	// 	}
-		
-	// 	$this->output
-	// 		 ->set_content_type('application/json')
-	// 		 ->set_output(json_encode($result));
-
-
-
-	// }
 
 	/*
 	 * 배송국가
@@ -1879,6 +1566,49 @@ class S extends CI_Controller {
 		$this->load->view('shop/mobile/order_detail_view1',$data);
 
 	}
+
+
+
+	/*
+	  * 좋아요
+	  */
+	 function likeUp(){
+	 	$products_id = $this->input->get_post('products_id');
+
+	 	$result['code'] = API_RESULT_FAIL;
+		if (!$products_id){
+			$result['code'] = API_RESULT_LACK_PARAMS;
+			$this->output
+				 ->set_content_type('application/json')
+				 ->set_output(json_encode($result));
+		}
+
+
+
+		$this->db->trans_begin();
+        $this->db->query('update caseshop.products set likes = likes +1 where id='.$products_id);
+        $this->db->query('update caseshop_ko.products set likes = likes +1 where id='.$products_id);
+
+        if ($this->db->trans_status() === FALSE)
+        {
+            $this->db->trans_rollback();
+        } else {
+        	$this->db->trans_commit();	
+        	$result['code'] = API_RESULT_OK;
+
+        	$this->db->select('likes');
+			$product = $this->db->get_where('products',array('id'=>$products_id))->row();
+			$result['result'] = $product->likes;
+        }
+
+
+        $this->output
+			 ->set_content_type('application/json')
+			 ->set_output(json_encode($result));
+        
+
+
+	 }
 
 
 }

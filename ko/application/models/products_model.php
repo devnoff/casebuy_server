@@ -33,7 +33,7 @@ class Products_model extends CI_Model {
     }
     
     
-    function sale_products_simple($categories_id=null,$offset=0,$limit=null){
+    function sale_products_simple($categories_id=null,$offset=0,$limit=null,$flag=null){
 
 	    $this->db->select("id,upper(title) title, sales_price,concat('$this->resource_host',ifnull(app_detail_img, '/ko/img/empty.png')) thumb,concat('$this->resource_host',ifnull(app_list_img, '/ko/img/empty.png')) image, sales_state", false);
 
@@ -42,6 +42,14 @@ class Products_model extends CI_Model {
 	    }
         
         $this->db->where_not_in('sales_state',array('WAIT','END','OUT'));
+
+        if ($flag == 'pop' || $flag == 'hit'){
+            $this->db->where($flag,'Y');
+        }
+
+        else if ($flag == 'new'){
+            $this->db->where('((select max(id) from products) - 20) < id');
+        }
 
         if ($limit){
             $this->db->limit($limit,$offset);
@@ -54,7 +62,7 @@ class Products_model extends CI_Model {
         return $query->result();
     }
 
-    function sale_products_simple_by_sales($categories_id=null,$offset=0,$limit=null){
+    function sale_products_simple_by_sales($categories_id=null,$offset=0,$limit=null,$flag=null){
 
         $this->db->select("id,sales_volume ,upper(title) title, sales_price,concat('$this->resource_host',ifnull(app_detail_img, '/ko/img/empty.png')) thumb,concat('$this->resource_host',ifnull(app_list_img, '/ko/img/empty.png')) image, sales_state", false);
 
@@ -63,6 +71,14 @@ class Products_model extends CI_Model {
         }
         
         $this->db->where_not_in('sales_state',array('WAIT','END','OUT'));
+
+        if ($flag == 'pop' || $flag == 'hit'){
+            $this->db->where($flag,'Y');
+        }
+
+        else if ($flag == 'new'){
+            $this->db->where('((select max(id) from products) - 20) < id');
+        }
 
         if ($limit){
             $this->db->limit($limit,$offset);
@@ -295,7 +311,7 @@ class Products_model extends CI_Model {
     
     // Select Simple Product Info
     function productAppSimple($id){
-    	$this->db->select("id, title,sub_title, sales_price, app_description,sales_state,replace(product_images,'\'','\"') product_images, likes", false);
+    	$this->db->select("id, title,sub_title, sales_price, app_description,sales_state,replace(product_images,'\'','\"') product_images, likes,concat('$this->resource_host',ifnull(app_list_img, '/ko/img/empty.png')) image", false);
     	$this->db->where('id',$id);
     	$query = $this->db->get('products');
     	
@@ -524,6 +540,7 @@ class Products_model extends CI_Model {
         $data = $productData;
      
         if (!$data){
+            echo 'lack of param';
             return false;
         }
         
@@ -542,6 +559,7 @@ class Products_model extends CI_Model {
 
                         if (is_readable($path)){
                             if (!unlink($path)){
+                                echo 'unlink failed';
                                 return false;
                             }
                         }    
@@ -574,11 +592,11 @@ class Products_model extends CI_Model {
             unset($data['file_explorer']);
         }
         
-        if (empty($data['pop'])) $data['pop'] = 'N';
-        if (empty($data['hit'])) $data['hit'] = 'N';
-        if (empty($data['new'])) $data['new'] = 'N';
-        if (empty($data['dc_sale'])) $data['dc_sale'] = 'N';
-        if (empty($data['recomm'])) $data['recomm'] = 'N';
+        // if (empty($data['pop'])) $data['pop'] = 'N';
+        // if (empty($data['hit'])) $data['hit'] = 'N';
+        // if (empty($data['new'])) $data['new'] = 'N';
+        // if (empty($data['dc_sale'])) $data['dc_sale'] = 'N';
+        // if (empty($data['recomm'])) $data['recomm'] = 'N';
 
         if (!empty($data['product_images'])){
 
@@ -586,51 +604,52 @@ class Products_model extends CI_Model {
         }
 
         // 추가 이미지 파일 복사
-        if (!empty($data['product_images'])){
+        // if (!empty($data['product_images'])){
 
-            $images = json_decode($data['product_images']);
-            $copyied = true;
-            foreach ($images as $dic) {
+        //     $images = json_decode($data['product_images']);
+        //     $copyied = true;
+        //     foreach ($images as $dic) {
 
-                $source = APPBASE.'/product_images/'.$dic->file_name;
-                $destDir = APPBASE.'../en/product_images/';
-                $destPath = $destDir.$dic->file_name;
+        //         $source = APPBASE.'/product_images/'.$dic->file_name;
+        //         $destDir = APPBASE.'../en/product_images/';
+        //         $destPath = $destDir.$dic->file_name;
 
-                if (is_readable($source) && is_writable($destDir)){
-                    try {
-                        if (!copy($source, $destPath)){
-                            echo 'failed to copy images';
-                            $copyied = false;
-                        }    
-                    } catch (Exception $e) {
+        //         if (is_readable($source) && is_writable($destDir)){
+        //             try {
+        //                 if (!copy($source, $destPath)){
+        //                     echo 'failed to copy images';
+        //                     $copyied = false;
+        //                 }    
+        //             } catch (Exception $e) {
                         
-                    }
+        //             }
                         
-                } else {
-                    $copyied = false;
-                }
+        //         } else {
+        //             $copyied = false;
+        //         }
                 
 
-                // $source = BASEPATH.'../product_images/'.$dic->file_name;
-                // $destination = BASEPATH.'../../en/product_images/'.$dic->file_name;
-                // $imgData = file_get_contents($source);
-                // $handle = fopen($destination, "w");
+        //         // $source = BASEPATH.'../product_images/'.$dic->file_name;
+        //         // $destination = BASEPATH.'../../en/product_images/'.$dic->file_name;
+        //         // $imgData = file_get_contents($source);
+        //         // $handle = fopen($destination, "w");
                 
-                // if (!fwrite($handle, $imgData)){
-                //     $copyied = false;
-                // }
-                // fclose($handle);
-            }
+        //         // if (!fwrite($handle, $imgData)){
+        //         //     $copyied = false;
+        //         // }
+        //         // fclose($handle);
+        //     }
 
-            if ($copyied)
-                $enData['product_images'] = json_encode($images);
+        //     if ($copyied)
+        //         $enData['product_images'] = json_encode($images);
 
 
-        }           
+        // }           
         
         
         $this->db->trans_begin();
         $this->db->where('id', $data['id']);
+        unset($data['id']);
 		$this->db->update('products', $data);
 
         if (count($enData)>0){
@@ -641,6 +660,7 @@ class Products_model extends CI_Model {
     	if ($this->db->trans_status() === FALSE)
         {
             $this->db->trans_rollback();
+            echo 'db update fail';
             return false;
         }
 
