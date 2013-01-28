@@ -236,6 +236,7 @@ class Product extends Action {
                 $result = '{"success":true}';
             } 
             echo $result;
+            return;
         } else {
             $result = "<script>alert('실패');</script>";
             if ($this->products_model->update($data)){
@@ -243,6 +244,7 @@ class Product extends Action {
             } 
 
             echo $result."<script>location.href='".$redirect."'</script>";    
+            return;
         }
         
         
@@ -663,9 +665,18 @@ class Product extends Action {
         {
             $this->db->trans_rollback();
         } else {
-            $result['success'] = true;
             $this->db->trans_commit();
+            $this->db->trans_begin();
+            $this->db->query("update caseshop.products set sales_state='WAIT' where id=".$products_id);
+            if ($this->db->trans_status() === FALSE){
+                $this->db->trans_rollback();
+            } else {
+                $this->db->trans_commit();
+                $result['success'] = true;
+            }
+
         }
+
         
         $this->output
              ->set_content_type('application/json')
