@@ -83,7 +83,7 @@ $('.headerContainer').find('.'+uri).find('a').addClass('selected');
 		</ul>
 		<ul class="info">
 			<li>
-<center>CultStory 대표: 윤제필 사업자등록번호: 105-87-36667 통신판매업신고번호: 제 2012-서울중구-1342 호</center>
+<center>(주)컬트스토리 대표: 윤제필 사업자등록번호: 105-87-36667 통신판매업신고번호: 제 2012-서울중구-1342 호</center>
 <center>주소: 서울시 중구 충무로2가 50-6 라이온스빌딩 1003 TEL: 070-8280-4090 FAX: 02-6280-7428</center>
 <center>개인정보관리책임자: 박용남(casebuy@cultstory.com)</center>
 			</li>
