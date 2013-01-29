@@ -311,7 +311,7 @@ class Products_model extends CI_Model {
     
     // Select Simple Product Info
     function productAppSimple($id){
-    	$this->db->select("id, title,sub_title, sales_price, app_description,sales_state,replace(product_images,'\'','\"') product_images, likes,concat('$this->resource_host',ifnull(app_list_img, '/ko/img/empty.png')) image", false);
+    	$this->db->select("id, title,sub_title, sales_price,case when description is not null then concat('$this->resource_host',description) else null end as description, app_description,sales_state,replace(product_images,'\'','\"') product_images, likes,concat('$this->resource_host',ifnull(app_list_img, '/ko/img/empty.png')) image", false);
     	$this->db->where('id',$id);
     	$query = $this->db->get('products');
     	
@@ -506,7 +506,9 @@ class Products_model extends CI_Model {
         
         $data['tags'] = preg_replace("/\s+/","",$data['tags']); // 태그 공백제거
         
-        $data['description'] = $data['smarteditor_textarea'];
+        if (empty($data['description']))
+            $data['description'] = $data['smarteditor_textarea'];
+
         unset($data['smarteditor_textarea']);
         unset($data['file_explorer']);
         unset($data['product_photo']);
@@ -649,7 +651,7 @@ class Products_model extends CI_Model {
         
         $this->db->trans_begin();
         $this->db->where('id', $data['id']);
-        unset($data['id']);
+        // unset($data['id']);
 		$this->db->update('products', $data);
 
         if (count($enData)>0){

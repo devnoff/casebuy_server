@@ -206,21 +206,21 @@
     
 
     
-        <div class="descriptions" style="display:none"> <!-- 숨김 -->
+        <div class="descriptions"> <!-- 숨김 -->
             <h2>상품 설명</h2>
-            <textarea name="smarteditor_textarea" id="smarteditor_textarea" rows="10" cols="100"></textarea><br/>
+            <!-- <textarea id="smarteditor_textarea" rows="10" cols="100"></textarea><br/> -->
         
 
             <div class="file_manager">
-                <select size="10" name="file_explorer">
+                <!-- <select size="10" name="file_explorer" >
                     <option>abcedfg.jpg</option>
-                <select>
+                <select> -->
                 <img src="http://media-mcw.cursecdn.com/ko//thumb/1/1d/No_image.svg/50px-No_image.svg.png" />
                 <div>
                     <strong>File Manager</strong><br/><br/>
                     가로 사이즈: <span class="img_width">0</span>px<br/>
                     세로 사이즈: <span class="img_height">0</span>px<br/><br/>
-                    <button type="button" disabled>본문 삽입</button>
+                    <input type="file" name="description" data-url="<?=site_url('admins/product/uploadDescImage/');?>" optional="true"/>
                 </div>
             </div>
         </div>
@@ -714,33 +714,34 @@ loadProducerOptions();
 *
 */
 
- function submit(elClickedObj){
-        // 에디터의 내용이 textarea에 적용된다.
-       oEditors[0].exec("UPDATE_CONTENTS_FIELD", []);
+function submit(elClickedObj){
+    // 에디터의 내용이 textarea에 적용된다.
+   oEditors[0].exec("UPDATE_CONTENTS_FIELD", []);
 
-       // 에디터에 입력된 내용의 검증은 이곳에서
-       var value = document.getElementById("smarteditor_textarea").value;
+   // 에디터에 입력된 내용의 검증은 이곳에서
+   var value = document.getElementById("smarteditor_textarea").value;
 
-       alert(value);
-        
-    }
-
-/* 스마트 에디터 로드 */
-var oEditors = [];
-nhn.husky.EZCreator.createInIFrame({
-    oAppRef: oEditors,
-    elPlaceHolder: "smarteditor_textarea",
-    sSkinURI: "<?=base_url();?>smarteditor/SmartEditor2Skin.html",
-    fCreator: "createSEditor2"
-});
-
-// 에디터 콜백 세팅 
-
-// 에디터 이미지 삽입 함수
-function pasteIMG(src,width,height) {
-	var sHTML = "<img src='"+src+"' style='max-width:800px'/>"; //width='"+width+"' height='"+height+"' 
-	oEditors.getById["smarteditor_textarea"].exec("PASTE_HTML", [sHTML]);
+   alert(value);
+    
 }
+
+// /* 스마트 에디터 로드 */
+// var oEditors = [];
+// nhn.husky.EZCreator.createInIFrame({
+//     oAppRef: oEditors,
+//     elPlaceHolder: "smarteditor_textarea",
+//     sSkinURI: "<?=base_url();?>smarteditor/SmartEditor2Skin.html",
+//     fCreator: "createSEditor2"
+// });
+
+// // 에디터 콜백 세팅 
+
+// // 에디터 이미지 삽입 함수
+// function pasteIMG(src,width,height) {
+//     $('input[name="description"]').val(src);
+// 	var sHTML = "<img src='"+src+"' style='max-width:800px'/>"; //width='"+width+"' height='"+height+"' 
+// 	oEditors.getById["smarteditor_textarea"].exec("PASTE_HTML", [sHTML]);
+// }
 
 
 
@@ -806,6 +807,46 @@ var appendImageFile = function(fileInfo){
 
 }
 
+
+$('.file_manager').find('input[type="file"]').each(function(){
+    $(this).change(function(){
+        
+        var filepath = $(this).val();
+        var pathComp = filepath.split('.');
+        var ext = pathComp[pathComp.length-1];
+        
+        var className = $(this).attr('name');
+        console.log(filepath);
+        
+        if (ext == 'jpeg' || ext == 'jpg' || ext == 'png' || ext == 'gif'){
+            
+            var fileObj = this,
+                file;
+
+            if (fileObj.files) {
+                file = fileObj.files[0];
+                var fr = new FileReader;
+                fr.onloadend = function(str){
+
+                    if(typeof str === "object") {
+                        str = str.target.result; // file reader
+                    }
+
+                    $('.file_manager > img').attr('src',str);
+                };
+                fr.readAsDataURL(file)
+            } else {
+                file = fileObj.value;
+                changeimage(file, $(this).attr('name'));
+            }
+            
+        } else {
+            alert('이미지만 선택이 가능합니다');
+            $(this).val(null);
+        }
+        
+    });
+});
 
 
 
@@ -1048,7 +1089,7 @@ $('form').submit(function(e){
     }
     
     // 에티더 업데이트
-    oEditors[0].exec("UPDATE_CONTENTS_FIELD", []);
+    // oEditors[0].exec("UPDATE_CONTENTS_FIELD", []);
         
     console.log('hi');
     // alert($(this).serialize());
