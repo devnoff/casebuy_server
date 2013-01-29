@@ -295,7 +295,7 @@
     
         <div class="app_description">
             <h2>상품 설명 앱용 ('/' 구분)</h2>
-            <input type="text" name="app_description" />
+            <textarea name="app_description" style="width:300px"></textarea>
         </div>
     
         <!-- 전송 버튼 -->

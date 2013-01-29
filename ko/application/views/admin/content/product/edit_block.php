@@ -45,6 +45,11 @@ var loadEditingData = function(){
                     $(this).attr('selected',true);
             });
         }
+
+        $field = $('textarea[name="'+key+'"]');
+        if ($field.is('textarea')){
+            $field.html(product_json[key]);
+        }
     }
     
     // $('#smarteditor_textarea').val(product_json['description']);
