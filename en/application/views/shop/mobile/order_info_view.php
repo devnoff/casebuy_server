@@ -60,7 +60,7 @@
 
 
 		<a href="submitted:" class="checkout">CONTINUE</a>
-		<p class="add">Please make sure your shipping address is correct!</p>
+		<p class="add" style="color:red;letter-spacing:0px">Please provide selected product option while paying with paypal. (Color or Pattern)</p>
 
 	</body>
 
