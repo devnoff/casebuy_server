@@ -904,7 +904,7 @@ class Paypal extends CI_Controller
 							'surveyquestion' => '', 					// Text for the survey question on the PayPal Review page. If the survey question is present, at least 2 survey answer options need to be present.  50 char max.
 							'surveyenable' => '', 						// Enable survey functionality. Allowable values are 0 and 1
 							'totaltype' => 'Total', 							// Enables display of "estimated total" instead of "total" in the cart review area.  Values are:  Total, EstimatedTotal
-							'notetobuyer' => '', 						// Displays a note to buyers in the cart review area below the total amount.  Use the note to tell buyers about items in the cart, such as your return policy or that the total excludes shipping and handling.  127 char max.							
+							'notetobuyer' => 'Please provide selected product option.(Color or Pattern)', 						// Displays a note to buyers in the cart review area below the total amount.  Use the note to tell buyers about items in the cart, such as your return policy or that the total excludes shipping and handling.  127 char max.							
 							'buyerid' => '', 							// The unique identifier provided by eBay for this buyer. The value may or may not be the same as the username. In the case of eBay, it is different. 255 char max.
 							'buyerusername' => '', 						// The user name of the user at the marketplaces site.
 							'buyerregistrationdate' => '',  			// Date when the user registered with the marketplace.
