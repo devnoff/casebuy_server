@@ -175,7 +175,8 @@ class Product extends Action {
         $title = $this->input->post('title');
         
         $this->db->trans_begin();
-        $this->db->insert($type, array('title'=>$title));
+        $this->db->insert('caseshop_ko.'.$type, array('title'=>$title));
+        $this->db->insert('caseshop.'.$type, array('title'=>$title));
 
         if ($this->db->trans_status() === FALSE)
         {
