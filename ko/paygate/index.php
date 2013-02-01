@@ -482,7 +482,7 @@ $goodoption1 = $result['id'];
 	</form>
 
 
-	<center>CultStory 대표: 윤제필 사업자등록번호: 105-87-36667 통신판매업신고번호: 제 2012-서울중구-1342 호<br/>
+	<center>(주)컬트스토리 대표: 윤제필 사업자등록번호: 105-87-36667 통신판매업신고번호: 제 2012-서울중구-1342 호<br/>
 			주소: 서울시 중구 충무로2가 50-6 라이온스빌딩 1003 TEL: 070-8280-4090 FAX: 02-6280-7428<br/>
 			개인정보관리책임자: 박용남(casebuy@cultstory.com)</center>
 
@@ -509,13 +509,13 @@ $goodoption1 = $result['id'];
 
 		// 현재 가상 계좌가 아닌 회사 계좌로 입금하게 되어있음
 
-		var acc_no = '1005-402-091311';//$('input[name="bankaccount"]').val();
+		var acc_no = '279-048859-04-017';//$('input[name="bankaccount"]').val();
 		$('#payment_result_form > input[name="acc_no"]').val(acc_no);
 
-		var bank_code = 20;//$('[id="option_bankcode"]').val(); 
+		var bank_code = '03';//$('[id="option_bankcode"]').val(); 
 		$('#payment_result_form > input[name="bank_code"]').val(bank_code);
 
-		var bank_name = '우리은행';
+		var bank_name = '기업은행';
 		$('#payment_result_form > input[name="bank_name"]').val(bank_name);		
 
 		var y = $('#option_year').val();
@@ -633,7 +633,7 @@ $goodoption1 = $result['id'];
 		$message = 
 '[CASEBUY]
 무통장 입금 안내
-'.$bankName.' 조영운(YU LAB)
+'.$bankName.' 컬트스토리
 '.$accNo.'
 '.number_format($amount).'원';
 

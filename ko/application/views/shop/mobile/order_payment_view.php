@@ -97,7 +97,7 @@
 		<h2><span>결제방법 선택</span></h2>
 		<div class="button"><a onclick="pay('card');" class="left">신용카드</a><a onclick="pay('virtual');" class="right" >계좌입금</a></div>
 		<!-- <p style="padding:15px;font-size:10pt;color:red;font-weight:bold">삼성, 롯데 카드 등 일부 카드는 결제가 되지 않을 수 있습니다.</p> -->
-		<center>CultStory 대표: 윤제필 사업자등록번호: 105-87-36667 통신판매업신고번호: 제 2012-서울중구-1342 호<br/>
+		<center>(주)컬트스토리 대표: 윤제필 사업자등록번호: 105-87-36667 통신판매업신고번호: 제 2012-서울중구-1342 호<br/>
 			주소: 서울시 중구 충무로2가 50-6 라이온스빌딩 1003 TEL: 070-8280-4090 FAX: 02-6280-7428<br/>
 			개인정보관리책임자: 박용남(casebuy@cultstory.com)</center>
 

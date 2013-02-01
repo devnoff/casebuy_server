@@ -62,7 +62,7 @@
 				<span>
 					<?=$data['order']->order_state_readable;?>
 				<? if (!empty($data['virtual'])){ ?>
-				<i><?=$data['virtual']['acc_no'];?><b><?=$data['virtual']['agency'];?>・예금주: 조영운(YU LAB)</b></i>
+				<i><?=$data['virtual']['acc_no'];?><b><?=$data['virtual']['agency'];?>・예금주: 컬트스토리</b></i>
 				<? } ?>
 				</span>
 			</div>
@@ -177,7 +177,7 @@
 		<? } ?>
 
 		<br/>
-		<center>CultStory 대표: 윤제필 사업자등록번호: 105-87-36667 통신판매업신고번호: 제 2012-서울중구-1342 호<br/>
+		<center>(주)컬트스토리 대표: 윤제필 사업자등록번호: 105-87-36667 통신판매업신고번호: 제 2012-서울중구-1342 호<br/>
 			주소: 서울시 중구 충무로2가 50-6 라이온스빌딩 1003 TEL: 070-8280-4090 FAX: 02-6280-7428<br/>
 			개인정보관리책임자: 박용남(casebuy@cultstory.com)</center>
 
