@@ -69,7 +69,11 @@ class Main extends CI_Controller {
         echo $this->secure()->getSessionKey($id);
     }
 	
-	
+
+
+	function companyMobileURL(){
+		redirect('http://m.cultstory.com/about');
+	}
 }
 
 
