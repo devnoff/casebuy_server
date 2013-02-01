@@ -606,47 +606,47 @@ class Products_model extends CI_Model {
         }
 
         // 추가 이미지 파일 복사
-        // if (!empty($data['product_images'])){
+        if (!empty($data['product_images'])){
 
-        //     $images = json_decode($data['product_images']);
-        //     $copyied = true;
-        //     foreach ($images as $dic) {
+            $images = json_decode($data['product_images']);
+            $copyied = true;
+            foreach ($images as $dic) {
 
-        //         $source = APPBASE.'/product_images/'.$dic->file_name;
-        //         $destDir = APPBASE.'../en/product_images/';
-        //         $destPath = $destDir.$dic->file_name;
+                $source = APPBASE.'/product_images/'.$dic->file_name;
+                $destDir = APPBASE.'../en/product_images/';
+                $destPath = $destDir.$dic->file_name;
 
-        //         if (is_readable($source) && is_writable($destDir)){
-        //             try {
-        //                 if (!copy($source, $destPath)){
-        //                     echo 'failed to copy images';
-        //                     $copyied = false;
-        //                 }    
-        //             } catch (Exception $e) {
+                if (is_readable($source) && is_writable($destDir)){
+                    try {
+                        if (!copy($source, $destPath)){
+                            echo 'failed to copy images';
+                            $copyied = false;
+                        }    
+                    } catch (Exception $e) {
                         
-        //             }
+                    }
                         
-        //         } else {
-        //             $copyied = false;
-        //         }
+                } else {
+                    $copyied = false;
+                }
                 
 
-        //         // $source = BASEPATH.'../product_images/'.$dic->file_name;
-        //         // $destination = BASEPATH.'../../en/product_images/'.$dic->file_name;
-        //         // $imgData = file_get_contents($source);
-        //         // $handle = fopen($destination, "w");
+                // $source = BASEPATH.'../product_images/'.$dic->file_name;
+                // $destination = BASEPATH.'../../en/product_images/'.$dic->file_name;
+                // $imgData = file_get_contents($source);
+                // $handle = fopen($destination, "w");
                 
-        //         // if (!fwrite($handle, $imgData)){
-        //         //     $copyied = false;
-        //         // }
-        //         // fclose($handle);
-        //     }
+                // if (!fwrite($handle, $imgData)){
+                //     $copyied = false;
+                // }
+                // fclose($handle);
+            }
 
-        //     if ($copyied)
-        //         $enData['product_images'] = json_encode($images);
+            if ($copyied)
+                $enData['product_images'] = json_encode($images);
 
 
-        // }           
+        }           
         
         
         $this->db->trans_begin();

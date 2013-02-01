@@ -53,20 +53,20 @@
                     <input name="product_code" type="text" />
                 </li>
                 <li>
-                    <label for="">매입가($)</label>
-                    <input class="money_input price_input" name="purchase_price" type="text" style="text-align:right;ime-mode:disabled;" onKeyPress="return numbersonly(event, true)"/>
+                    <label for="">매입가(원)</label>
+                    <input class="money_input price_input" name="purchase_price" type="text" style="text-align:right;ime-mode:disabled;" />
                 </li>
                 <li>
-                    <label for="">정가($)</label>
-                    <input class="money_input price_input" name="regular_price" type="text" style="text-align:right;ime-mode:disabled;" onKeyPress="return numbersonly(event, true)" />
+                    <label for="">정가(원)</label>
+                    <input class="money_input price_input" name="regular_price" type="text" style="text-align:right;ime-mode:disabled;"  />
                 </li>
                 <li>
                     <label for="">할인율(%)</label>
-                    <input class="price_input" name="dc_rate" type="text" style="text-align:right;ime-mode:disabled;" onKeyPress="return numbersonly(event, true)" optional="true"/>
+                    <input class="price_input" name="dc_rate" type="text" style="text-align:right;ime-mode:disabled;"  optional="true"/>
                 </li>
                 <li>
-                    <label for="">할인가격($)</label>
-                    <input class="money_input price_input" name="fixed_dc_amount" type="text" style="text-align:right;ime-mode:disabled;" onKeyPress="return numbersonly(event, true)" optional="true" />
+                    <label for="">할인가격(원)</label>
+                    <input class="money_input price_input" name="fixed_dc_amount" type="text" style="text-align:right;ime-mode:disabled;"  optional="true" />
                 </li>
                 <li>
                     <label for="">판매가격(자동계산)</label>
@@ -74,19 +74,19 @@
                 </li>
                 <li>
                     <label for="">적립포인트 비율(%)</label>
-                    <input class="price_input" name="point_rate" type="text" style="text-align:right;ime-mode:disabled;" onKeyPress="return numbersonly(event, true)" optional="true" />
+                    <input class="price_input" name="point_rate" type="text" style="text-align:right;ime-mode:disabled;"  optional="true" />
                 </li>
                 <li>
                     <label for="">적립포인트(포인트)</label>
-                    <input class="price_input" name="fixed_point" type="text" style="text-align:right;ime-mode:disabled;" onKeyPress="return numbersonly(event, true)" optional="true"/>
+                    <input class="price_input" name="fixed_point" type="text" style="text-align:right;ime-mode:disabled;"  optional="true"/>
                 </li>
                 <li>
                     <label for="">적립포인트(자동계산)</label>
                     <input class="price_input" name="point_amount" type="text"  style="text-align:right;" disabled/>
                 </li>
                 <li>
-                    <label for="">배송비($)</label>
-                    <input class="money_input price_input" name="delivery_fee" value="" type="text"style="text-align:right;ime-mode:disabled;" onKeyPress="return numbersonly(event, true)"/>
+                    <label for="">배송비(원)</label>
+                    <input class="money_input price_input" name="delivery_fee" value="2,500" type="text"style="text-align:right;ime-mode:disabled;" />
                 </li>
                 <li>
                     <label for="">출시일</label>
@@ -101,13 +101,13 @@
             <h2>수익 정보</h2>
             <ul>
                 <li>
-                    <label for="">수익($):<br/><span>판매가 - 매입가</span></label><input type="text" name="profit" class="money_input" disabled />
+                    <label for="">수익(원):<br/><span>판매가 - 매입가</span></label><input type="text" name="profit" class="money_input" disabled />
                 </li>
                 <li>
-                    <label for="">배송비 고려 수익($):<br/><span>수익 - (업체배송비 - 배송비)</span></label><input type="text" name="profit_after_delivery" class="money_input" disabled />
+                    <label for="">배송비 고려 수익(원):<br/><span>수익 - (업체배송비 - 배송비)</span></label><input type="text" name="profit_after_delivery" class="money_input" disabled />
                 </li>
                 <li>
-                    <label for="">적립금 고려한 수익($):<br/><span>배송비 고려 수익 - 적립포인트</span></label><input type="text" name="profit_final" class="money_input" disabled />
+                    <label for="">적립금 고려한 수익(원):<br/><span>배송비 고려 수익 - 적립포인트</span></label><input type="text" name="profit_final" class="money_input" disabled />
                 </li>
             </ul>
         </div>
@@ -193,7 +193,7 @@
                     <input type="button" name="brands" value="추가"/>
                 </li>
                 <li>
-                    <label for="">원산지</label>
+                    <label for="">구입처</label>
                     <select name="origins_id">
                         <option value="a">a</option>
                         <option value="b">b</option>
@@ -206,20 +206,21 @@
     
 
     
-        <div class="descriptions" style="display:none"> <!-- 숨김 -->
-            <h2>상품 설명</h2>
-            <textarea name="smarteditor_textarea" id="smarteditor_textarea" rows="10" cols="100"></textarea><br/>
+        <div class="descriptions"> <!-- 숨김 -->
+            <h2>몸씨 상품 이미지</h2>
+            <!-- <textarea id="smarteditor_textarea" rows="10" cols="100"></textarea><br/> -->
         
 
             <div class="file_manager">
-                <select size="10" name="file_explorer">
-                </select>
+                <!-- <select size="10" name="file_explorer" >
+                    <option>abcedfg.jpg</option>
+                <select> -->
                 <img src="http://media-mcw.cursecdn.com/ko//thumb/1/1d/No_image.svg/50px-No_image.svg.png" />
                 <div>
                     <strong>File Manager</strong><br/><br/>
                     가로 사이즈: <span class="img_width">0</span>px<br/>
                     세로 사이즈: <span class="img_height">0</span>px<br/><br/>
-                    <button type="button" disabled>본문 삽입</button>
+                    <input type="file" name="description" data-url="<?=site_url('admins/product/uploadDescImage/');?>" optional="true"/>
                 </div>
             </div>
         </div>
@@ -277,7 +278,7 @@
             <!-- 1. db.product_images 테이블에서 상품번호로 데이터를 불러와서 출력 -->
             <div class="product_images_manager">
                 <select size="10" name="product_images[]" multiple>
-                <select>
+                </select>
                 <img src="http://media-mcw.cursecdn.com/ko//thumb/1/1d/No_image.svg/50px-No_image.svg.png" width="150" height="150"/>
                 <div>
                     <strong>Product Images Manager</strong><br/><br/>
@@ -293,7 +294,7 @@
         <!-- 상품 설명 웹용 -->
     
         <div class="app_description">
-            <h2>상품 설명 앱용 ('/' 구분)</h2>
+            <h2>상품 설명 앱용</h2>
             <textarea name="app_description" style="width:300px"></textarea>
         </div>
     
@@ -389,27 +390,27 @@ var dispCategoryOption = function(select, data, selected_id){
 var loadSubCategoryData = function(parent_id, selected_id){
     
     $.ajax({
-    		type: 'GET',
-    		url: '<?=site_url();?>/admins/product/categoryLv2',
-    		data: {parent_id:parent_id},
-    		success: function(text){
-    			var json = eval(text);
+            type: 'GET',
+            url: '<?=site_url();?>/admins/product/categoryLv2',
+            data: {parent_id:parent_id},
+            success: function(text){
+                var json = eval(text);
 
                 if (json){
                     dispCategoryOption('#sub_category_select', json,selected_id);
 
                 } 
-    		}
-    	});
+            }
+        });
 };
 
 // 1차 카테고리 옵션 불러오기 함수
 var loadCategoryData = function (){
     $.ajax({
-    		type: 'GET',
-    		url: '<?=site_url();?>/admins/product/categoryLv1',
-    		success: function(text){
-    			var json = eval(text);
+            type: 'GET',
+            url: '<?=site_url();?>/admins/product/categoryLv1',
+            success: function(text){
+                var json = eval(text);
 
                 if (json){
                     dispCategoryOption('#category_select',json,0);
@@ -417,8 +418,8 @@ var loadCategoryData = function (){
                     loadSubCategoryData(json[0].id, 0);
                 } 
 
-    		}
-    	});
+            }
+        });
     
 };
 
@@ -448,9 +449,6 @@ var dispPartnersOption = function(data){
     var $partners = $('#partners_select');
     $partners.empty();
     
-    var $option = $('<option value="0">');
-        $option.appendTo($partners);
-
     for (var i in data){
         var title = data[i].title;
         var delivery_fee = data[i].delivery_fee;
@@ -464,17 +462,17 @@ var dispPartnersOption = function(data){
 var loadPartersData = function(){
     
     $.ajax({
-    		type: 'GET',
-    		url: '<?=site_url();?>/admins/product/partners',
-    		success: function(text){
-    			var json = eval(text);
+            type: 'GET',
+            url: '<?=site_url();?>/admins/product/partners',
+            success: function(text){
+                var json = eval(text);
 
                 if (json){
                     dispPartnersOption(json);
 
                 } 
-    		}
-    	});
+            }
+        });
 };
 
 // 파트너 옵션 불러오기 
@@ -525,8 +523,7 @@ var calculatePrice = function(){
     
     // 업체배송비
     var partner_delivery_fee = $('select[name="partners_id"] option:selected').attr('delivery_fee');
-    if (partner_delivery_fee == undefined)
-        partner_delivery_fee = 0;
+    
     
     /*
     * 고정할인액이 있을 경우 할인율을 무시함
@@ -556,8 +553,6 @@ var calculatePrice = function(){
     var profit = sales_price - purchase_price;
     var profit_after_delivery = parseFloat(sales_price) - parseFloat(purchase_price) + parseFloat(delivery_fee) - parseFloat(partner_delivery_fee);
     var profit_final = profit_after_delivery - point_amount;
-    profit_after_delivery = parseFloat(profit_after_delivery);
-    profit_final = parseFloat(profit_final);
     
     console.log(sales_price + '-' + purchase_price + '+' + delivery_fee + '-' + partner_delivery_fee + ' = ' + profit_after_delivery);
     
@@ -571,9 +566,8 @@ var calculatePrice = function(){
         
     $('.money_input').each(function(){
         var v = $(this).val();
-        // v = v.split(',').join('');
-        // $(this).val(addCommas(v));
-        // $(this).val(parseFloat(v).toFixed(2));
+        v = v.split(',').join('');
+        $(this).val(v);
     });
     
 }
@@ -599,7 +593,7 @@ $('#partners_select').change(function(){
 *
 */
 $(function() {
-	$("input[name='date_release']").datepicker({ dateFormat: "yy-mm-dd" });
+    $("input[name='date_release']").datepicker({ dateFormat: "yy-mm-dd" });
 });
 
 
@@ -631,10 +625,10 @@ var dispOptions = function(select, data){
 
 var loadProducerOptions = function(target){
     $.ajax({
-    		type: 'GET',
-    		url: '<?=site_url();?>/admins/product/producerOptions',
-    		success: function(text){
-    			var json = eval(text);
+            type: 'GET',
+            url: '<?=site_url();?>/admins/product/producerOptions',
+            success: function(text){
+                var json = eval(text);
                 
                 if (target){
                     dispOptions(p_target[target], json[target]);
@@ -644,8 +638,8 @@ var loadProducerOptions = function(target){
                         dispOptions(p_target[t], json[t]);
                     }
                 } 
-    		}
-    	});
+            }
+        });
 };
 
 var showAddOption = function(type){
@@ -658,7 +652,7 @@ var showAddOption = function(type){
             title = '브랜드 추가';
         break;
         case 'origins':
-            title = '원산지 추가';
+            title = '구입처 추가';
         break;
     }
     
@@ -691,11 +685,11 @@ $('#producer_add_form').submit(function(e){
    var title = $('#producer_add_form > input[name="title"]').val();
    
    $.ajax({
-   		type: 'POST',
-   		url: url,
-   		data: {title:title},
-   		success: function(text){
-   			var json = eval('('+text+')');
+        type: 'POST',
+        url: url,
+        data: {title:title},
+        success: function(text){
+            var json = eval('('+text+')');
                
             if (json.success){
                 alert('추가 완료');
@@ -705,8 +699,8 @@ $('#producer_add_form').submit(function(e){
             } else {
                 alert('추가 실패');
             }
-   		}
-   	});
+        }
+    });
    
 });
 
@@ -720,33 +714,34 @@ loadProducerOptions();
 *
 */
 
- function submit(elClickedObj){
-        // 에디터의 내용이 textarea에 적용된다.
-       oEditors[0].exec("UPDATE_CONTENTS_FIELD", []);
+function submit(elClickedObj){
+    // 에디터의 내용이 textarea에 적용된다.
+   oEditors[0].exec("UPDATE_CONTENTS_FIELD", []);
 
-       // 에디터에 입력된 내용의 검증은 이곳에서
-       var value = document.getElementById("smarteditor_textarea").value;
+   // 에디터에 입력된 내용의 검증은 이곳에서
+   var value = document.getElementById("smarteditor_textarea").value;
 
-       alert(value);
-        
-    }
-
-/* 스마트 에디터 로드 */
-var oEditors = [];
-nhn.husky.EZCreator.createInIFrame({
-    oAppRef: oEditors,
-    elPlaceHolder: "smarteditor_textarea",
-    sSkinURI: "<?=base_url();?>smarteditor/SmartEditor2Skin.html",
-    fCreator: "createSEditor2"
-});
-
-// 에디터 콜백 세팅 
-
-// 에디터 이미지 삽입 함수
-function pasteIMG(src,width,height) {
-	var sHTML = "<img src='"+src+"' style='max-width:800px'/>"; //width='"+width+"' height='"+height+"' 
-	oEditors.getById["smarteditor_textarea"].exec("PASTE_HTML", [sHTML]);
+   alert(value);
+    
 }
+
+// /* 스마트 에디터 로드 */
+// var oEditors = [];
+// nhn.husky.EZCreator.createInIFrame({
+//     oAppRef: oEditors,
+//     elPlaceHolder: "smarteditor_textarea",
+//     sSkinURI: "<?=base_url();?>smarteditor/SmartEditor2Skin.html",
+//     fCreator: "createSEditor2"
+// });
+
+// // 에디터 콜백 세팅 
+
+// // 에디터 이미지 삽입 함수
+// function pasteIMG(src,width,height) {
+//     $('input[name="description"]').val(src);
+//  var sHTML = "<img src='"+src+"' style='max-width:800px'/>"; //width='"+width+"' height='"+height+"' 
+//  oEditors.getById["smarteditor_textarea"].exec("PASTE_HTML", [sHTML]);
+// }
 
 
 
@@ -813,6 +808,46 @@ var appendImageFile = function(fileInfo){
 }
 
 
+$('.file_manager').find('input[type="file"]').each(function(){
+    $(this).change(function(){
+        
+        var filepath = $(this).val();
+        var pathComp = filepath.split('.');
+        var ext = pathComp[pathComp.length-1];
+        
+        var className = $(this).attr('name');
+        console.log(filepath);
+        
+        if (ext == 'jpeg' || ext == 'jpg' || ext == 'png' || ext == 'gif'){
+            
+            var fileObj = this,
+                file;
+
+            if (fileObj.files) {
+                file = fileObj.files[0];
+                var fr = new FileReader;
+                fr.onloadend = function(str){
+
+                    if(typeof str === "object") {
+                        str = str.target.result; // file reader
+                    }
+
+                    $('.file_manager > img').attr('src',str);
+                };
+                fr.readAsDataURL(file)
+            } else {
+                file = fileObj.value;
+                changeimage(file, $(this).attr('name'));
+            }
+            
+        } else {
+            alert('이미지만 선택이 가능합니다');
+            $(this).val(null);
+        }
+        
+    });
+});
+
 
 
 /*
@@ -847,8 +882,10 @@ $('.product_images').find('input').each(function(){
         
         var className = $(this).attr('name');
         console.log(filepath);
-        
-        if (ext == 'jpeg' || ext == 'jpg' || ext == 'png' || ext == 'gif'){
+
+        var extval = ext.toLowerCase();
+
+        if (extval == 'jpeg' || extval == 'jpg' || extval == 'png' || extval == 'gif'){
             
             var fileObj = this,
                 file;
@@ -945,6 +982,7 @@ $('select[name^="product_images"]').change(function(){
 /*
  * 선택 사진 삭제
  */
+
 var deleteExtra = function(path,e){
     $.ajax({
         type: 'POST',
@@ -983,7 +1021,6 @@ var photoMoveTop = function(){
         $current.before($(this));
     });
 }
-
 
 
 /*
@@ -1052,7 +1089,7 @@ $('form').submit(function(e){
     }
     
     // 에티더 업데이트
-    oEditors[0].exec("UPDATE_CONTENTS_FIELD", []);
+    // oEditors[0].exec("UPDATE_CONTENTS_FIELD", []);
         
     console.log('hi');
     // alert($(this).serialize());

@@ -193,7 +193,7 @@
                     <input type="button" name="brands" value="추가"/>
                 </li>
                 <li>
-                    <label for="">원산지</label>
+                    <label for="">구입처</label>
                     <select name="origins_id">
                         <option value="a">a</option>
                         <option value="b">b</option>
@@ -207,7 +207,7 @@
 
     
         <div class="descriptions"> <!-- 숨김 -->
-            <h2>상품 설명</h2>
+            <h2>몸씨 상품 이미지</h2>
             <!-- <textarea id="smarteditor_textarea" rows="10" cols="100"></textarea><br/> -->
         
 
@@ -294,7 +294,7 @@
         <!-- 상품 설명 웹용 -->
     
         <div class="app_description">
-            <h2>상품 설명 앱용 ('/' 구분)</h2>
+            <h2>상품 설명 앱용</h2>
             <textarea name="app_description" style="width:300px"></textarea>
         </div>
     
@@ -652,7 +652,7 @@ var showAddOption = function(type){
             title = '브랜드 추가';
         break;
         case 'origins':
-            title = '원산지 추가';
+            title = '구입처 추가';
         break;
     }
     

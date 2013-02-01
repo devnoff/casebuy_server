@@ -935,6 +935,7 @@ class S extends CI_Controller {
 			$this->db->join('case_wall', 'case_wall.wallpapers_id=wallpapers.id','right');
 			$this->db->where('products_id',$products_id);
 		}
+		$this->db->where('id is not null');
 		$this->db->limit(24,$offset);
 		$query = $this->db->get();
 
