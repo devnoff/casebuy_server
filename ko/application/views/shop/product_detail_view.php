@@ -108,10 +108,13 @@
 		<div class="detailWrapper">
 
 			<?
-
+			$desc_image = $product->description;
 			$product_images = $product->product_images;
 
-			if ($product_images){
+			if ($desc_image){
+				echo '<img src="'.$desc_image.'" width="700"/><br/>';
+			}
+			else if ($product_images){
 				$images = json_decode($product_images);
 				$img_dir = "/ko/product_images/";
 				if (gettype($images) == 'array'){

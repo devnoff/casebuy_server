@@ -991,7 +991,7 @@ class S extends CI_Controller {
 	 * 주소 검색
 	 */
 
-	function addressSearch(){
+	function addressSearchOld(){
 		$keyword = $this->input->get('keyword');
 
 		$result['code'] = API_RESULT_FAIL;
@@ -1015,6 +1015,34 @@ class S extends CI_Controller {
 		$this->output
 			 ->set_content_type('application/json')
 			 ->set_output(json_encode($result));
+	}
+
+	function addressSearch(){ // 우체국 API
+		$this->load->helper('postcode');
+
+		header('Content-Type:text/html;charset=utf-8');
+ 
+		$keyword = $this->input->get('keyword');
+
+		if(!empty($keyword)){
+			$result = get_post_code_xml_by_api($keyword);	
+			
+			if ($result['error'] == false){
+			    $xml = new SimpleXMLElement($result['content']);
+			    if(count($xml->itemlist->item) == 0){
+			    	echo '{"success":false}';
+			    }else{
+			    	echo '{"success":true, "result":';
+					echo string_postcode_json($xml);
+					echo '}';
+			    }
+			}
+			else {
+			    echo '{"success":false}';
+			}
+		}else{
+			echo '{"success":false}';
+		}
 	}
 
 
@@ -1625,7 +1653,7 @@ class S extends CI_Controller {
 	function newNotice($latest=0){
 
 		// 공지
-		$this->db->order_by('id','desc');
+		$this->db->order_by('id','asc');
 		$query = $this->db->get_where('notice',array('id >'=>$latest,'need_notify'=>'Y'),1,0);
 		$notice = $query->row();
 
